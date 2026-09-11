@@ -1394,3 +1394,55 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-11 21:48:26,016 | INFO | jarvis | Listening for command.
 2026-09-11 21:48:28,351 | INFO | jarvis | No command recognized.
 2026-09-11 21:48:28,853 | INFO | jarvis | Waiting for wake word.
+2026-09-11 22:39:34,874 | INFO | jarvis | Jarvis starting.
+2026-09-11 22:39:34,874 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 22:39:34,875 | INFO | jarvis | Loading Vosk model.
+2026-09-11 22:39:34,875 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 22:39:35,580 | INFO | stt | Vosk model loaded
+2026-09-11 22:39:35,580 | INFO | jarvis | Loading wake-word model.
+2026-09-11 22:39:35,775 | INFO | jarvis | Waiting for wake word.
+2026-09-11 22:40:25,638 | INFO | jarvis | Jarvis starting.
+2026-09-11 22:40:25,638 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 22:40:25,639 | INFO | jarvis | Loading Vosk model.
+2026-09-11 22:40:25,639 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 22:40:26,303 | INFO | stt | Vosk model loaded
+2026-09-11 22:40:26,303 | INFO | jarvis | Loading wake-word model.
+2026-09-11 22:40:26,443 | INFO | jarvis | Waiting for wake word.
+2026-09-11 22:59:02,058 | INFO | jarvis | Jarvis starting.
+2026-09-11 22:59:02,058 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 22:59:02,059 | INFO | jarvis | Loading Vosk model.
+2026-09-11 22:59:02,059 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 22:59:02,721 | INFO | stt | Vosk model loaded
+2026-09-11 22:59:02,721 | INFO | jarvis | Loading wake-word model.
+2026-09-11 22:59:02,911 | INFO | jarvis | Waiting for wake word.
+2026-09-11 22:59:14,612 | INFO | jarvis | Wake word detected.
+2026-09-11 22:59:15,239 | INFO | jarvis | Listening for command.
+2026-09-11 22:59:17,859 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 22:59:24,459 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 22:59:25,060 | INFO | jarvis | Waiting for wake word.
+2026-09-11 22:59:44,357 | INFO | jarvis | Wake word detected.
+2026-09-11 22:59:44,970 | INFO | jarvis | Listening for command.
+2026-09-11 22:59:48,084 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 22:59:50,473 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-11 22:59:51,074 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:00:02,455 | INFO | jarvis | Wake word detected.
+2026-09-11 23:00:03,075 | INFO | jarvis | Listening for command.
+2026-09-11 23:00:07,398 | INFO | jarvis | Command recognized: 'open notepad'
+2026-09-11 23:00:14,007 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 23:00:14,608 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:01:21,423 | INFO | jarvis | Wake word detected.
+2026-09-11 23:01:22,047 | INFO | jarvis | Listening for command.
+2026-09-11 23:01:25,693 | INFO | jarvis | Command recognized: 'close notepad'
+2026-09-11 23:01:30,215 | INFO | jarvis | Command routing result: success=True | command='close notepad'
+2026-09-11 23:01:30,817 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:01:32,851 | INFO | jarvis | Wake word detected.
+2026-09-11 23:01:33,464 | INFO | jarvis | Listening for command.
+2026-09-11 23:01:35,763 | INFO | jarvis | No command recognized.
+2026-09-11 23:01:36,264 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:02:10,640 | INFO | jarvis | Jarvis starting.
+2026-09-11 23:02:10,640 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 23:02:10,640 | INFO | jarvis | Loading Vosk model.
+2026-09-11 23:02:10,640 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 23:02:11,298 | INFO | stt | Vosk model loaded
+2026-09-11 23:02:11,299 | INFO | jarvis | Loading wake-word model.
+2026-09-11 23:02:11,439 | INFO | jarvis | Waiting for wake word.

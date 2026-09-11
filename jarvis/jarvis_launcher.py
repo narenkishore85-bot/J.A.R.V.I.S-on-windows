@@ -10,6 +10,14 @@ OPEN:
     open calculator
     open notepad
     open vs code
+    open file explorer
+
+CLOSE:
+    close chrome
+    close calculator
+    close notepad
+    close vs code
+    close file explorer
 
 CLOSE:
     close chrome
@@ -24,7 +32,11 @@ SEARCH:
     search for project report
 
 Important:
-    Jarvis tracks the PID returned when it launches an application.
+    Jarvis persistently tracks the PID returned when it launches an application.
+    Tracking is stored in jarvis_tracking.json beside this file so separate
+    JARVIS/test processes can safely close only applications JARVIS opened.
+    For PID-tracked apps, executable path and process start time are also saved
+    so a reused PID is rejected instead of terminating the wrong process.
 
     It does NOT use:
         taskkill /IM chrome.exe /T /F
@@ -35,13 +47,13 @@ Important:
 from __future__ import annotations
 
 import difflib
+import json
 import ctypes
 from ctypes import wintypes
 import os
 import re
 import subprocess
 import time
-import winreg
 from pathlib import Path
 
 
@@ -50,18 +62,23 @@ from pathlib import Path
 # ============================================================
 
 APP_ALIASES = {
-    "notepad": "notepad.exe",
-
-    "calculator": "calc.exe",
-    "calc": "calc.exe",
-
+    # Chrome
     "chrome": "chrome.exe",
     "google chrome": "chrome.exe",
     "crome": "chrome.exe",
 
+    # Notepad
+    "notepad": "notepad.exe",
+
+    # Calculator
+    "calculator": "calc.exe",
+    "calc": "calc.exe",
+
+    # File Explorer
     "explorer": "explorer.exe",
     "file explorer": "explorer.exe",
 
+    # Visual Studio Code
     "vs code": "Code.exe",
     "visual studio code": "Code.exe",
     "vscode": "Code.exe",
@@ -120,15 +137,13 @@ def find_vscode() -> str | None:
 def resolve_known_executable(
     target: str,
 ) -> str | None:
-
-    target = target.lower().strip()
+    target = normalize_text(target)
 
     if target in {
         "chrome",
         "google chrome",
         "crome",
     }:
-
         return find_chrome()
 
     if target in {
@@ -137,24 +152,29 @@ def resolve_known_executable(
         "vscode",
         "code",
     }:
-
         return find_vscode()
 
+    system_root = os.environ.get(
+        "SystemRoot",
+        r"C:\Windows",
+    )
+
     if target == "notepad":
-
-        system_root = os.environ.get(
-            "SystemRoot",
-            r"C:\Windows",
-        )
-
-        path = os.path.join(
-            system_root,
-            "System32",
-            "notepad.exe",
-        )
-
+        path = os.path.join(system_root, "System32", "notepad.exe")
         if os.path.isfile(path):
             return path
+
+    if target in {"calculator", "calc"}:
+        path = os.path.join(system_root, "System32", "calc.exe")
+        if os.path.isfile(path):
+            return path
+        return "calc.exe"
+
+    if target in {"explorer", "file explorer"}:
+        path = os.path.join(system_root, "explorer.exe")
+        if os.path.isfile(path):
+            return path
+        return "explorer.exe"
 
     return None
 
@@ -165,10 +185,19 @@ def resolve_known_executable(
 
 # Normal applications are tracked by PID. Chrome is special: Chrome is a
 # multi-process application, so killing a Chrome PID can close an unrelated
-# Chrome session. For Chrome we therefore remember the exact top-level window
+# Chrome session. Modern Windows 11 Notepad can also use/recreate processes, so
+# Notepad is tracked by its exact top-level window when possible. For these apps
+# we remember the exact top-level window
 # (HWND) that Jarvis opened and close that window with WM_CLOSE.
 TRACKED_PROCESSES: dict[str, list[int]] = {}
 TRACKED_WINDOWS: dict[str, list[int]] = {}
+TRACKED_PROCESS_META: dict[str, dict[str, dict[str, str]]] = {}
+
+# Persistent tracking file. This allows a later JARVIS process (or a separate
+# PowerShell test command) to know which PIDs/HWNDs were opened by JARVIS.
+# The file contains only process IDs/window handles and is never used to
+# discover arbitrary processes.
+TRACKING_FILE = Path(__file__).resolve().with_name("jarvis_tracking.json")
 
 user32 = ctypes.windll.user32
 WM_CLOSE = 0x0010
@@ -229,6 +258,60 @@ def find_new_chrome_window(before: set[int]) -> int | None:
     """Wait briefly for a Chrome window that did not exist before launch."""
     for _ in range(40):
         current = set(enumerate_windows_for_pids(get_chrome_pids()))
+        new_windows = current - before
+        if new_windows:
+            return next(iter(new_windows))
+        time.sleep(0.20)
+    return None
+
+
+def get_process_ids_by_name(process_name: str) -> set[int]:
+    """Return process IDs for a process image name without killing anything."""
+    try:
+        result = subprocess.run(
+            [
+                "powershell", "-NoProfile", "-Command",
+                f"Get-Process -Name '{process_name}' -ErrorAction SilentlyContinue | "
+                "Select-Object -ExpandProperty Id",
+            ],
+            capture_output=True,
+            text=True,
+            creationflags=subprocess.CREATE_NO_WINDOW,
+        )
+        return {
+            int(line.strip())
+            for line in result.stdout.splitlines()
+            if line.strip().isdigit()
+        }
+    except Exception:
+        return set()
+
+
+def snapshot_explorer_windows() -> set[int]:
+    """Snapshot visible Windows Explorer top-level windows before launch."""
+    return set(enumerate_windows_for_pids(get_process_ids_by_name("explorer")))
+
+
+def find_new_explorer_window(before: set[int]) -> int | None:
+    """Wait briefly for an Explorer window that did not exist before launch."""
+    for _ in range(40):
+        current = set(enumerate_windows_for_pids(get_process_ids_by_name("explorer")))
+        new_windows = current - before
+        if new_windows:
+            return next(iter(new_windows))
+        time.sleep(0.20)
+    return None
+
+
+def snapshot_notepad_windows() -> set[int]:
+    """Snapshot visible Notepad top-level windows before launch."""
+    return set(enumerate_windows_for_pids(get_process_ids_by_name("notepad")))
+
+
+def find_new_notepad_window(before: set[int]) -> int | None:
+    """Wait briefly for a Notepad window that did not exist before launch."""
+    for _ in range(40):
+        current = set(enumerate_windows_for_pids(get_process_ids_by_name("notepad")))
         new_windows = current - before
         if new_windows:
             return next(iter(new_windows))
@@ -327,183 +410,14 @@ def normalize_text(
 
 
 # ============================================================
-# REGISTRY APP DISCOVERY
+# APPLICATION DATABASE
 # ============================================================
 
-def discover_registry_apps() -> dict[str, str]:
-
-    discovered = {}
-
-    registry_locations = [
-        (
-            winreg.HKEY_LOCAL_MACHINE,
-            r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
-        ),
-        (
-            winreg.HKEY_LOCAL_MACHINE,
-            r"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall",
-        ),
-        (
-            winreg.HKEY_CURRENT_USER,
-            r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
-        ),
-    ]
-
-    for hive, base_path in registry_locations:
-
-        try:
-            root = winreg.OpenKey(
-                hive,
-                base_path,
-            )
-        except OSError:
-            continue
-
-        try:
-
-            count = winreg.QueryInfoKey(root)[0]
-
-            for i in range(count):
-
-                try:
-
-                    subkey_name = winreg.EnumKey(
-                        root,
-                        i,
-                    )
-
-                    subkey = winreg.OpenKey(
-                        root,
-                        subkey_name,
-                    )
-
-                    try:
-                        display_name = winreg.QueryValueEx(
-                            subkey,
-                            "DisplayName",
-                        )[0]
-                    except OSError:
-                        display_name = None
-
-                    if not display_name:
-
-                        subkey.Close()
-                        continue
-
-                    display_name = str(
-                        display_name
-                    ).strip()
-
-                    executable = None
-
-                    try:
-
-                        display_icon = winreg.QueryValueEx(
-                            subkey,
-                            "DisplayIcon",
-                        )[0]
-
-                        if display_icon:
-
-                            display_icon = str(
-                                display_icon
-                            )
-
-                            display_icon = (
-                                display_icon
-                                .split(",")[0]
-                                .strip('"')
-                            )
-
-                            if os.path.isfile(
-                                display_icon
-                            ):
-
-                                executable = (
-                                    display_icon
-                                )
-
-                    except OSError:
-                        pass
-
-                    if executable is None:
-
-                        try:
-
-                            install_location = (
-                                winreg.QueryValueEx(
-                                    subkey,
-                                    "InstallLocation",
-                                )[0]
-                            )
-
-                            if install_location:
-
-                                location = Path(
-                                    str(
-                                        install_location
-                                    )
-                                )
-
-                                if location.is_dir():
-
-                                    candidates = list(
-                                        location.glob(
-                                            "*.exe"
-                                        )
-                                    )
-
-                                    if candidates:
-
-                                        executable = str(
-                                            candidates[0]
-                                        )
-
-                        except OSError:
-                            pass
-
-                    if executable:
-
-                        discovered[
-                            display_name.lower()
-                        ] = executable
-
-                    subkey.Close()
-
-                except OSError:
-                    continue
-
-        finally:
-
-            root.Close()
-
-    return discovered
-
-
-# ============================================================
-# BUILD APP DATABASE
-# ============================================================
-
+# Jarvis intentionally uses a whitelist instead of scanning the Windows
+# registry. This prevents arbitrary installed programs from becoming
+# launchable just because they appear in the registry.
 def build_app_database() -> dict[str, str]:
-
-    apps = dict(APP_ALIASES)
-
-    try:
-
-        registry_apps = (
-            discover_registry_apps()
-        )
-
-        for name, executable in registry_apps.items():
-
-            if name not in apps:
-
-                apps[name] = executable
-
-    except Exception:
-        pass
-
-    return apps
+    return dict(APP_ALIASES)
 
 
 APP_DATABASE = build_app_database()
@@ -673,10 +587,163 @@ def process_exists(
 
 
 # ============================================================
+# PERSISTENT SAFE TRACKING
+# ============================================================
+
+def save_tracking_state():
+    """Atomically save JARVIS-owned PIDs/HWNDs for future processes."""
+    data = {
+        "processes": {
+            name: [int(pid) for pid in pids]
+            for name, pids in TRACKED_PROCESSES.items()
+            if pids
+        },
+        "windows": {
+            name: [int(hwnd) for hwnd in hwnds]
+            for name, hwnds in TRACKED_WINDOWS.items()
+            if hwnds
+        },
+        "process_meta": TRACKED_PROCESS_META,
+    }
+
+    temp_file = TRACKING_FILE.with_suffix(".tmp")
+    try:
+        temp_file.write_text(
+            json.dumps(data, indent=2),
+            encoding="utf-8",
+        )
+        os.replace(temp_file, TRACKING_FILE)
+    except Exception as exc:
+        print(f"[jarvis] Warning: could not save tracking state: {exc}")
+        try:
+            if temp_file.exists():
+                temp_file.unlink()
+        except OSError:
+            pass
+
+
+def load_tracking_state():
+    """Load only previously recorded JARVIS tracking data."""
+    global TRACKED_PROCESSES, TRACKED_WINDOWS, TRACKED_PROCESS_META
+
+    if not TRACKING_FILE.exists():
+        return
+
+    try:
+        data = json.loads(TRACKING_FILE.read_text(encoding="utf-8"))
+        processes = data.get("processes", {})
+        windows = data.get("windows", {})
+        process_meta = data.get("process_meta", {})
+
+        if isinstance(processes, dict):
+            TRACKED_PROCESSES = {
+                str(name): [int(pid) for pid in pids if str(pid).isdigit()]
+                for name, pids in processes.items()
+                if isinstance(pids, list)
+            }
+
+        if isinstance(windows, dict):
+            TRACKED_WINDOWS = {
+                str(name): [int(hwnd) for hwnd in hwnds if str(hwnd).isdigit()]
+                for name, hwnds in windows.items()
+                if isinstance(hwnds, list)
+            }
+
+        if isinstance(process_meta, dict):
+            TRACKED_PROCESS_META = {
+                str(name): {
+                    str(pid): {
+                        "path": str(info.get("path", "")),
+                        "start_time": str(info.get("start_time", "")),
+                    }
+                    for pid, info in entries.items()
+                    if isinstance(info, dict)
+                }
+                for name, entries in process_meta.items()
+                if isinstance(entries, dict)
+            }
+
+    except Exception as exc:
+        print(f"[jarvis] Warning: could not load tracking state: {exc}")
+        TRACKED_PROCESSES = {}
+        TRACKED_WINDOWS = {}
+        TRACKED_PROCESS_META = {}
+
+
+def clear_tracking_file_if_empty():
+    """Remove the state file when JARVIS owns no live tracked objects."""
+    if TRACKED_PROCESSES or TRACKED_WINDOWS:
+        save_tracking_state()
+        return
+
+    try:
+        if TRACKING_FILE.exists():
+            TRACKING_FILE.unlink()
+    except OSError as exc:
+        print(f"[jarvis] Warning: could not remove tracking file: {exc}")
+
+
+def initialize_tracking():
+    """Load and clean persisted state at module startup."""
+    load_tracking_state()
+    clean_tracked_processes()
+    clean_tracked_windows()
+    clear_tracking_file_if_empty()
+
+
+def get_process_identity(pid: int) -> tuple[str, str] | None:
+    """Return (executable path, process creation time) for one PID."""
+    try:
+        ps = (
+            f"$p=Get-CimInstance Win32_Process -Filter "
+            f"\"ProcessId = {int(pid)}\" -ErrorAction Stop; "
+            f"if ($null -eq $p) {{ exit 2 }}; "
+            f"[PSCustomObject]@{{Path=$p.ExecutablePath;StartTime=[string]$p.CreationDate}} | "
+            "ConvertTo-Json -Compress"
+        )
+        result = subprocess.run(
+            ["powershell", "-NoProfile", "-Command", ps],
+            capture_output=True,
+            text=True,
+            creationflags=subprocess.CREATE_NO_WINDOW,
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            return None
+        data = json.loads(result.stdout)
+        return str(data.get("Path") or ""), str(data.get("StartTime") or "")
+    except Exception:
+        return None
+
+
+def tracked_pid_is_same_process(app_name: str, pid: int) -> bool:
+    """Reject a reused PID when its executable identity is known and differs."""
+    meta = TRACKED_PROCESS_META.get(app_name, {}).get(str(pid))
+    if not meta:
+        return True
+
+    current = get_process_identity(pid)
+    if current is None:
+        # Keep the tracking record if Windows temporarily denies metadata access.
+        return True
+
+    stored_path = meta.get("path", "").lower()
+    stored_start = meta.get("start_time", "")
+    current_path, current_start = current
+
+    if stored_path and current_path and current_path.lower() != stored_path:
+        return False
+    if stored_start and current_start and current_start != stored_start:
+        return False
+    return True
+
+
+# ============================================================
 # CLEAN DEAD PROCESSES
 # ============================================================
 
 def clean_tracked_processes():
+
+    changed = False
 
     for name in list(
         TRACKED_PROCESSES.keys()
@@ -686,9 +753,12 @@ def clean_tracked_processes():
 
         for pid in TRACKED_PROCESSES[name]:
 
-            if process_exists(pid):
+            if process_exists(pid) and tracked_pid_is_same_process(name, pid):
 
                 alive.append(pid)
+            else:
+                TRACKED_PROCESS_META.get(name, {}).pop(str(pid), None)
+                changed = True
 
         if alive:
 
@@ -697,15 +767,31 @@ def clean_tracked_processes():
         else:
 
             del TRACKED_PROCESSES[name]
+            TRACKED_PROCESS_META.pop(name, None)
+            changed = True
+
+    if changed:
+        save_tracking_state()
 
 
 def clean_tracked_windows():
+    changed = False
     for name in list(TRACKED_WINDOWS.keys()):
         alive = [hwnd for hwnd in TRACKED_WINDOWS[name] if window_exists(hwnd)]
         if alive:
+            if len(alive) != len(TRACKED_WINDOWS[name]):
+                changed = True
             TRACKED_WINDOWS[name] = alive
         else:
             del TRACKED_WINDOWS[name]
+            changed = True
+
+    if changed:
+        save_tracking_state()
+
+
+# Load persisted state after all tracking/cleanup helpers exist.
+initialize_tracking()
 
 
 # ============================================================
@@ -735,6 +821,16 @@ def track_process(
         TRACKED_PROCESSES[
             app_name
         ].append(pid)
+
+    identity = get_process_identity(pid)
+    if identity is not None:
+        path, start_time = identity
+        TRACKED_PROCESS_META.setdefault(app_name, {})[str(pid)] = {
+            "path": path,
+            "start_time": start_time,
+        }
+
+    save_tracking_state()
 
     print(
         f"[jarvis] Tracking "
@@ -808,7 +904,6 @@ def terminate_pid(
 def close_application(
     target: str,
 ) -> bool:
-
     target = normalize_text(target)
 
     if not target:
@@ -825,13 +920,29 @@ def close_application(
         if matched:
             matched_name = matched
 
-    # Chrome is deliberately closed by HWND, not by taskkill/PID.
-    if matched_name == "chrome":
-        hwnds = TRACKED_WINDOWS.get("chrome", [])
+    # Use one tracking key for aliases.
+    if matched_name in {"google chrome", "crome"}:
+        matched_name = "chrome"
+    elif matched_name in {"calculator", "calc"}:
+        matched_name = "calculator"
+    elif matched_name in {"vs code", "visual studio code", "vscode", "code"}:
+        matched_name = "vs code"
+    elif matched_name == "file explorer":
+        matched_name = "explorer"
+
+    # Chrome, Notepad, and Explorer are window-based where possible.
+    # This is especially important for modern Windows 11 Notepad, where
+    # terminating one PID can leave/recreate another process for the same app.
+    # Explorer is also the Windows shell, so it must never be task-killed.
+    if matched_name in {"chrome", "notepad", "explorer", "file explorer"}:
+        window_key = "chrome" if matched_name == "chrome" else (
+            "notepad" if matched_name == "notepad" else "explorer"
+        )
+        hwnds = TRACKED_WINDOWS.get(window_key, [])
 
         if not hwnds:
-            print("[jarvis] No tracked Chrome window.")
-            print("[jarvis] Refusing to close an untracked Chrome window.")
+            print(f"[jarvis] No tracked {window_key} window.")
+            print(f"[jarvis] Refusing to close an untracked {window_key} window.")
             return False
 
         success = False
@@ -841,41 +952,43 @@ def close_application(
             if not window_exists(hwnd):
                 continue
 
-            print(f"[jarvis] Closing tracked Chrome window HWND={hwnd}...")
+            print(f"[jarvis] Closing tracked {window_key} window HWND={hwnd}...")
             if close_window(hwnd):
-                print(f"[jarvis] Closed Chrome window (HWND={hwnd})")
+                print(f"[jarvis] Closed {window_key} window (HWND={hwnd})")
                 success = True
             else:
                 remaining.append(hwnd)
 
         if remaining:
-            TRACKED_WINDOWS["chrome"] = remaining
+            TRACKED_WINDOWS[window_key] = remaining
         else:
-            TRACKED_WINDOWS.pop("chrome", None)
+            TRACKED_WINDOWS.pop(window_key, None)
 
-        TRACKED_PROCESSES.pop("chrome", None)
+        if window_key == "chrome":
+            TRACKED_PROCESSES.pop("chrome", None)
+            TRACKED_PROCESS_META.pop("chrome", None)
+        elif window_key == "notepad":
+            TRACKED_PROCESSES.pop("notepad", None)
+            TRACKED_PROCESS_META.pop("notepad", None)
+        else:
+            TRACKED_PROCESSES.pop("explorer", None)
+            TRACKED_PROCESSES.pop("file explorer", None)
+            TRACKED_PROCESS_META.pop("explorer", None)
+            TRACKED_PROCESS_META.pop("file explorer", None)
+
+        clear_tracking_file_if_empty()
+        save_tracking_state() if (TRACKED_PROCESSES or TRACKED_WINDOWS) else None
         return success
 
-    pids = TRACKED_PROCESSES.get(
-        matched_name,
-        [],
-    )
+    pids = TRACKED_PROCESSES.get(matched_name, [])
 
     if not pids:
-        print(
-            f"[jarvis] No tracked PID "
-            f"for '{matched_name}'."
-        )
-        print(
-            "[jarvis] Refusing to kill "
-            "untracked processes."
-        )
+        print(f"[jarvis] No tracked PID for '{matched_name}'.")
+        print("[jarvis] Refusing to kill untracked processes.")
         return False
 
     print(
-        f"[jarvis] Closing tracked "
-        f"'{matched_name}' PID(s): "
-        f"{pids}"
+        f"[jarvis] Closing tracked '{matched_name}' PID(s): {pids}"
     )
 
     success = False
@@ -885,12 +998,15 @@ def close_application(
         if not process_exists(pid):
             continue
 
-        if terminate_pid(pid):
+        if not tracked_pid_is_same_process(matched_name, pid):
             print(
-                f"[jarvis] Closed "
-                f"'{matched_name}' "
-                f"(PID={pid})"
+                f"[jarvis] PID={pid} no longer matches the process Jarvis opened. "
+                "Refusing to terminate it."
             )
+            continue
+
+        if terminate_pid(pid):
+            print(f"[jarvis] Closed '{matched_name}' (PID={pid})")
             success = True
         else:
             remaining.append(pid)
@@ -899,6 +1015,14 @@ def close_application(
         TRACKED_PROCESSES[matched_name] = remaining
     else:
         TRACKED_PROCESSES.pop(matched_name, None)
+        TRACKED_PROCESS_META.pop(matched_name, None)
+    for pid in list(TRACKED_PROCESS_META.get(matched_name, {}).keys()):
+        if int(pid) not in remaining:
+            TRACKED_PROCESS_META[matched_name].pop(pid, None)
+
+    clear_tracking_file_if_empty()
+    if TRACKED_PROCESSES or TRACKED_WINDOWS:
+        save_tracking_state()
 
     return success
 
@@ -1106,112 +1230,81 @@ def locate_item(
 def launch_application(
     target: str,
 ) -> bool:
-
-    target = normalize_text(
-        target
-    )
+    target = normalize_text(target)
 
     if not target:
-
-        print(
-            "[jarvis] No application specified."
-        )
-
+        print("[jarvis] No application specified.")
         return False
 
+    # --------------------------------------------------------
+    # WHITELIST CHECK
+    # --------------------------------------------------------
     matched_name = target
 
-    # --------------------------------------------------------
-    # Try known executable path first.
-    # --------------------------------------------------------
-
-    executable = resolve_known_executable(
-        target
-    )
-
-    # --------------------------------------------------------
-    # Alias fallback.
-    # --------------------------------------------------------
-
-    if executable is None:
-
-        executable = APP_ALIASES.get(
-            target
-        )
-
-    # --------------------------------------------------------
-    # Fuzzy alias.
-    # --------------------------------------------------------
-
-    if executable is None:
-
-        matched = best_match(
-            target,
-            APP_ALIASES,
-        )
-
+    if target not in APP_ALIASES:
+        matched = best_match(target, APP_ALIASES)
         if matched:
-
             matched_name = matched
+        else:
+            print(
+                f"[jarvis] Application '{target}' is not in the Jarvis whitelist."
+            )
+            print(
+                "[jarvis] Allowed apps: Chrome, Notepad, Calculator, "
+                "File Explorer, VS Code."
+            )
+            return False
 
-            executable = APP_ALIASES[
-                matched
-            ]
+    # Canonical tracking key: aliases refer to the same application.
+    if matched_name in {"google chrome", "crome"}:
+        matched_name = "chrome"
+    elif matched_name in {"calculator", "calc"}:
+        matched_name = "calculator"
+    elif matched_name in {"vs code", "visual studio code", "vscode", "code"}:
+        matched_name = "vs code"
+    elif matched_name == "file explorer":
+        matched_name = "explorer"
 
     # --------------------------------------------------------
-    # Registry fallback.
+    # Resolve executable path
     # --------------------------------------------------------
+    executable = resolve_known_executable(matched_name)
 
     if executable is None:
-
-        matched = best_match(
-            target,
-            APP_DATABASE,
-        )
-
-        if matched:
-
-            matched_name = matched
-
-            executable = APP_DATABASE[
-                matched
-            ]
+        executable = APP_ALIASES.get(matched_name)
 
     if executable is None:
-
-        print(
-            f"[jarvis] Could not find "
-            f"application '{target}'."
-        )
-
+        print(f"[jarvis] Could not find application '{matched_name}'.")
         return False
 
-    # --------------------------------------------------------
-    # Normalize full path.
-    # --------------------------------------------------------
+    executable_path = str(executable)
 
-    executable_path = str(
-        executable
-    )
-
-    print(
-        f"[jarvis] Executable: "
-        f"{executable_path}"
-    )
+    print(f"[jarvis] Executable: {executable_path}")
 
     # --------------------------------------------------------
-    # Launch.
+    # Launch
     # --------------------------------------------------------
-
     try:
-
         before_chrome = (
             snapshot_chrome_windows()
             if matched_name == "chrome"
             else set()
         )
 
+        before_explorer = (
+            snapshot_explorer_windows()
+            if matched_name in {"explorer", "file explorer"}
+            else set()
+        )
+
+        before_notepad = (
+            snapshot_notepad_windows()
+            if matched_name == "notepad"
+            else set()
+        )
+
         launch_args = [executable_path]
+
         if matched_name == "chrome":
             # Force a separate Chrome window so Jarvis can identify exactly
             # which window it opened.
@@ -1222,18 +1315,40 @@ def launch_application(
             shell=False,
         )
 
-        track_process(
-            matched_name,
-            process,
-        )
+        # Explorer is tracked by HWND, not PID. Its process is the Windows
+        # shell and must never be terminated by Jarvis.
+        if matched_name in {"explorer", "file explorer"}:
+            hwnd = find_new_explorer_window(before_explorer)
+            if hwnd is not None:
+                TRACKED_WINDOWS.setdefault("explorer", []).append(hwnd)
+                save_tracking_state()
+                print(f"[jarvis] Tracking 'explorer' window HWND={hwnd}")
+            else:
+                print(
+                    "[jarvis] Could not identify the new Explorer window. "
+                    "Explorer close will remain protected."
+                )
+        else:
+            track_process(matched_name, process)
+
+        if matched_name == "notepad":
+            hwnd = find_new_notepad_window(before_notepad)
+            if hwnd is not None:
+                TRACKED_WINDOWS.setdefault("notepad", []).append(hwnd)
+                save_tracking_state()
+                print(f"[jarvis] Tracking 'notepad' window HWND={hwnd}")
+            else:
+                print(
+                    "[jarvis] Could not identify the new Notepad window. "
+                    "Notepad PID tracking remains active."
+                )
 
         if matched_name == "chrome":
             hwnd = find_new_chrome_window(before_chrome)
             if hwnd is not None:
                 TRACKED_WINDOWS.setdefault("chrome", []).append(hwnd)
-                print(
-                    f"[jarvis] Tracking 'chrome' window HWND={hwnd}"
-                )
+                save_tracking_state()
+                print(f"[jarvis] Tracking 'chrome' window HWND={hwnd}")
             else:
                 print(
                     "[jarvis] Could not identify the new Chrome window. "
@@ -1241,29 +1356,17 @@ def launch_application(
                 )
 
         print(
-            f"[jarvis] Launched "
-            f"'{matched_name}' -> "
-            f"{executable_path}"
+            f"[jarvis] Launched '{matched_name}' -> {executable_path}"
         )
 
         return True
 
     except FileNotFoundError:
-
-        print(
-            f"[jarvis] Executable not found: "
-            f"{executable_path}"
-        )
-
+        print(f"[jarvis] Executable not found: {executable_path}")
         return False
 
     except Exception as exc:
-
-        print(
-            f"[jarvis] Launch failed: "
-            f"{exc}"
-        )
-
+        print(f"[jarvis] Launch failed: {exc}")
         return False
 
 
