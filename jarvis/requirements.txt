@@ -1,0 +1,7 @@
+openwakeword
+onnxruntime
+numpy
+vosk
+sounddevice
+pystray
+Pillow

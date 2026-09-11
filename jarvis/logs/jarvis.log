@@ -1,0 +1,1396 @@
+2026-09-11 20:43:47,698 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:43:47,699 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:43:47,699 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:43:48,371 | INFO | stt | Vosk model loaded
+2026-09-11 20:43:48,373 | WARNING | root | Tried to import the tflite runtime, but it was not found. Trying to switching to onnxruntime instead, if appropriate models are available.
+2026-09-11 20:43:48,777 | INFO | wake_listener | Wake listener started; microphone capture active.
+2026-09-11 20:44:13,073 | INFO | wake_listener | Wake listener released microphone.
+2026-09-11 20:44:18,352 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:44:18,352 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:44:18,353 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:44:19,018 | INFO | stt | Vosk model loaded
+2026-09-11 20:44:19,019 | WARNING | root | Tried to import the tflite runtime, but it was not found. Trying to switching to onnxruntime instead, if appropriate models are available.
+2026-09-11 20:44:19,377 | INFO | wake_listener | Wake listener started; microphone capture active.
+2026-09-11 20:44:22,807 | INFO | wake_listener | Wake listener released microphone.
+2026-09-11 20:45:43,749 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:45:43,750 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:45:43,750 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:45:44,424 | INFO | stt | Vosk model loaded
+2026-09-11 20:45:59,502 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:45:59,503 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:45:59,503 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:46:00,204 | INFO | stt | Vosk model loaded
+2026-09-11 20:47:09,461 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:47:09,461 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:47:09,461 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:47:10,116 | INFO | stt | Vosk model loaded
+2026-09-11 20:50:29,006 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:50:29,006 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:50:29,007 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:50:29,749 | INFO | stt | Vosk model loaded
+2026-09-11 20:50:29,896 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:30,398 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:30,900 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:31,402 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:31,903 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:32,405 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:32,906 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:33,407 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:33,908 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:34,410 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:34,911 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:35,411 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:35,912 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:36,413 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:36,913 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:37,414 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:37,915 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:38,417 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:38,917 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:39,418 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:39,919 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:40,420 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:40,921 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:41,421 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:41,923 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:42,423 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:42,924 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:43,425 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:43,926 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:44,427 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:44,928 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:45,429 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:45,930 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:46,431 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:46,931 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:47,432 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:47,933 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:48,434 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:48,935 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:49,436 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:49,937 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:50,438 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:50,939 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:51,440 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:51,941 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:52,442 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:52,944 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:53,445 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:53,946 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:54,447 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:54,948 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:55,449 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:55,950 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:56,451 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:56,952 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:57,452 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:57,954 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:58,455 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:58,956 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:59,457 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:50:59,957 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:00,458 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:00,959 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:01,460 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:01,962 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:02,463 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:02,964 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:03,464 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:03,965 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:04,466 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:04,967 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:05,468 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:05,969 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:06,470 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:06,971 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:07,472 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:07,972 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:08,473 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:08,974 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:09,475 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:09,976 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:10,478 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:10,979 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:11,480 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:11,981 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:12,482 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:12,983 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:13,483 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:13,985 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:14,485 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:14,986 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:15,487 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:15,988 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:16,489 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:16,990 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:17,492 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:17,993 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:18,494 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:18,995 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:19,496 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:19,996 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:20,497 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:20,998 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:21,499 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:22,000 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:22,501 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:23,001 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:23,502 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:24,003 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:24,503 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:51:25,004 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got an unexpected keyword argument 'model'
+2026-09-11 20:52:29,713 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:52:29,714 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:52:29,714 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:52:30,362 | INFO | stt | Vosk model loaded
+2026-09-11 20:52:30,514 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:31,015 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:31,516 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:32,017 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:32,518 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:33,019 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:33,520 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:34,021 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:34,522 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:35,023 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:35,524 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:36,024 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:36,526 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:37,026 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:37,528 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:38,029 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:38,530 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:39,031 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:39,532 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:40,033 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:40,534 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:41,035 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:41,536 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:42,037 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:42,537 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:43,039 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:43,540 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:44,041 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:44,542 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:45,043 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:45,545 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:46,046 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:46,547 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:47,048 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:47,549 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:48,049 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:48,550 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:49,051 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:49,552 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:50,053 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:50,554 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:51,056 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:51,557 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:52,058 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:52,559 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:53,059 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:53,560 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:54,062 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:54,562 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:55,063 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:55,564 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:52:56,065 | ERROR | jarvis | Assistant cycle failed; continuing.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 138, in assistant_loop
+    detected = wake_listener.listen_for_wake_word(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: listen_for_wake_word() got multiple values for argument 'model'
+2026-09-11 20:55:10,216 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:55:10,216 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:55:10,217 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:55:10,926 | INFO | stt | Vosk model loaded
+2026-09-11 20:55:25,671 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-11 20:55:29,295 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 20:55:33,185 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 20:55:35,999 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 20:55:38,929 | INFO | jarvis | No command recognized.
+2026-09-11 20:55:57,571 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 20:56:00,541 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:02,720 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:15,763 | INFO | jarvis | Command routing result: success=False | command='open resume'
+2026-09-11 20:56:17,871 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:21,940 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 20:56:24,826 | INFO | jarvis | Command routing result: success=False | command='open resume'
+2026-09-11 20:56:42,838 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 20:56:45,704 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:48,398 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:51,255 | INFO | jarvis | No command recognized.
+2026-09-11 20:56:53,532 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:28,330 | INFO | jarvis | Jarvis starting.
+2026-09-11 20:59:28,330 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 20:59:28,330 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 20:59:29,057 | INFO | stt | Vosk model loaded
+2026-09-11 20:59:34,064 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 20:59:37,556 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:40,441 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:42,924 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:49,512 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:52,475 | INFO | jarvis | No command recognized.
+2026-09-11 20:59:55,445 | INFO | jarvis | No command recognized.
+2026-09-11 21:00:52,244 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:00:52,245 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:00:52,245 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:00:52,900 | INFO | stt | Vosk model loaded
+2026-09-11 21:00:57,619 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 21:01:02,039 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 21:01:08,018 | INFO | jarvis | Command routing result: success=True | command='open chrome chrome'
+2026-09-11 21:01:26,131 | INFO | jarvis | No command recognized.
+2026-09-11 21:01:29,872 | INFO | jarvis | Command routing result: success=True | command='chrome'
+2026-09-11 21:01:34,132 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 21:01:36,506 | INFO | jarvis | No command recognized.
+2026-09-11 21:01:54,240 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 21:02:03,112 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-11 21:03:53,539 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:03:53,540 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:03:53,540 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:03:54,204 | INFO | stt | Vosk model loaded
+2026-09-11 21:06:10,275 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:06:10,275 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:06:10,275 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:06:10,942 | INFO | stt | Vosk model loaded
+2026-09-11 21:06:37,723 | INFO | jarvis | Command routing result: success=False | command='find my resume'
+2026-09-11 21:06:40,607 | INFO | jarvis | No command recognized.
+2026-09-11 21:06:43,451 | INFO | jarvis | No command recognized.
+2026-09-11 21:06:46,300 | INFO | jarvis | No command recognized.
+2026-09-11 21:10:42,867 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:10:42,867 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:10:42,868 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:10:42,868 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:10:43,694 | INFO | stt | Vosk model loaded
+2026-09-11 21:10:43,695 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:10:43,843 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:10:45,879 | INFO | jarvis | Wake word detected.
+2026-09-11 21:10:46,499 | INFO | jarvis | Listening for command.
+2026-09-11 21:10:48,930 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:10:49,038 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:10:49,639 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:10:49,965 | INFO | jarvis | Wake word detected.
+2026-09-11 21:10:50,586 | INFO | jarvis | Listening for command.
+2026-09-11 21:10:52,809 | INFO | jarvis | Command recognized: 'is'
+2026-09-11 21:10:52,924 | INFO | jarvis | Command routing result: success=True | command='is'
+2026-09-11 21:10:53,525 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:11:03,736 | INFO | jarvis | Wake word detected.
+2026-09-11 21:11:04,358 | INFO | jarvis | Listening for command.
+2026-09-11 21:11:07,299 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:11:07,319 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-11 21:11:07,921 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:11:08,240 | INFO | jarvis | Wake word detected.
+2026-09-11 21:11:08,854 | INFO | jarvis | Listening for command.
+2026-09-11 21:11:13,407 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:11:13,430 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-11 21:11:14,031 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:11:14,346 | INFO | jarvis | Wake word detected.
+2026-09-11 21:11:14,964 | INFO | jarvis | Listening for command.
+2026-09-11 21:11:17,280 | INFO | jarvis | No command recognized.
+2026-09-11 21:11:17,782 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:22:34,129 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:22:34,129 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:22:34,129 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:22:34,129 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:22:34,784 | INFO | stt | Vosk model loaded
+2026-09-11 21:22:34,785 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:22:34,927 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:22:36,815 | INFO | jarvis | Wake word detected.
+2026-09-11 21:22:37,430 | INFO | jarvis | Listening for command.
+2026-09-11 21:22:39,313 | INFO | jarvis | Command recognized: 'chrome'
+2026-09-11 21:22:39,334 | INFO | jarvis | Command routing result: success=True | command='chrome'
+2026-09-11 21:22:39,935 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:22:40,257 | INFO | jarvis | Wake word detected.
+2026-09-11 21:22:40,867 | INFO | jarvis | Listening for command.
+2026-09-11 21:22:43,184 | INFO | jarvis | No command recognized.
+2026-09-11 21:22:43,685 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:02,901 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:03,515 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:05,847 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:23:08,074 | INFO | jarvis | Command routing result: success=False | command='close chrome'
+2026-09-11 21:23:08,675 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:09,015 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:09,634 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:11,991 | INFO | jarvis | No command recognized.
+2026-09-11 21:23:12,492 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:22,682 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:23,297 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:26,213 | INFO | jarvis | Command recognized: 'open notepad'
+2026-09-11 21:23:26,333 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 21:23:26,934 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:29,046 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:29,662 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:32,022 | INFO | jarvis | Command recognized: 'locate'
+2026-09-11 21:23:32,023 | INFO | jarvis | Command routing result: success=False | command='locate'
+2026-09-11 21:23:32,623 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:32,982 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:33,605 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:39,051 | INFO | jarvis | Command recognized: '[unk]'
+2026-09-11 21:23:39,052 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-11 21:23:39,653 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:45,157 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:45,783 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:51,237 | INFO | jarvis | Command recognized: 'close notepad'
+2026-09-11 21:23:53,391 | INFO | jarvis | Command routing result: success=False | command='close notepad'
+2026-09-11 21:23:53,992 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:54,360 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:54,983 | INFO | jarvis | Listening for command.
+2026-09-11 21:23:57,923 | INFO | jarvis | No command recognized.
+2026-09-11 21:23:58,424 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:23:58,792 | INFO | jarvis | Wake word detected.
+2026-09-11 21:23:59,412 | INFO | jarvis | Listening for command.
+2026-09-11 21:24:01,658 | INFO | jarvis | No command recognized.
+2026-09-11 21:24:02,159 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:24:02,532 | INFO | jarvis | Wake word detected.
+2026-09-11 21:24:03,158 | INFO | jarvis | Listening for command.
+2026-09-11 21:24:05,884 | INFO | jarvis | No command recognized.
+2026-09-11 21:26:22,150 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:26:22,151 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:26:22,151 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:26:22,151 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:26:22,879 | INFO | stt | Vosk model loaded
+2026-09-11 21:26:22,879 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:26:23,043 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:26:46,053 | INFO | jarvis | Wake word detected.
+2026-09-11 21:26:46,675 | INFO | jarvis | Listening for command.
+2026-09-11 21:26:49,621 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:26:49,640 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:26:50,241 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:27:07,416 | INFO | jarvis | Wake word detected.
+2026-09-11 21:27:08,029 | INFO | jarvis | Listening for command.
+2026-09-11 21:27:10,373 | INFO | jarvis | No command recognized.
+2026-09-11 21:27:10,874 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:27:12,849 | INFO | jarvis | Wake word detected.
+2026-09-11 21:27:13,468 | INFO | jarvis | Listening for command.
+2026-09-11 21:27:15,805 | INFO | jarvis | No command recognized.
+2026-09-11 21:27:16,306 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:27:37,216 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:27:37,216 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:27:37,216 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:27:37,218 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:27:37,864 | INFO | stt | Vosk model loaded
+2026-09-11 21:27:37,864 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:27:38,015 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:27:47,940 | INFO | jarvis | Wake word detected.
+2026-09-11 21:27:48,556 | INFO | jarvis | Listening for command.
+2026-09-11 21:27:50,809 | INFO | jarvis | No command recognized.
+2026-09-11 21:27:51,310 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:28:05,209 | INFO | jarvis | Wake word detected.
+2026-09-11 21:28:05,835 | INFO | jarvis | Listening for command.
+2026-09-11 21:28:08,601 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:28:08,621 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:28:09,222 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:33:19,899 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:33:19,900 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:33:19,900 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:33:19,900 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:33:20,658 | INFO | stt | Vosk model loaded
+2026-09-11 21:33:20,658 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:33:20,826 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:33:29,502 | INFO | jarvis | Wake word detected.
+2026-09-11 21:33:30,119 | INFO | jarvis | Listening for command.
+2026-09-11 21:33:32,773 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:33:32,787 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:33:33,388 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:33:43,204 | INFO | jarvis | Wake word detected.
+2026-09-11 21:33:43,828 | INFO | jarvis | Listening for command.
+2026-09-11 21:33:46,149 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:33:48,293 | INFO | jarvis | Command routing result: success=False | command='close chrome'
+2026-09-11 21:33:48,893 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:34:11,750 | INFO | jarvis | Wake word detected.
+2026-09-11 21:34:12,372 | INFO | jarvis | Listening for command.
+2026-09-11 21:34:14,309 | INFO | jarvis | No command recognized.
+2026-09-11 21:34:14,810 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:34:34,973 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:34:34,974 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:34:34,974 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:34:34,974 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:34:35,610 | INFO | stt | Vosk model loaded
+2026-09-11 21:34:35,611 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:34:35,751 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:34:41,913 | INFO | jarvis | Wake word detected.
+2026-09-11 21:34:42,529 | INFO | jarvis | Listening for command.
+2026-09-11 21:34:45,128 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:34:45,140 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:34:45,741 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:34:52,354 | INFO | jarvis | Wake word detected.
+2026-09-11 21:34:52,971 | INFO | jarvis | Listening for command.
+2026-09-11 21:34:55,315 | INFO | jarvis | No command recognized.
+2026-09-11 21:34:55,816 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:35:00,829 | INFO | jarvis | Wake word detected.
+2026-09-11 21:35:01,448 | INFO | jarvis | Listening for command.
+2026-09-11 21:35:03,515 | INFO | jarvis | No command recognized.
+2026-09-11 21:35:04,016 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:35:20,784 | INFO | jarvis | Wake word detected.
+2026-09-11 21:35:21,400 | INFO | jarvis | Listening for command.
+2026-09-11 21:35:24,334 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:35:26,441 | INFO | jarvis | Command routing result: success=False | command='close chrome'
+2026-09-11 21:35:27,042 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:36:52,443 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:36:52,443 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:36:52,444 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:36:52,444 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:36:53,213 | INFO | stt | Vosk model loaded
+2026-09-11 21:36:53,213 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:36:53,384 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:37:03,069 | INFO | jarvis | Wake word detected.
+2026-09-11 21:37:03,692 | INFO | jarvis | Listening for command.
+2026-09-11 21:37:05,961 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:37:05,973 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:37:06,573 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:37:11,829 | INFO | jarvis | Wake word detected.
+2026-09-11 21:37:12,450 | INFO | jarvis | Listening for command.
+2026-09-11 21:37:14,759 | INFO | jarvis | No command recognized.
+2026-09-11 21:37:15,260 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:37:21,158 | INFO | jarvis | Wake word detected.
+2026-09-11 21:37:21,769 | INFO | jarvis | Listening for command.
+2026-09-11 21:37:24,038 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:37:26,153 | INFO | jarvis | Command routing result: success=False | command='close chrome'
+2026-09-11 21:37:26,754 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:37:35,293 | INFO | jarvis | Wake word detected.
+2026-09-11 21:37:35,912 | INFO | jarvis | Listening for command.
+2026-09-11 21:39:52,054 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:39:52,055 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:39:52,055 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:39:52,055 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:39:52,754 | INFO | stt | Vosk model loaded
+2026-09-11 21:39:52,754 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:39:52,897 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:40:00,257 | INFO | jarvis | Wake word detected.
+2026-09-11 21:40:00,877 | INFO | jarvis | Listening for command.
+2026-09-11 21:40:03,540 | INFO | jarvis | No command recognized.
+2026-09-11 21:40:04,042 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:40:14,816 | INFO | jarvis | Wake word detected.
+2026-09-11 21:40:15,438 | INFO | jarvis | Listening for command.
+2026-09-11 21:40:19,076 | INFO | jarvis | Command recognized: 'open notepad'
+2026-09-11 21:40:19,151 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-11 21:40:19,752 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:40:29,755 | INFO | jarvis | Wake word detected.
+2026-09-11 21:40:30,366 | INFO | jarvis | Listening for command.
+2026-09-11 21:40:32,708 | INFO | jarvis | No command recognized.
+2026-09-11 21:40:33,209 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:40:35,184 | INFO | jarvis | Wake word detected.
+2026-09-11 21:40:35,807 | INFO | jarvis | Listening for command.
+2026-09-11 21:40:38,154 | INFO | jarvis | No command recognized.
+2026-09-11 21:40:38,655 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:42:09,094 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:42:09,094 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:42:09,094 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:42:09,095 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:42:09,743 | INFO | stt | Vosk model loaded
+2026-09-11 21:42:09,743 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:42:09,883 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:42:20,045 | INFO | jarvis | Wake word detected.
+2026-09-11 21:42:20,665 | INFO | jarvis | Listening for command.
+2026-09-11 21:42:22,991 | INFO | jarvis | No command recognized.
+2026-09-11 21:42:23,493 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:42:36,118 | INFO | jarvis | Wake word detected.
+2026-09-11 21:42:36,739 | INFO | jarvis | Listening for command.
+2026-09-11 21:42:39,279 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-11 21:42:39,293 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-11 21:42:39,894 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:42:41,861 | INFO | jarvis | Wake word detected.
+2026-09-11 21:42:42,483 | INFO | jarvis | Listening for command.
+2026-09-11 21:42:44,836 | INFO | jarvis | No command recognized.
+2026-09-11 21:42:45,337 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:42:55,392 | INFO | jarvis | Wake word detected.
+2026-09-11 21:42:56,008 | INFO | jarvis | Listening for command.
+2026-09-11 21:42:59,150 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:43:03,424 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:43:04,025 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:43:29,857 | INFO | jarvis | Wake word detected.
+2026-09-11 21:43:30,480 | INFO | jarvis | Listening for command.
+2026-09-11 21:43:33,070 | INFO | jarvis | Command recognized: 'resume'
+2026-09-11 21:43:33,071 | INFO | jarvis | Command routing result: success=False | command='resume'
+2026-09-11 21:43:33,671 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:43:42,766 | INFO | jarvis | Wake word detected.
+2026-09-11 21:43:43,391 | INFO | jarvis | Listening for command.
+2026-09-11 21:43:45,870 | INFO | jarvis | Command recognized: 'find my resume'
+2026-09-11 21:43:51,271 | INFO | jarvis | Command routing result: success=True | command='find my resume'
+2026-09-11 21:43:51,871 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:44:24,296 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:44:24,297 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:44:24,297 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:44:24,297 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:44:24,937 | INFO | stt | Vosk model loaded
+2026-09-11 21:44:24,937 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:44:25,084 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:44:35,648 | INFO | jarvis | Wake word detected.
+2026-09-11 21:44:36,266 | INFO | jarvis | Listening for command.
+2026-09-11 21:44:38,601 | INFO | jarvis | No command recognized.
+2026-09-11 21:44:39,102 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:44:51,237 | INFO | jarvis | Wake word detected.
+2026-09-11 21:44:51,860 | INFO | jarvis | Listening for command.
+2026-09-11 21:44:54,298 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 21:44:58,373 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 21:44:58,974 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:45:03,536 | INFO | jarvis | Wake word detected.
+2026-09-11 21:45:04,158 | INFO | jarvis | Listening for command.
+2026-09-11 21:45:06,401 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 21:45:08,615 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-11 21:45:09,216 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:45:23,864 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:45:23,864 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:45:23,864 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:45:23,864 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:45:24,528 | INFO | stt | Vosk model loaded
+2026-09-11 21:45:24,529 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:45:24,678 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:45:29,314 | INFO | jarvis | Wake word detected.
+2026-09-11 21:45:29,939 | INFO | jarvis | Listening for command.
+2026-09-11 21:45:32,303 | INFO | jarvis | No command recognized.
+2026-09-11 21:45:32,804 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:45:41,979 | INFO | jarvis | Wake word detected.
+2026-09-11 21:45:42,600 | INFO | jarvis | Listening for command.
+2026-09-11 21:45:46,293 | INFO | jarvis | No command recognized.
+2026-09-11 21:45:46,794 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:45:53,004 | INFO | jarvis | Wake word detected.
+2026-09-11 21:45:53,619 | INFO | jarvis | Listening for command.
+2026-09-11 21:45:56,464 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-11 21:45:56,477 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-11 21:45:57,078 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:46:11,358 | INFO | jarvis | Wake word detected.
+2026-09-11 21:46:11,980 | INFO | jarvis | Listening for command.
+2026-09-11 21:46:15,062 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-11 21:46:17,153 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-11 21:46:17,755 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:46:23,590 | INFO | jarvis | Wake word detected.
+2026-09-11 21:46:24,204 | INFO | jarvis | Listening for command.
+2026-09-11 21:46:26,646 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-11 21:46:26,647 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-11 21:46:27,248 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:47:37,246 | INFO | jarvis | Jarvis starting.
+2026-09-11 21:47:37,247 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 21:47:37,247 | INFO | jarvis | Loading Vosk model.
+2026-09-11 21:47:37,247 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 21:47:37,894 | INFO | stt | Vosk model loaded
+2026-09-11 21:47:37,895 | INFO | jarvis | Loading wake-word model.
+2026-09-11 21:47:38,038 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:47:59,728 | INFO | jarvis | Wake word detected.
+2026-09-11 21:48:00,342 | INFO | jarvis | Listening for command.
+2026-09-11 21:48:02,541 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-11 21:48:02,561 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-11 21:48:03,162 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:48:10,003 | INFO | jarvis | Wake word detected.
+2026-09-11 21:48:10,622 | INFO | jarvis | Listening for command.
+2026-09-11 21:48:12,350 | INFO | jarvis | No command recognized.
+2026-09-11 21:48:12,850 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:48:17,148 | INFO | jarvis | Wake word detected.
+2026-09-11 21:48:17,768 | INFO | jarvis | Listening for command.
+2026-09-11 21:48:20,677 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-11 21:48:22,804 | INFO | jarvis | Command routing result: success=False | command='close vs code'
+2026-09-11 21:48:23,405 | INFO | jarvis | Waiting for wake word.
+2026-09-11 21:48:25,399 | INFO | jarvis | Wake word detected.
+2026-09-11 21:48:26,016 | INFO | jarvis | Listening for command.
+2026-09-11 21:48:28,351 | INFO | jarvis | No command recognized.
+2026-09-11 21:48:28,853 | INFO | jarvis | Waiting for wake word.
