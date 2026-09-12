@@ -8,6 +8,8 @@ Basic v1 adds:
 - does NOT use an LLM yet
 """
 
+import tts
+
 import logging
 from logging.handlers import RotatingFileHandler
 import re
@@ -397,6 +399,77 @@ def ask_google_followup(command):
         speak("I didn't catch that. I'll leave it there.")
 
 
+def get_greeting():
+    hour = time.localtime().tm_hour
+
+    if 5 <= hour < 12:
+        return "Good morning, sir. How are you?"
+
+    if 12 <= hour < 17:
+        return "Good afternoon, sir. How can I help you?"
+
+    if 17 <= hour < 22:
+        return "Good evening, sir. What can I do for you?"
+
+    return "Good evening, sir. How can I assist you?"
+
+def get_command_response(command, success):
+    command = command.lower().strip()
+
+    if not success:
+        return "I'm sorry, sir. I couldn't complete that command."
+
+    responses = {
+        "open instagram": "Opening Instagram, sir.",
+        "launch instagram": "Opening Instagram, sir.",
+
+        "open arduino": "Opening Arduino IDE, sir.",
+        "open arduino ide": "Opening Arduino IDE, sir.",
+        "launch arduino": "Opening Arduino IDE, sir.",
+
+        "open kicad": "Opening KiCad, sir.",
+        "open ki cad": "Opening KiCad, sir.",
+        "launch kicad": "Opening KiCad, sir.",
+
+        "open vs code": "Opening Visual Studio Code, sir.",
+        "open visual studio code": "Opening Visual Studio Code, sir.",
+
+        "open chrome": "Opening Google Chrome, sir.",
+        "open google chrome": "Opening Google Chrome, sir.",
+
+        "open notepad": "Opening Notepad, sir.",
+
+        "open calculator": "Opening Calculator, sir.",
+
+        "open explorer": "Opening File Explorer, sir.",
+        "open file explorer": "Opening File Explorer, sir.",
+
+        "open proteus": "Opening Proteus, sir.",
+        "open keil": "Opening Keil uVision, sir.",
+        "open blender": "Opening Blender, sir.",
+        "open vlc": "Opening VLC Media Player, sir.",
+        "open davinci": "Opening DaVinci Resolve, sir.",
+        "open davinci resolve": "Opening DaVinci Resolve, sir.",
+
+        "open spotify": "Opening Spotify, sir.",
+        "open whatsapp": "Opening WhatsApp, sir.",
+        "open claude": "Opening Claude, sir.",
+    }
+
+    if command in responses:
+        return responses[command]
+
+    if command.startswith("close "):
+        app = command[6:].strip()
+        return f"Closing {app}, sir."
+
+    if command.startswith("exit "):
+        app = command[5:].strip()
+        return f"Closing {app}, sir."
+
+    return "Done, sir."
+
+
 def assistant_loop():
 
     global WAKE_MODEL
@@ -437,6 +510,8 @@ def assistant_loop():
             # =================================================
 
             log.info("Wake word detected.")
+
+            tts.speak(get_greeting())
 
             # Let microphone/audio buffer settle.
             time.sleep(0.25)
@@ -521,13 +596,13 @@ def assistant_loop():
 
                 try:
 
-                    success = launch_from_command(
-                        command
-                    )
+                    success = launch_from_command(command)
+
+                    response = get_command_response(command, success)
+                    tts.speak(response)
 
                     log.info(
-                        "Command routing result: "
-                        "success=%s | command=%r",
+                        "Command routing result: success=%s | command=%r",
                         success,
                         command,
                     )

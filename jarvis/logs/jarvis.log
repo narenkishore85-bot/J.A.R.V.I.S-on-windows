@@ -1891,3 +1891,38 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-12 16:07:28,746 | INFO | jarvis | Command recognized: 'close ki cad'
 2026-09-12 16:07:38,405 | INFO | jarvis | Command routing result: success=True | command='close ki cad'
 2026-09-12 16:07:38,655 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:18:56,581 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:18:56,582 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:18:56,688 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:18:56,688 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:18:56,874 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:18:56,874 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:18:56,874 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:18:57,551 | INFO | stt | Vosk model loaded
+2026-09-12 16:18:57,552 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:18:57,695 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:18:59,757 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:19:07,274 | INFO | jarvis | Wake word detected.
+2026-09-12 16:19:12,282 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:19:12,283 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:19:14,731 | INFO | jarvis | Listening for command. Remaining session time: 12.6 seconds
+2026-09-12 16:19:16,514 | INFO | jarvis | Listening for command. Remaining session time: 10.8 seconds
+2026-09-12 16:19:18,244 | INFO | jarvis | Listening for command. Remaining session time: 9.0 seconds
+2026-09-12 16:19:19,797 | INFO | jarvis | Listening for command. Remaining session time: 7.5 seconds
+2026-09-12 16:19:21,435 | INFO | jarvis | Listening for command. Remaining session time: 5.9 seconds
+2026-09-12 16:19:25,865 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 16:19:29,038 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 16:19:29,289 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:19:32,062 | INFO | jarvis | Command recognized: 'close instagram'
+2026-09-12 16:19:34,985 | INFO | jarvis | Command routing result: success=True | command='close instagram'
+2026-09-12 16:19:35,236 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:19:37,482 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 16:19:43,055 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 16:19:43,306 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:19:45,589 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:19:50,869 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 16:19:55,176 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 16:19:55,427 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:19:57,553 | INFO | jarvis | Listening for command. Remaining session time: 12.6 seconds
+2026-09-12 16:19:59,226 | INFO | jarvis | Listening for command. Remaining session time: 11.0 seconds
+2026-09-12 16:20:00,859 | INFO | jarvis | Listening for command. Remaining session time: 9.3 seconds
