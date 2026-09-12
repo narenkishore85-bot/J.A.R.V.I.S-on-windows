@@ -1926,3 +1926,666 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-12 16:19:57,553 | INFO | jarvis | Listening for command. Remaining session time: 12.6 seconds
 2026-09-12 16:19:59,226 | INFO | jarvis | Listening for command. Remaining session time: 11.0 seconds
 2026-09-12 16:20:00,859 | INFO | jarvis | Listening for command. Remaining session time: 9.3 seconds
+2026-09-12 16:22:34,338 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:22:34,339 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:22:34,437 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:22:34,437 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:22:34,605 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:22:34,605 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:22:34,605 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:22:35,308 | INFO | stt | Vosk model loaded
+2026-09-12 16:22:35,309 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:22:35,473 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:22:37,467 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:22:49,067 | INFO | jarvis | Wake word detected.
+2026-09-12 16:22:53,922 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:22:53,923 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:22:56,124 | INFO | jarvis | Listening for command. Remaining session time: 12.8 seconds
+2026-09-12 16:23:00,162 | INFO | jarvis | Command recognized: 'calculator'
+2026-09-12 16:23:04,878 | INFO | jarvis | Command routing result: success=True | command='calculator'
+2026-09-12 16:23:05,130 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:23:08,051 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 16:23:12,720 | INFO | jarvis | Command routing result: success=True | command='close calculator'
+2026-09-12 16:23:12,971 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:23:17,464 | INFO | jarvis | Command recognized: 'google search [unk]'
+2026-09-12 16:23:19,595 | INFO | jarvis | Command routing result: success=True | command='google search [unk]'
+2026-09-12 16:23:19,845 | INFO | jarvis | Listening for command. Remaining session time: 14.7 seconds
+2026-09-12 16:23:21,466 | INFO | jarvis | Listening for command. Remaining session time: 13.1 seconds
+2026-09-12 16:23:23,011 | INFO | jarvis | Listening for command. Remaining session time: 11.6 seconds
+2026-09-12 16:23:27,345 | INFO | jarvis | Command recognized: 'google search for [unk]'
+2026-09-12 16:23:29,470 | INFO | jarvis | Command routing result: success=True | command='google search for [unk]'
+2026-09-12 16:23:29,721 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:23:32,010 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:23:36,003 | INFO | jarvis | Command recognized: 'open microsoft exit'
+2026-09-12 16:23:40,456 | INFO | jarvis | Command routing result: success=False | command='open microsoft exit'
+2026-09-12 16:23:40,707 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:23:43,073 | INFO | jarvis | Listening for command. Remaining session time: 12.4 seconds
+2026-09-12 16:23:45,020 | INFO | jarvis | Listening for command. Remaining session time: 10.4 seconds
+2026-09-12 16:23:48,024 | INFO | jarvis | Listening for command. Remaining session time: 7.4 seconds
+2026-09-12 16:23:50,315 | INFO | jarvis | Listening for command. Remaining session time: 5.1 seconds
+2026-09-12 16:23:52,172 | INFO | jarvis | Listening for command. Remaining session time: 3.3 seconds
+2026-09-12 16:23:54,462 | INFO | jarvis | Listening for command. Remaining session time: 1.0 seconds
+2026-09-12 16:23:55,750 | INFO | jarvis | Active command session ended.
+2026-09-12 16:23:56,251 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:23:58,281 | INFO | jarvis | Wake word detected.
+2026-09-12 16:24:03,123 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:24:03,124 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:24:04,850 | INFO | jarvis | Listening for command. Remaining session time: 13.3 seconds
+2026-09-12 16:24:06,447 | INFO | jarvis | Listening for command. Remaining session time: 11.7 seconds
+2026-09-12 16:24:10,279 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 16:24:16,912 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 16:24:17,163 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:24:22,452 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-12 16:24:27,352 | INFO | jarvis | Command routing result: success=True | command='close vs code'
+2026-09-12 16:24:27,604 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:24:32,881 | INFO | jarvis | Command recognized: 'open file explorer'
+2026-09-12 16:24:36,622 | INFO | jarvis | Command routing result: success=True | command='open file explorer'
+2026-09-12 16:24:36,874 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:24:40,009 | INFO | jarvis | Listening for command. Remaining session time: 11.6 seconds
+2026-09-12 16:24:45,309 | INFO | jarvis | Command recognized: 'search [unk]'
+2026-09-12 16:24:49,763 | INFO | jarvis | Command routing result: success=False | command='search [unk]'
+2026-09-12 16:24:50,014 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:26:17,933 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:26:17,934 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:26:18,029 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:26:18,029 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:26:18,230 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:26:18,230 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:26:18,230 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:26:19,030 | INFO | stt | Vosk model loaded
+2026-09-12 16:26:19,030 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:26:19,227 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:26:21,268 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:26:24,641 | INFO | jarvis | Wake word detected.
+2026-09-12 16:26:29,502 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:26:29,503 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:26:31,271 | INFO | jarvis | Listening for command. Remaining session time: 13.2 seconds
+2026-09-12 16:26:33,547 | INFO | jarvis | Listening for command. Remaining session time: 11.0 seconds
+2026-09-12 16:26:35,846 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 16:26:41,343 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 16:26:41,594 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:26:44,423 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 16:26:48,831 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-12 16:26:49,082 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:26:51,385 | INFO | jarvis | Listening for command. Remaining session time: 12.4 seconds
+2026-09-12 16:26:53,678 | INFO | jarvis | Listening for command. Remaining session time: 10.1 seconds
+2026-09-12 16:26:57,813 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 16:27:04,202 | INFO | jarvis | Command routing result: success=True | command='close calculator'
+2026-09-12 16:27:04,453 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:27:08,398 | INFO | jarvis | Command recognized: 'open file explorer'
+2026-09-12 16:27:12,078 | INFO | jarvis | Command routing result: success=True | command='open file explorer'
+2026-09-12 16:27:12,329 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:27:14,729 | INFO | jarvis | Command recognized: 'close file explorer'
+2026-09-12 16:27:17,996 | INFO | jarvis | Command routing result: success=True | command='close file explorer'
+2026-09-12 16:27:18,248 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:27:21,755 | INFO | jarvis | Command recognized: 'google search [unk]'
+2026-09-12 16:27:23,911 | INFO | jarvis | Command routing result: success=True | command='google search [unk]'
+2026-09-12 16:27:24,162 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:27:25,942 | INFO | jarvis | Listening for command. Remaining session time: 13.0 seconds
+2026-09-12 16:36:59,852 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:36:59,852 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:36:59,944 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:36:59,944 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:37:00,115 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:37:00,115 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:37:00,115 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:37:00,955 | INFO | stt | Vosk model loaded
+2026-09-12 16:37:00,956 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:37:01,118 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:37:03,154 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:37:12,845 | INFO | jarvis | Wake word detected.
+2026-09-12 16:37:17,729 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:37:17,731 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:37:22,824 | INFO | jarvis | Listening for command. Remaining session time: 9.9 seconds
+2026-09-12 16:37:26,803 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 16:37:32,317 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 16:37:32,568 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:37:36,937 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 16:37:41,780 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 16:37:42,031 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:37:44,853 | INFO | jarvis | Command recognized: '[unk]'
+2026-09-12 16:37:49,290 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-12 16:37:49,542 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:37:54,244 | INFO | jarvis | Command recognized: 'close arduino'
+2026-09-12 16:37:58,681 | INFO | jarvis | Command routing result: success=False | command='close arduino'
+2026-09-12 16:37:58,932 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:38:03,891 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 16:38:06,998 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 16:38:07,248 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:38:12,557 | INFO | jarvis | Listening for command. Remaining session time: 9.4 seconds
+2026-09-12 16:38:28,692 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:38:28,692 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:38:28,857 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:38:28,858 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:38:29,027 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:38:29,027 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:38:29,027 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:38:29,876 | INFO | stt | Vosk model loaded
+2026-09-12 16:38:29,876 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:38:30,057 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:38:32,040 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:39:00,551 | INFO | jarvis | Wake word detected.
+2026-09-12 16:39:05,466 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:39:05,466 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:39:09,351 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 16:39:12,391 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 16:39:12,642 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:39:17,462 | INFO | jarvis | Command recognized: 'google search for is ki'
+2026-09-12 16:39:19,589 | INFO | jarvis | Command routing result: success=True | command='google search for is ki'
+2026-09-12 16:39:19,840 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:39:25,168 | INFO | jarvis | Command recognized: 'google search for [unk]'
+2026-09-12 16:39:27,356 | INFO | jarvis | Command routing result: success=True | command='google search for [unk]'
+2026-09-12 16:39:27,608 | INFO | jarvis | Listening for command. Remaining session time: 14.7 seconds
+2026-09-12 16:39:29,641 | INFO | jarvis | Listening for command. Remaining session time: 12.7 seconds
+2026-09-12 16:39:33,412 | INFO | jarvis | Listening for command. Remaining session time: 8.9 seconds
+2026-09-12 16:39:36,578 | INFO | jarvis | Listening for command. Remaining session time: 5.8 seconds
+2026-09-12 16:39:38,817 | INFO | jarvis | Command recognized: 'keil'
+2026-09-12 16:39:45,169 | INFO | jarvis | Command routing result: success=True | command='keil'
+2026-09-12 16:39:45,420 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:39:50,697 | INFO | jarvis | Listening for command. Remaining session time: 9.5 seconds
+2026-09-12 16:39:55,960 | INFO | jarvis | Listening for command. Remaining session time: 4.2 seconds
+2026-09-12 16:40:00,449 | INFO | jarvis | Active command session ended.
+2026-09-12 16:40:00,951 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:40:21,300 | INFO | jarvis | Wake word detected.
+2026-09-12 16:40:26,147 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:40:26,148 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:40:31,563 | INFO | jarvis | Listening for command. Remaining session time: 9.6 seconds
+2026-09-12 16:40:36,849 | INFO | jarvis | Listening for command. Remaining session time: 4.3 seconds
+2026-09-12 16:40:41,442 | INFO | jarvis | Command recognized: 'close keil'
+2026-09-12 16:40:54,397 | INFO | jarvis | Command routing result: success=True | command='close keil'
+2026-09-12 16:40:54,647 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:42:14,569 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:42:14,569 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:42:14,664 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:42:14,664 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:42:14,833 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:42:14,833 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:42:14,833 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:42:15,501 | INFO | stt | Vosk model loaded
+2026-09-12 16:42:15,501 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:42:15,650 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:42:17,638 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:42:27,941 | INFO | jarvis | Wake word detected.
+2026-09-12 16:42:27,970 | INFO | jarvis.tts | TTS engine initialized.
+2026-09-12 16:42:32,790 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:42:32,791 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:42:38,194 | INFO | jarvis | Command recognized: 'open file explorer'
+2026-09-12 16:42:39,200 | INFO | jarvis | Command routing result: success=True | command='open file explorer'
+2026-09-12 16:42:39,451 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:42:44,856 | INFO | jarvis | Listening for command. Remaining session time: 9.3 seconds
+2026-09-12 16:42:47,141 | INFO | jarvis | Command recognized: 'explorer'
+2026-09-12 16:42:48,021 | INFO | jarvis | Command routing result: success=True | command='explorer'
+2026-09-12 16:42:48,273 | INFO | jarvis | Listening for command. Remaining session time: 14.7 seconds
+2026-09-12 16:42:53,150 | INFO | jarvis | Command recognized: 'close file explorer'
+2026-09-12 16:42:53,763 | INFO | jarvis | Command routing result: success=True | command='close file explorer'
+2026-09-12 16:42:54,014 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:42:59,332 | INFO | jarvis | Listening for command. Remaining session time: 9.4 seconds
+2026-09-12 16:43:04,621 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 16:43:05,194 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 16:43:05,445 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:43:09,418 | INFO | jarvis | Listening for command. Remaining session time: 10.8 seconds
+2026-09-12 16:51:54,353 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:51:54,354 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:51:54,441 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:51:54,441 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:51:54,603 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:51:54,604 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:51:54,604 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:51:55,307 | INFO | stt | Vosk model loaded
+2026-09-12 16:51:55,307 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:51:55,462 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:51:57,455 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:52:10,850 | INFO | jarvis | Wake word detected.
+2026-09-12 16:52:15,772 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:52:15,773 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:52:19,253 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 16:52:19,554 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 16:52:19,805 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:52:24,814 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 16:52:25,103 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 16:52:25,354 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:52:29,396 | INFO | jarvis | Listening for command. Remaining session time: 10.7 seconds
+2026-09-12 17:04:26,989 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:04:26,989 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:04:26,989 | INFO | jarvis | Initializing text-to-speech.
+2026-09-12 17:04:27,078 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:04:27,078 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:04:27,249 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:04:27,249 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:04:27,249 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:04:27,941 | INFO | stt | Vosk model loaded
+2026-09-12 17:04:27,941 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:04:28,078 | INFO | jarvis | Jarvis ready. Waiting silently for wake word.
+2026-09-12 17:04:28,079 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:04:45,788 | INFO | jarvis | Wake word detected.
+2026-09-12 17:04:45,789 | INFO | jarvis.tts | JARVIS: Good evening, sir. I'm at your service.
+2026-09-12 17:04:50,256 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 17:04:50,256 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 17:04:54,609 | INFO | jarvis | Command recognized: 'open google chrome'
+2026-09-12 17:04:54,631 | INFO | jarvis | Command routing result: success=True | command='open google chrome'
+2026-09-12 17:04:54,632 | INFO | jarvis.tts | JARVIS: Consider it handled, sir. Opening Chrome.
+2026-09-12 17:04:55,032 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:05:00,447 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 17:05:00,500 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 17:05:00,504 | INFO | jarvis.tts | JARVIS: Done, sir. One less window to worry about.
+2026-09-12 17:05:00,837 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:05:05,287 | INFO | jarvis | Listening for command. Remaining session time: 10.5 seconds
+2026-09-12 17:05:09,203 | INFO | jarvis | Listening for command. Remaining session time: 6.5 seconds
+2026-09-12 17:05:11,431 | INFO | jarvis | Command recognized: 'studio'
+2026-09-12 17:05:11,432 | INFO | jarvis | Command routing result: success=False | command='studio'
+2026-09-12 17:05:11,432 | INFO | jarvis.tts | JARVIS: That didn't go according to plan, sir.
+2026-09-12 17:05:11,776 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:05:13,864 | INFO | jarvis | Listening for command. Remaining session time: 12.8 seconds
+2026-09-12 17:05:17,940 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 17:05:17,961 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 17:05:17,962 | INFO | jarvis.tts | JARVIS: Consider it handled, sir. Opening Instagram.
+2026-09-12 17:05:18,386 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:05:23,888 | INFO | jarvis | Command recognized: 'close instagram'
+2026-09-12 17:05:23,989 | INFO | jarvis | Command routing result: success=True | command='close instagram'
+2026-09-12 17:05:23,989 | INFO | jarvis.tts | JARVIS: Closed, sir. Nice and tidy.
+2026-09-12 17:05:24,325 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:11:18,468 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:11:18,468 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:11:18,469 | INFO | jarvis | Initializing text-to-speech.
+2026-09-12 17:11:18,554 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:11:18,555 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:11:18,720 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:11:18,721 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:11:18,721 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:11:19,386 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:11:19,386 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:11:19,527 | INFO | jarvis | Jarvis ready. Waiting silently for wake word.
+2026-09-12 17:11:19,527 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:11:32,997 | INFO | jarvis | Wake word detected.
+2026-09-12 17:11:32,998 | INFO | jarvis.tts | JARVIS: Good evening, sir.
+2026-09-12 17:11:35,810 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 17:11:35,811 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 17:11:41,126 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 17:11:41,153 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-12 17:11:41,153 | INFO | jarvis.tts | JARVIS: Certainly, sir. Calculator is coming online.
+2026-09-12 17:11:41,540 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:11:46,804 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 17:11:46,956 | INFO | jarvis | Command routing result: success=True | command='close calculator'
+2026-09-12 17:11:46,957 | INFO | jarvis.tts | JARVIS: Consider it shut down, sir.
+2026-09-12 17:11:47,266 | INFO | jarvis | Listening for command. Remaining session time: 14.9 seconds
+2026-09-12 17:17:32,905 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:17:32,905 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:17:32,991 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:17:32,992 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:17:33,159 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:17:33,159 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:17:33,159 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:17:33,160 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:17:33,849 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:17:33,849 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:17:33,849 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:17:33,983 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:17:33,985 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:17:33,985 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:17:46,727 | INFO | jarvis | Wake word detected.
+2026-09-12 17:17:46,911 | INFO | jarvis | Greeting: "Evening, sir. I'm listening."
+2026-09-12 17:17:46,911 | INFO | jarvis.tts | JARVIS: Evening, sir. I'm listening.
+2026-09-12 17:17:50,363 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:17:50,364 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:17:52,352 | INFO | jarvis | Listening for command. Remaining: 13.0 seconds
+2026-09-12 17:17:54,438 | INFO | jarvis | Listening for command. Remaining: 10.9 seconds
+2026-09-12 17:17:56,411 | INFO | jarvis | Listening for command. Remaining: 9.0 seconds
+2026-09-12 17:18:00,094 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 17:18:00,128 | INFO | jarvis | Launcher finished in 0.032 seconds. success=True
+2026-09-12 17:18:00,128 | INFO | jarvis | JARVIS response: 'chrome is up and running, sir.'
+2026-09-12 17:18:00,129 | INFO | jarvis.tts | JARVIS: chrome is up and running, sir.
+2026-09-12 17:18:00,470 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:18:05,873 | INFO | jarvis | Listening for command. Remaining: 9.5 seconds
+2026-09-12 17:18:11,183 | INFO | jarvis | Listening for command. Remaining: 4.2 seconds
+2026-09-12 17:18:15,741 | INFO | jarvis | Active command session ended.
+2026-09-12 17:18:15,893 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:18:29,109 | INFO | jarvis | Wake word detected.
+2026-09-12 17:18:29,300 | INFO | jarvis | Greeting: 'Good evening, sir. What can I do for you?'
+2026-09-12 17:18:29,300 | INFO | jarvis.tts | JARVIS: Good evening, sir. What can I do for you?
+2026-09-12 17:18:29,482 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:18:29,483 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:18:34,875 | INFO | jarvis | Listening for command. Remaining: 9.6 seconds
+2026-09-12 17:18:45,765 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:18:45,766 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:18:45,865 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:18:45,865 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:18:46,057 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:18:46,058 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:18:46,058 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:18:46,058 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:18:46,750 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:18:46,750 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:18:46,750 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:18:46,898 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:18:46,899 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:18:46,900 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:19:14,293 | INFO | jarvis | Wake word detected.
+2026-09-12 17:19:14,476 | INFO | jarvis | Greeting: 'Good evening, sir. What can I do for you?'
+2026-09-12 17:19:14,477 | INFO | jarvis.tts | JARVIS: Good evening, sir. What can I do for you?
+2026-09-12 17:19:18,485 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:19:18,486 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:24:29,673 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:24:29,674 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:24:29,770 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:24:29,771 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:24:29,936 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:24:29,936 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:24:29,936 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:24:29,936 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:24:30,587 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:24:30,587 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:24:30,587 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:24:30,732 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:24:30,734 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:24:30,734 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:24:38,652 | INFO | jarvis | Wake word detected.
+2026-09-12 17:24:38,828 | INFO | jarvis | Greeting: 'Good evening, sir. What can I do for you?'
+2026-09-12 17:24:38,828 | INFO | jarvis.tts | JARVIS: Good evening, sir. What can I do for you?
+2026-09-12 17:24:42,820 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:24:42,821 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:24:48,083 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 17:24:48,103 | INFO | jarvis | Launcher finished in 0.016 seconds. success=True
+2026-09-12 17:24:48,103 | ERROR | jarvis | Launcher failed for command 'open chrome'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 868, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:24:48,105 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:24:48,399 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:24:53,720 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 17:24:53,771 | INFO | jarvis | Launcher finished in 0.047 seconds. success=True
+2026-09-12 17:24:53,773 | ERROR | jarvis | Launcher failed for command 'close chrome'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 868, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:24:53,773 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:24:54,037 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:30:38,868 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:30:38,868 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:30:38,954 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:30:38,955 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:30:39,122 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:30:39,122 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:30:39,122 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:30:39,122 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:30:39,778 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:30:39,778 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:30:39,778 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:30:39,914 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:30:39,915 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:30:39,916 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:30:52,235 | INFO | jarvis | Wake word detected.
+2026-09-12 17:30:52,235 | INFO | jarvis | Greeting: 'Good evening, sir.'
+2026-09-12 17:30:52,236 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:30:52,236 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:30:57,477 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 17:30:57,499 | INFO | jarvis | Launcher finished in 0.015 seconds. success=True
+2026-09-12 17:30:57,499 | ERROR | jarvis | Launcher failed for command 'open chrome'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 839, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:30:57,501 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:31:01,454 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:31:06,749 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 17:31:06,802 | INFO | jarvis | Launcher finished in 0.047 seconds. success=True
+2026-09-12 17:31:06,802 | ERROR | jarvis | Launcher failed for command 'close chrome'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 839, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:31:06,802 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:31:07,069 | INFO | jarvis | Listening for command. Remaining: 14.9 seconds
+2026-09-12 17:31:12,391 | INFO | jarvis | Listening for command. Remaining: 9.6 seconds
+2026-09-12 17:31:17,641 | INFO | jarvis | Listening for command. Remaining: 4.4 seconds
+2026-09-12 17:31:22,287 | INFO | jarvis | Command recognized: 'open davinci resolve'
+2026-09-12 17:31:28,407 | INFO | jarvis | Launcher finished in 6.125 seconds. success=True
+2026-09-12 17:31:28,407 | ERROR | jarvis | Launcher failed for command 'open davinci resolve'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 839, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:31:28,407 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:31:28,976 | INFO | jarvis | Listening for command. Remaining: 14.9 seconds
+2026-09-12 17:31:34,372 | INFO | jarvis | Listening for command. Remaining: 9.5 seconds
+2026-09-12 17:31:36,286 | INFO | jarvis | Listening for command. Remaining: 7.6 seconds
+2026-09-12 17:31:41,574 | INFO | jarvis | Listening for command. Remaining: 2.3 seconds
+2026-09-12 17:31:44,218 | INFO | jarvis | Active command session ended.
+2026-09-12 17:31:44,369 | INFO | jarvis | Waiting for wake word.
+2026-09-12 17:31:55,354 | INFO | jarvis | Wake word detected.
+2026-09-12 17:31:55,354 | INFO | jarvis | Greeting: 'Evening, sir.'
+2026-09-12 17:31:55,354 | INFO | jarvis | Active command session started for 15.0 seconds.
+2026-09-12 17:31:55,355 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:31:59,344 | INFO | jarvis | Listening for command. Remaining: 11.0 seconds
+2026-09-12 17:32:04,601 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 17:32:04,622 | INFO | jarvis | Launcher finished in 0.015 seconds. success=True
+2026-09-12 17:32:04,623 | ERROR | jarvis | Launcher failed for command 'open calculator'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 839, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:32:04,623 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:32:04,817 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:32:09,889 | INFO | jarvis | Listening for command. Remaining: 9.9 seconds
+2026-09-12 17:32:12,970 | INFO | jarvis | Listening for command. Remaining: 6.8 seconds
+2026-09-12 17:32:15,694 | INFO | jarvis | Listening for command. Remaining: 4.1 seconds
+2026-09-12 17:32:19,856 | INFO | jarvis | Command recognized: 'close resolve'
+2026-09-12 17:32:21,311 | INFO | jarvis | Launcher finished in 1.453 seconds. success=False
+2026-09-12 17:32:21,311 | ERROR | jarvis | Launcher failed for command 'close resolve'
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\jarvis_main.py", line 839, in assistant_loop
+    response = natural_response(
+               ^^^^^^^^^^^^^^^^^
+TypeError: natural_response() takes from 0 to 1 positional arguments but 2 were given
+2026-09-12 17:32:21,311 | INFO | jarvis.tts | JARVIS: Sorry, sir. Something went wrong.
+2026-09-12 17:32:21,578 | INFO | jarvis | Listening for command. Remaining: 15.0 seconds
+2026-09-12 17:32:24,774 | INFO | jarvis | Listening for command. Remaining: 11.8 seconds
+2026-09-12 17:32:27,829 | INFO | jarvis | Listening for command. Remaining: 8.7 seconds
+2026-09-12 17:34:51,493 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:34:51,493 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:34:51,579 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:34:51,580 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:34:51,745 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:34:51,745 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:34:51,745 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:34:51,745 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:34:52,393 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:34:52,393 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:34:52,394 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:34:52,537 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:34:52,540 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:34:52,540 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+2026-09-12 17:34:59,864 | INFO | jarvis | Wake word detected.
+2026-09-12 17:35:05,020 | INFO | jarvis | Command recognized: ide
+2026-09-12 17:35:05,022 | INFO | jarvis | Command execution completed.
+2026-09-12 17:35:05,022 | INFO | jarvis | J.A.R.V.I.S. response: I've got it, sir.
+2026-09-12 17:35:05,022 | INFO | jarvis.tts | JARVIS: I've got it, sir.
+2026-09-12 17:35:28,861 | INFO | jarvis | Wake word detected.
+2026-09-12 17:35:33,206 | INFO | jarvis | No command detected.
+2026-09-12 17:37:09,417 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:37:09,418 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:37:09,553 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:37:09,553 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:37:09,717 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:37:09,717 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:37:09,717 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:37:09,717 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:37:10,368 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:37:10,368 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:37:10,368 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:37:10,506 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:37:10,508 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:37:10,508 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+2026-09-12 17:37:38,380 | INFO | jarvis | Wake word detected.
+2026-09-12 17:37:46,789 | INFO | jarvis | Command session timed out. Returning to wake-word mode.
+2026-09-12 17:37:46,789 | INFO | jarvis | Returning to wake-word listening.
+2026-09-12 17:37:58,272 | INFO | jarvis | Wake word detected.
+2026-09-12 17:38:02,171 | INFO | jarvis | Command recognized: open chrome
+2026-09-12 17:38:02,188 | INFO | jarvis | Command execution completed: open chrome
+2026-09-12 17:38:02,188 | INFO | jarvis | J.A.R.V.I.S. response: Already on it, sir.
+2026-09-12 17:38:02,188 | INFO | jarvis.tts | JARVIS: Already on it, sir.
+2026-09-12 17:38:10,077 | INFO | jarvis | Command recognized: open calculator
+2026-09-12 17:38:10,095 | INFO | jarvis | Command execution completed: open calculator
+2026-09-12 17:38:10,095 | INFO | jarvis | J.A.R.V.I.S. response: As you wish, sir.
+2026-09-12 17:38:10,095 | INFO | jarvis.tts | JARVIS: As you wish, sir.
+2026-09-12 17:38:15,710 | INFO | jarvis | Command recognized: close [unk]
+2026-09-12 17:38:15,711 | INFO | jarvis | Command execution completed: close [unk]
+2026-09-12 17:38:15,711 | INFO | jarvis | J.A.R.V.I.S. response: Of course, sir.
+2026-09-12 17:38:15,711 | INFO | jarvis.tts | JARVIS: Of course, sir.
+2026-09-12 17:38:26,373 | INFO | jarvis | Command recognized: close chrome
+2026-09-12 17:38:26,426 | INFO | jarvis | Command execution completed: close chrome
+2026-09-12 17:38:26,426 | INFO | jarvis | J.A.R.V.I.S. response: Naturally, sir.
+2026-09-12 17:38:26,426 | INFO | jarvis.tts | JARVIS: Naturally, sir.
+2026-09-12 17:38:31,562 | INFO | jarvis | Command recognized: calculator
+2026-09-12 17:38:31,573 | INFO | jarvis | Command execution completed: calculator
+2026-09-12 17:38:31,573 | INFO | jarvis | J.A.R.V.I.S. response: Consider it handled, sir.
+2026-09-12 17:38:31,573 | INFO | jarvis.tts | JARVIS: Consider it handled, sir.
+2026-09-12 17:38:37,260 | INFO | jarvis | Command recognized: close calculator
+2026-09-12 17:38:37,464 | INFO | jarvis | Command execution completed: close calculator
+2026-09-12 17:38:37,464 | INFO | jarvis | J.A.R.V.I.S. response: Of course, sir.
+2026-09-12 17:38:37,464 | INFO | jarvis.tts | JARVIS: Of course, sir.
+2026-09-12 17:38:47,232 | INFO | jarvis | Command recognized: proteus
+2026-09-12 17:38:47,233 | INFO | jarvis | Command execution completed: proteus
+2026-09-12 17:38:47,233 | INFO | jarvis | J.A.R.V.I.S. response: Done, sir. Another crisis successfully avoided.
+2026-09-12 17:38:47,233 | INFO | jarvis.tts | JARVIS: Done, sir. Another crisis successfully avoided.
+2026-09-12 17:39:00,060 | INFO | jarvis | Command listening interrupted.
+2026-09-12 17:39:00,061 | INFO | jarvis | Returning to wake-word listening.
+2026-09-12 17:45:26,850 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:45:26,851 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:45:26,942 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:45:26,942 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:45:27,108 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:45:27,108 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:45:27,109 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:45:27,109 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:45:27,823 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:45:27,823 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:45:27,823 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:47:10,035 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:47:10,036 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:47:10,125 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:47:10,126 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:47:10,287 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:47:10,287 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:47:10,287 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:47:10,287 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:47:10,942 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:47:10,942 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:47:10,943 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:47:10,943 | INFO | jarvis.wake_listener | Loading wake-word model...
+2026-09-12 17:47:10,943 | ERROR | jarvis.wake_listener | Failed to load wake-word model.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\wake_listener.py", line 59, in load_wake_model
+    _MODEL = Model(
+             ^^^^^^
+  File "C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\utils.py", line 686, in wrapped
+    return func(*args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\model.py", line 146, in __init__
+    if ".tflite" in mdl_path:
+       ^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'WindowsPath' is not iterable
+2026-09-12 17:47:22,174 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:47:22,174 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:47:22,261 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:47:22,261 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:47:22,429 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:47:22,429 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:47:22,429 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:47:22,430 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:47:23,106 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:47:23,106 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:47:23,106 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:47:23,106 | INFO | jarvis.wake_listener | Loading wake-word model...
+2026-09-12 17:47:23,106 | ERROR | jarvis.wake_listener | Failed to load wake-word model.
+Traceback (most recent call last):
+  File "C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis\wake_listener.py", line 59, in load_wake_model
+    _MODEL = Model(
+             ^^^^^^
+  File "C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\utils.py", line 686, in wrapped
+    return func(*args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\model.py", line 146, in __init__
+    if ".tflite" in mdl_path:
+       ^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'WindowsPath' is not iterable
+2026-09-12 17:49:21,020 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:49:21,021 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:49:21,106 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:49:21,107 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:49:21,267 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:49:21,267 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:49:21,267 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:49:21,267 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:49:21,919 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:49:21,919 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:49:21,919 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:49:21,919 | INFO | jarvis.wake_listener | Loading wake-word model...
+2026-09-12 17:49:22,050 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+2026-09-12 17:49:22,050 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:49:22,052 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:49:22,052 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+2026-09-12 17:49:22,052 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:49:22,938 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:50:09,018 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:50:09,077 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:50:09,913 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:50:12,793 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:50:12,839 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:50:13,189 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:50:13,231 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:50:14,056 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:51:39,199 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:51:39,199 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:51:39,288 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:51:39,289 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:51:39,468 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:51:39,468 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:51:39,468 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:51:39,468 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:51:40,158 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:51:40,158 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:51:40,158 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:51:40,158 | INFO | jarvis.wake_listener | Loading wake-word model...
+2026-09-12 17:51:40,304 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+2026-09-12 17:51:40,305 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:51:40,306 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:51:40,306 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+2026-09-12 17:51:40,306 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:51:41,174 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:52:37,015 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:52:37,066 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:52:37,901 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:52:40,381 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:52:40,421 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:52:41,251 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:55:40,229 | INFO | jarvis | Jarvis starting.
+2026-09-12 17:55:40,230 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 17:55:40,334 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 17:55:40,334 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 17:55:40,529 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+2026-09-12 17:55:40,529 | INFO | jarvis | TTS warmed up successfully.
+2026-09-12 17:55:40,529 | INFO | jarvis | Loading Vosk model.
+2026-09-12 17:55:40,529 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 17:55:41,220 | INFO | jarvis.stt | Vosk model loaded
+2026-09-12 17:55:41,220 | INFO | jarvis | Vosk model loaded.
+2026-09-12 17:55:41,220 | INFO | jarvis | Loading wake-word model.
+2026-09-12 17:55:41,220 | INFO | jarvis.wake_listener | Loading wake-word model...
+2026-09-12 17:55:41,362 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+2026-09-12 17:55:41,362 | INFO | jarvis | Wake-word model loaded.
+2026-09-12 17:55:41,364 | INFO | jarvis | Jarvis ready. Waiting for wake word.
+2026-09-12 17:55:41,364 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+2026-09-12 17:55:41,364 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:55:42,276 | INFO | jarvis.wake_listener | Listening for wake word...
+2026-09-12 17:55:54,756 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:55:54,811 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:55:55,176 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+2026-09-12 17:55:55,218 | INFO | jarvis.wake_listener | Wake-word listener started.
+2026-09-12 17:55:56,037 | INFO | jarvis.wake_listener | Listening for wake word...

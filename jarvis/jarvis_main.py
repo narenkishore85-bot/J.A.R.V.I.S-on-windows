@@ -1,17 +1,24 @@
-"""Entry point for J.A.R.V.I.S Basic v1.
+"""J.A.R.V.I.S. - Windows voice assistant main controller.
 
-Basic v1 adds:
-- spoken response after commands
-- simple yes/no confirmation
-- continuous voice interaction
-- keeps the existing wake-word, Vosk STT, tray and launcher architecture
-- does NOT use an LLM yet
+Flow:
+    Wake word
+        ↓
+    Wake sound
+        ↓
+    Greeting
+        ↓
+    Listen for command
+        ↓
+    Execute command
+        ↓
+    Natural response
+
+Designed for fast local/offline operation.
 """
-
-import tts
 
 import logging
 from logging.handlers import RotatingFileHandler
+import random
 import re
 import subprocess
 import threading
@@ -20,22 +27,28 @@ import winsound
 
 import pystray
 from PIL import Image, ImageDraw
-import pyttsx3
 
-import config
-import stt
-import wake_listener
-from jarvis_launcher import launch_from_command
+from . import config
+from . import stt
+from . import tts
+from . import wake_listener
+from .jarvis_launcher import launch_from_command
 
+
+# ============================================================
+# GLOBAL STATE
+# ============================================================
 
 STOP = threading.Event()
 PAUSED = threading.Event()
+
 TRAY = None
 WAKE_MODEL = None
 
-# TTS is created once and used from the assistant thread.
-TTS = None
 
+# ============================================================
+# LOGGING
+# ============================================================
 
 def setup_logging():
     config.LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -63,119 +76,380 @@ def setup_logging():
 log = logging.getLogger("jarvis")
 
 
-def setup_tts():
-    """Initialize the offline Windows speech engine."""
-    global TTS
+# ============================================================
+# RANDOM RESPONSE HELPER
+# ============================================================
 
-    try:
-        TTS = pyttsx3.init()
-
-        # Keep the voice reasonably natural and not too slow.
-        TTS.setProperty("rate", 175)
-        TTS.setProperty("volume", 1.0)
-
-        log.info("Text-to-speech initialized.")
-
-    except Exception:
-        TTS = None
-        log.exception("Could not initialize text-to-speech.")
+def choose(options):
+    """Return a random response from a list."""
+    return random.choice(options)
 
 
-def speak(text):
-    """Speak a response and also log it."""
-    if not text:
-        return
+# ============================================================
+# GREETING
+# ============================================================
 
-    text = str(text).strip()
-    log.info("JARVIS: %s", text)
+def get_greeting():
+    """Return a short natural greeting."""
 
-    if TTS is None:
-        return
+    hour = time.localtime().tm_hour
 
-    try:
-        TTS.say(text)
-        TTS.runAndWait()
-    except Exception:
-        log.exception("Speech failed.")
+    if 5 <= hour < 12:
+        return choose([
+            "Good morning, sir.",
+            "Morning, sir.",
+            "Good morning, sir. What can I do for you?",
+            "Morning, sir. I'm listening.",
+        ])
 
+    if 12 <= hour < 17:
+        return choose([
+            "Good afternoon, sir.",
+            "Afternoon, sir.",
+            "Good afternoon, sir. What can I do for you?",
+            "Good afternoon, sir. I'm listening.",
+        ])
+
+    if 17 <= hour < 22:
+        return choose([
+            "Good evening, sir.",
+            "Evening, sir.",
+            "Good evening, sir. What can I do for you?",
+            "Evening, sir. I'm listening.",
+        ])
+
+    return choose([
+        "Good evening, sir.",
+        "Evening, sir.",
+        "Good evening, sir. What can I do for you?",
+        "Evening, sir. I'm listening.",
+    ])
+
+
+# ============================================================
+# NATURAL COMMAND RESPONSE
+# ============================================================
+
+def natural_response(action_type="general"):
+    responses = {
+
+        "open": [
+            "Certainly, sir. It's opening now.",
+            "Right away, sir. Consider it handled.",
+            "Of course, sir. Launching it now.",
+            "As requested, sir. It's on its way.",
+            "Already on it, sir. Give me just a moment.",
+            "Done, sir. You may proceed.",
+            "And there we are, sir. Everything is in place.",
+            "Consider it handled, sir. That was rather straightforward.",
+            "Certainly, sir. I've taken care of it.",
+            "At once, sir. The application is launching."
+        ],
+
+        "close": [
+            "Certainly, sir. I'll take care of that.",
+            "Right away, sir. Closing it now.",
+            "Of course, sir. That's being dealt with.",
+            "Done, sir. One less distraction.",
+            "As you wish, sir. It's closed.",
+            "Consider it handled, sir.",
+            "And that's taken care of, sir.",
+            "Certainly, sir. We've cleared that from the screen."
+        ],
+
+        "search": [
+            "Searching now, sir. Let's see what we can find.",
+            "Certainly, sir. I'll have a look.",
+            "On it, sir. Searching your files now.",
+            "Right away, sir. Let's track it down.",
+            "Searching, sir. Hopefully it hasn't decided to disappear.",
+            "Of course, sir. I'll interrogate the filesystem.",
+            "I'm on it, sir. Give me a moment.",
+            "Searching now, sir. I have a feeling we'll find it."
+        ],
+
+        "not_found": [
+            "I'm afraid I couldn't locate it, sir.",
+            "Nothing turned up, sir. It seems to be hiding.",
+            "I couldn't find that file, sir. Perhaps we should try another approach.",
+            "No luck, sir. The file appears to be playing hard to get.",
+            "I'm afraid that's eluding me, sir.",
+            "Nothing useful came up, sir. I suspect the file has gone into hiding."
+        ],
+
+        "unclear": [
+            "I'm sorry, sir. I didn't quite catch that.",
+            "Could you repeat that, sir?",
+            "I'm afraid I missed that, sir.",
+            "One more time, sir. I wasn't quite able to make that out.",
+            "You'll have to repeat that, sir. I seem to have missed an important detail.",
+            "I'm listening, sir. Please try that once more."
+        ],
+
+        "general": [
+            "Certainly, sir.",
+            "Right away, sir.",
+            "Of course, sir.",
+            "Consider it handled, sir.",
+            "Already on it, sir.",
+            "As you wish, sir.",
+            "Done, sir.",
+            "At once, sir.",
+            "I've got it, sir.",
+            "Naturally, sir."
+        ],
+
+        "humor": [
+            "Done, sir. That was almost disappointingly easy.",
+            "Certainly, sir. I was beginning to feel underutilized.",
+            "Already handled, sir. You do make this look remarkably easy.",
+            "Done, sir. Another crisis successfully avoided.",
+            "Of course, sir. I'll pretend that was difficult.",
+            "Consider it handled, sir. We can all breathe again.",
+            "Right away, sir. I do enjoy being useful.",
+            "Completed, sir. No explosions required.",
+            "Done, sir. Your impeccable timing strikes again.",
+            "Naturally, sir. What else would I be doing?"
+        ]
+    }
+
+    pool = responses.get(action_type, responses["general"])
+
+    # Occasionally use a humorous response
+    if random.random() < 0.18:
+        pool = responses["humor"]
+
+    return random.choice(pool)
+
+
+    # --------------------------------------------------------
+    # GOOGLE
+    # --------------------------------------------------------
+
+    if "search google" in text or "google search" in text:
+        return choose([
+            "There we go, sir.",
+            "Google is on it, sir.",
+            "Search opened, sir.",
+            "Done, sir. Your search is underway.",
+        ])
+
+    # --------------------------------------------------------
+    # CLAUDE
+    # --------------------------------------------------------
+
+    if "claude" in text:
+        return choose([
+            "Claude is opening, sir.",
+            "There you go, sir. Claude is ready.",
+            "Claude is on its way, sir.",
+        ])
+
+    # --------------------------------------------------------
+    # CLOSE / EXIT / QUIT
+    # --------------------------------------------------------
+
+    if text.startswith("close "):
+        app = text[6:].strip()
+
+        return choose([
+            f"Closing {app}, sir.",
+            f"{app} is closed, sir.",
+            f"Done, sir. {app} is out of the way.",
+            f"Consider {app} closed, sir.",
+        ])
+
+    if text.startswith("exit "):
+        app = text[5:].strip()
+
+        return choose([
+            f"Closing {app}, sir.",
+            f"{app} is closed, sir.",
+            f"Done, sir. {app} is out of the way.",
+        ])
+
+    if text.startswith("quit "):
+        app = text[5:].strip()
+
+        return choose([
+            f"Closing {app}, sir.",
+            f"{app} is closed, sir.",
+            f"Done, sir.",
+        ])
+
+    # --------------------------------------------------------
+    # OPEN / LAUNCH / START
+    # --------------------------------------------------------
+
+    if (
+        text.startswith("open ")
+        or text.startswith("launch ")
+        or text.startswith("start ")
+        or text.startswith("run ")
+    ):
+
+        if text.startswith("open "):
+            target = text[5:].strip()
+        elif text.startswith("launch "):
+            target = text[7:].strip()
+        elif text.startswith("start "):
+            target = text[6:].strip()
+        else:
+            target = text[4:].strip()
+
+        return choose([
+            f"{target} is open, sir.",
+            f"There you go, sir. {target} is ready.",
+            f"{target} is up and running, sir.",
+            f"Done, sir. {target} is on its way.",
+            f"Consider it handled, sir. {target} is open.",
+        ])
+
+    # --------------------------------------------------------
+    # FIND / LOCATE
+    # --------------------------------------------------------
+
+    if (
+        text.startswith("find ")
+        or text.startswith("locate ")
+        or text.startswith("where is ")
+        or text.startswith("where are ")
+    ):
+        return choose([
+            "I found it, sir.",
+            "Search complete, sir.",
+            "There we go, sir.",
+            "Found what you were looking for, sir.",
+        ])
+
+    # --------------------------------------------------------
+    # GENERIC SUCCESS
+    # --------------------------------------------------------
+
+    return choose([
+        "Done, sir.",
+        "Consider it handled, sir.",
+        "Right away, sir.",
+        "All set, sir.",
+        "Done and dusted, sir.",
+        "Handled, sir.",
+        "There we go, sir.",
+    ])
+
+
+# ============================================================
+# TRAY ICON
+# ============================================================
 
 def make_icon(paused=False):
     image = Image.new("RGB", (64, 64), "black")
     draw = ImageDraw.Draw(image)
 
     if paused:
-        draw.rectangle((17, 17, 47, 47), outline="white", width=4)
-        draw.line((24, 24, 40, 40), fill="white", width=4)
-        draw.line((40, 24, 24, 40), fill="white", width=4)
+        draw.rectangle(
+            (17, 17, 47, 47),
+            outline="white",
+            width=4,
+        )
+
+        draw.line(
+            (24, 24, 40, 40),
+            fill="white",
+            width=4,
+        )
+
+        draw.line(
+            (40, 24, 24, 40),
+            fill="white",
+            width=4,
+        )
+
     else:
-        draw.ellipse((15, 15, 49, 49), outline="white", width=4)
-        draw.ellipse((27, 27, 37, 37), fill="white")
+        draw.ellipse(
+            (15, 15, 49, 49),
+            outline="white",
+            width=4,
+        )
+
+        draw.ellipse(
+            (27, 27, 37, 37),
+            fill="white",
+        )
 
     return image
-
-
-def play_wake_sound():
-    """
-    Play the wake confirmation sound synchronously.
-
-    Synchronous playback prevents the command recorder
-    from accidentally recording the wake sound.
-    """
-    try:
-        if config.WAKE_SOUND_PATH.is_file():
-            winsound.PlaySound(
-                str(config.WAKE_SOUND_PATH),
-                winsound.SND_FILENAME,
-            )
-        else:
-            winsound.Beep(880, 100)
-            winsound.Beep(1175, 100)
-
-    except Exception:
-        log.exception("Wake sound failed.")
 
 
 def update_tray():
     if TRAY is not None:
         TRAY.icon = make_icon(PAUSED.is_set())
+
         TRAY.title = (
             "Jarvis — Paused"
             if PAUSED.is_set()
             else "Jarvis — Listening"
         )
+
         TRAY.update_menu()
 
 
 def toggle_pause(icon=None, item=None):
+
     if PAUSED.is_set():
         PAUSED.clear()
+
         log.info("Listening resumed from tray.")
-        speak("Listening resumed.")
+
+        tts.speak(
+            choose([
+                "Listening resumed, sir.",
+                "I'm listening again, sir.",
+                "Back online and listening, sir.",
+            ])
+        )
+
     else:
         PAUSED.set()
-        log.info("Listening paused; microphone capture will be released.")
-        speak("Listening paused.")
+
+        log.info(
+            "Listening paused; microphone capture will be released."
+        )
+
+        tts.speak(
+            choose([
+                "Listening paused, sir.",
+                "I'll wait here, sir.",
+                "Paused, sir.",
+            ])
+        )
 
     update_tray()
 
 
 def open_log(icon=None, item=None):
+
     try:
-        config.LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        config.LOG_PATH.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
 
         if not config.LOG_PATH.exists():
             config.LOG_PATH.touch()
 
-        subprocess.Popen(
-            ["explorer", "/select,", str(config.LOG_PATH)]
-        )
+        subprocess.Popen([
+            "explorer",
+            "/select,",
+            str(config.LOG_PATH),
+        ])
 
     except Exception:
         log.exception("Could not open log file.")
 
 
 def quit_app(icon=None, item=None):
+
     log.info("Quit requested.")
+
     STOP.set()
     PAUSED.set()
 
@@ -184,6 +458,7 @@ def quit_app(icon=None, item=None):
 
 
 def tray_thread():
+
     global TRAY
 
     menu = pystray.Menu(
@@ -214,7 +489,12 @@ def tray_thread():
     TRAY.run()
 
 
+# ============================================================
+# YES / NO CONFIRMATION
+# ============================================================
+
 def is_yes(text):
+
     text = text.lower().strip()
 
     yes_patterns = (
@@ -229,10 +509,14 @@ def is_yes(text):
         r"\bplease do\b",
     )
 
-    return any(re.search(pattern, text) for pattern in yes_patterns)
+    return any(
+        re.search(pattern, text)
+        for pattern in yes_patterns
+    )
 
 
 def is_no(text):
+
     text = text.lower().strip()
 
     no_patterns = (
@@ -245,34 +529,47 @@ def is_no(text):
         r"\bdo not\b",
     )
 
-    return any(re.search(pattern, text) for pattern in no_patterns)
+    return any(
+        re.search(pattern, text)
+        for pattern in no_patterns
+    )
 
 
 def listen_for_confirmation():
-    """
-    Listen for a short yes/no answer.
 
-    The normal wake-word detector is not running during this state.
-    """
     if STOP.is_set() or PAUSED.is_set():
         return None
 
-    time.sleep(0.15)
+    time.sleep(0.08)
 
     log.info("Listening for confirmation.")
 
     try:
         answer = stt.record_and_transcribe(
-            min(getattr(config, "COMMAND_RECORD_SECONDS", 4), 4)
+            min(
+                getattr(
+                    config,
+                    "COMMAND_RECORD_SECONDS",
+                    4,
+                ),
+                4,
+            )
         )
+
     except Exception:
-        log.exception("Confirmation recording failed.")
+        log.exception(
+            "Confirmation recording failed."
+        )
+
         return None
 
     if not answer:
         return None
 
-    log.info("Confirmation recognized: %r", answer)
+    log.info(
+        "Confirmation recognized: %r",
+        answer,
+    )
 
     if is_yes(answer):
         return True
@@ -283,69 +580,28 @@ def listen_for_confirmation():
     return None
 
 
-def command_response(command, success):
-    """
-    Basic v1 response generator.
-
-    This deliberately stays deterministic. In the next version this
-    function can be replaced by an LLM-based intent/response layer.
-    """
-    text = command.lower().strip()
-
-    if not success:
-        if text.startswith(("find ", "locate ", "where is ", "where are ")):
-            return "I couldn't complete that search."
-        return "I couldn't complete that command."
-
-    if text.startswith(("search google", "google search", "search the web",
-                        "search web")) or " on google" in text:
-        return "Searching Google."
-
-    if text.startswith(("ask claude", "tell claude", "command claude",
-                         "give claude", "claude ")):
-        return "Certainly. Sending that to Claude."
-
-    if text.startswith(("find ", "locate ", "where is ", "where are ")):
-        return "I've completed the search."
-
-    if text.startswith(("close ", "exit ", "quit ")):
-        target = re.sub(
-            r"^(close|exit|quit)\s+",
-            "",
-            text,
-            count=1,
-        ).strip()
-
-        if target:
-            return f"Closing {target}."
-        return "Closing the application."
-
-    if text.startswith(("open ", "launch ", "start ", "run ")):
-        target = re.sub(
-            r"^(open|launch|start|run)\s+",
-            "",
-            text,
-            count=1,
-        ).strip()
-
-        if target:
-            return f"Opening {target}."
-        return "Opening the application."
-
-    return "Certainly. The command has been completed."
-
+# ============================================================
+# FILE SEARCH / GOOGLE FOLLOW-UP
+# ============================================================
 
 def extract_search_subject(command):
-    """Return a useful phrase for a follow-up Google-search question."""
+
     text = command.lower().strip()
 
     patterns = (
         r"^(?:find|locate|search for|where is|where are)\s+(.+)$",
-        r"^(?:find|locate)\s+(.+?)\s+on my (?:pc|computer)$",
+
+        r"^(?:find|locate)\s+(.+?)\s+on my "
+        r"(?:pc|computer)$",
     )
 
     for pattern in patterns:
-        match = re.search(pattern, text)
+
+        match = re.search(
+            pattern,
+            text,
+        )
+
         if match:
             return match.group(1).strip()
 
@@ -353,12 +609,7 @@ def extract_search_subject(command):
 
 
 def should_offer_google_followup(command):
-    """
-    Only file/PC-location requests get the confirmation in Basic v1.
 
-    This prevents JARVIS from asking unnecessary questions after every
-    normal command.
-    """
     text = command.lower().strip()
 
     return (
@@ -370,318 +621,335 @@ def should_offer_google_followup(command):
 
 
 def ask_google_followup(command):
+
     subject = extract_search_subject(command)
 
-    speak(
+    tts.speak(
         f"I've completed the search for {subject}. "
-        f"Would you like me to search Google for it?"
+        "Would you like me to search Google for it?"
     )
 
     answer = listen_for_confirmation()
 
     if answer is True:
-        speak(f"Certainly. Searching Google for {subject}.")
 
-        google_command = f"search google for {subject}"
+        tts.speak(
+            f"Certainly, sir. "
+            f"Searching Google for {subject}."
+        )
+
+        google_command = (
+            f"search google for {subject}"
+        )
 
         try:
-            success = launch_from_command(google_command)
+
+            success = launch_from_command(
+                google_command
+            )
+
             if not success:
-                speak("I couldn't open the Google search.")
-        except Exception:
-            log.exception("Google follow-up failed.")
-            speak("I couldn't open the Google search.")
-
-    elif answer is False:
-        speak("Alright.")
-
-    else:
-        speak("I didn't catch that. I'll leave it there.")
-
-
-def get_greeting():
-    hour = time.localtime().tm_hour
-
-    if 5 <= hour < 12:
-        return "Good morning, sir. How are you?"
-
-    if 12 <= hour < 17:
-        return "Good afternoon, sir. How can I help you?"
-
-    if 17 <= hour < 22:
-        return "Good evening, sir. What can I do for you?"
-
-    return "Good evening, sir. How can I assist you?"
-
-def get_command_response(command, success):
-    command = command.lower().strip()
-
-    if not success:
-        return "I'm sorry, sir. I couldn't complete that command."
-
-    responses = {
-        "open instagram": "Opening Instagram, sir.",
-        "launch instagram": "Opening Instagram, sir.",
-
-        "open arduino": "Opening Arduino IDE, sir.",
-        "open arduino ide": "Opening Arduino IDE, sir.",
-        "launch arduino": "Opening Arduino IDE, sir.",
-
-        "open kicad": "Opening KiCad, sir.",
-        "open ki cad": "Opening KiCad, sir.",
-        "launch kicad": "Opening KiCad, sir.",
-
-        "open vs code": "Opening Visual Studio Code, sir.",
-        "open visual studio code": "Opening Visual Studio Code, sir.",
-
-        "open chrome": "Opening Google Chrome, sir.",
-        "open google chrome": "Opening Google Chrome, sir.",
-
-        "open notepad": "Opening Notepad, sir.",
-
-        "open calculator": "Opening Calculator, sir.",
-
-        "open explorer": "Opening File Explorer, sir.",
-        "open file explorer": "Opening File Explorer, sir.",
-
-        "open proteus": "Opening Proteus, sir.",
-        "open keil": "Opening Keil uVision, sir.",
-        "open blender": "Opening Blender, sir.",
-        "open vlc": "Opening VLC Media Player, sir.",
-        "open davinci": "Opening DaVinci Resolve, sir.",
-        "open davinci resolve": "Opening DaVinci Resolve, sir.",
-
-        "open spotify": "Opening Spotify, sir.",
-        "open whatsapp": "Opening WhatsApp, sir.",
-        "open claude": "Opening Claude, sir.",
-    }
-
-    if command in responses:
-        return responses[command]
-
-    if command.startswith("close "):
-        app = command[6:].strip()
-        return f"Closing {app}, sir."
-
-    if command.startswith("exit "):
-        app = command[5:].strip()
-        return f"Closing {app}, sir."
-
-    return "Done, sir."
-
-
-def assistant_loop():
-
-    global WAKE_MODEL
-
-    while not STOP.is_set():
-
-        # =====================================================
-        # STATE 1: WAIT FOR "HEY JARVIS"
-        # =====================================================
-
-        if PAUSED.is_set():
-            time.sleep(0.2)
-            continue
-
-        try:
-
-            log.info("Waiting for wake word.")
-
-            detected = wake_listener.listen_for_wake_word(
-                STOP,
-                PAUSED,
-                model=WAKE_MODEL,
-            )
-
-            update_tray()
-
-            if STOP.is_set():
-                break
-
-            if PAUSED.is_set():
-                continue
-
-            if not detected:
-                continue
-
-            # =================================================
-            # WAKE WORD DETECTED
-            # =================================================
-
-            log.info("Wake word detected.")
-
-            tts.speak(get_greeting())
-
-            # Let microphone/audio buffer settle.
-            time.sleep(0.25)
-
-            # Play confirmation sound.
-            play_wake_sound()
-
-            time.sleep(0.15)
-
-            # =================================================
-            # ACTIVE SESSION
-            # =================================================
-
-            session_start = time.monotonic()
-            session_deadline = (
-                session_start
-                + config.COMMAND_SESSION_SECONDS
-            )
-
-            log.info(
-                "Active command session started for %s seconds.",
-                config.COMMAND_SESSION_SECONDS,
-            )
-
-            print()
-            print("=" * 60)
-            print("JARVIS ACTIVE")
-            print(
-                f"Session timeout: "
-                f"{config.COMMAND_SESSION_SECONDS} seconds"
-            )
-            print("=" * 60)
-
-            # -------------------------------------------------
-            # Keep accepting commands without wake word.
-            # -------------------------------------------------
-
-            while (
-                not STOP.is_set()
-                and not PAUSED.is_set()
-                and time.monotonic() < session_deadline
-            ):
-
-                remaining = (
-                    session_deadline
-                    - time.monotonic()
+                tts.speak(
+                    "I couldn't open the Google search, sir."
                 )
-
-                # Never pass a negative/zero recording time.
-                if remaining <= 0:
-                    break
-
-                log.info(
-                    "Listening for command. "
-                    "Remaining session time: %.1f seconds",
-                    remaining,
-                )
-
-                command = stt.record_and_transcribe(
-                    min(
-                        config.COMMAND_RECORD_SECONDS,
-                        remaining,
-                    )
-                )
-
-                # -------------------------------------------------
-                # No speech:
-                # Keep the session alive until timeout.
-                # -------------------------------------------------
-
-                if not command:
-                    continue
-
-                log.info(
-                    "Command recognized: %r",
-                    command,
-                )
-
-                # -------------------------------------------------
-                # Execute command
-                # -------------------------------------------------
-
-                try:
-
-                    success = launch_from_command(command)
-
-                    response = get_command_response(command, success)
-                    tts.speak(response)
-
-                    log.info(
-                        "Command routing result: success=%s | command=%r",
-                        success,
-                        command,
-                    )
-
-                except Exception:
-
-                    log.exception(
-                        "Launcher failed for command %r",
-                        command,
-                    )
-
-                # -------------------------------------------------
-                # IMPORTANT:
-                #
-                # Every successful command refreshes the session.
-                #
-                # Example:
-                #
-                # Hey Jarvis
-                #     ↓
-                # Open Arduino
-                #     ↓
-                # 15 seconds starts
-                #
-                # Open KiCad
-                #     ↓
-                # another 15 seconds
-                #
-                # Open VS Code
-                #     ↓
-                # another 15 seconds
-                # -------------------------------------------------
-
-                session_deadline = (
-                    time.monotonic()
-                    + config.COMMAND_SESSION_SECONDS
-                )
-
-                time.sleep(0.25)
-
-            # =================================================
-            # SESSION ENDED
-            # =================================================
-
-            log.info(
-                "Active command session ended."
-            )
-
-            print()
-            print("JARVIS session ended.")
-            print("Waiting for wake word...")
-            print()
-
-            # Small cooldown before wake listener resumes.
-            time.sleep(0.5)
 
         except Exception:
 
             log.exception(
-                "Assistant cycle failed; continuing."
+                "Google follow-up failed."
             )
 
+            tts.speak(
+                "I couldn't open the Google search, sir."
+            )
+
+    elif answer is False:
+
+        tts.speak(
+            choose([
+                "Alright, sir.",
+                "No problem, sir.",
+                "Fair enough, sir.",
+            ])
+        )
+
+    else:
+
+        tts.speak(
+            "I didn't catch that, sir. "
+            "I'll leave it there."
+        )
+
+
+# ============================================================
+# MAIN ASSISTANT LOOP
+# ============================================================
+
+def assistant_loop():
+    """
+    Main J.A.R.V.I.S. loop.
+
+    Flow:
+
+        Hey Jarvis
+             ↓
+        Wake detected
+             ↓
+        Listen for command
+             ↓
+        Execute command
+             ↓
+        Speak response
+             ↓
+        Keep listening for more commands
+             ↓
+        Silence timeout
+             ↓
+        Return to wake-word listening
+    """
+
+    log.info("J.A.R.V.I.S. assistant loop started.")
+
+    # How long JARVIS stays in command mode when you stop speaking.
+    SESSION_TIMEOUT = 8.0
+
+    while not STOP.is_set():
+
+        # =========================================================
+        # WAKE MODE
+        # =========================================================
+
+        if PAUSED.is_set():
+            time.sleep(0.1)
+            continue
+
+        try:
+            detected = wake_listener.listen_for_wake_word(
+                stop_event=STOP,
+                pause_event=PAUSED
+            )
+
+        except Exception:
+            log.exception("Wake listener failed.")
             time.sleep(0.5)
+            continue
+
+        if STOP.is_set():
+            break
+
+        if not detected:
+            continue
+
+        log.info("Wake word detected.")
+
+        # =========================================================
+        # COMMAND MODE
+        #
+        # Once awakened, DO NOT listen for "Hey Jarvis" again.
+        # Listen directly for commands.
+        # =========================================================
+
+        last_command_time = time.time()
+
+        while not STOP.is_set():
+
+            if PAUSED.is_set():
+                time.sleep(0.1)
+                continue
+
+            # -----------------------------------------------------
+            # Check session timeout
+            # -----------------------------------------------------
+
+            if time.time() - last_command_time > SESSION_TIMEOUT:
+                log.info(
+                    "Command session timed out. "
+                    "Returning to wake-word mode."
+                )
+                break
+
+            # -----------------------------------------------------
+            # Listen for command
+            # -----------------------------------------------------
+
+            try:
+                command = stt.record_and_transcribe(seconds=5)
+
+            except KeyboardInterrupt:
+                log.info("Command listening interrupted.")
+                break
+
+            except Exception:
+                log.exception("Speech recognition failed.")
+                break
+
+            if STOP.is_set():
+                break
+
+            # -----------------------------------------------------
+            # Nothing heard
+            # -----------------------------------------------------
+
+            if not command:
+                continue
+
+            command = command.strip()
+
+            if not command:
+                continue
+
+            log.info("Command recognized: %s", command)
+
+            # Reset timeout because we received a command.
+            last_command_time = time.time()
+
+            # =====================================================
+            # EXECUTE COMMAND
+            # =====================================================
+
+            try:
+
+                launch_from_command(command)
+
+                log.info(
+                    "Command execution completed: %s",
+                    command
+                )
+
+            except Exception:
+                log.exception(
+                    "Command execution failed: %s",
+                    command
+                )
+
+                try:
+                    tts.speak(
+                        "I'm afraid something went wrong, sir."
+                    )
+                except Exception:
+                    log.exception(
+                        "Failed to speak error response."
+                    )
+
+                # Continue listening for another command.
+                last_command_time = time.time()
+                continue
+
+            # =====================================================
+            # SPEAK RESPONSE
+            # =====================================================
+
+            try:
+
+                response = natural_response("general")
+
+                log.info(
+                    "J.A.R.V.I.S. response: %s",
+                    response
+                )
+
+                tts.speak(response)
+
+            except Exception:
+                log.exception(
+                    "J.A.R.V.I.S. response/TTS failed."
+                )
+
+            # -----------------------------------------------------
+            # Give the microphone a tiny moment to settle after
+            # JARVIS finishes speaking.
+            # -----------------------------------------------------
+
+            time.sleep(0.15)
+
+            # Keep command mode alive.
+            last_command_time = time.time()
+
+        # =========================================================
+        # COMMAND MODE ENDED
+        #
+        # Now go back to waiting for "Hey Jarvis".
+        # =========================================================
+
+        log.info(
+            "Returning to wake-word listening."
+        )
+
+        time.sleep(0.2)
+
+    log.info("J.A.R.V.I.S. assistant loop stopped.")
+
+
+# ============================================================
+# MAIN
+# ============================================================
 
 def main():
+
     global WAKE_MODEL
 
     setup_logging()
 
-    log.info("Jarvis starting.")
-    log.info("Project directory: %s", config.BASE_DIR)
+    log.info(
+        "Jarvis starting."
+    )
 
-    setup_tts()
+    log.info(
+        "Project directory: %s",
+        config.BASE_DIR,
+    )
 
-    log.info("Loading Vosk model.")
+    # --------------------------------------------------------
+    # WARM UP TTS
+    # --------------------------------------------------------
+
+    try:
+
+        tts.warm_up()
+
+        log.info(
+            "TTS warmed up successfully."
+        )
+
+    except Exception:
+
+        log.exception(
+            "TTS warm-up failed."
+        )
+
+    # --------------------------------------------------------
+    # LOAD VOSK
+    # --------------------------------------------------------
+
+    log.info(
+        "Loading Vosk model."
+    )
+
     stt.load_model()
 
-    log.info("Loading wake-word model.")
-    WAKE_MODEL = wake_listener.load_wake_model()
+    log.info(
+        "Vosk model loaded."
+    )
+
+    # --------------------------------------------------------
+    # LOAD WAKE MODEL
+    # --------------------------------------------------------
+
+    log.info(
+        "Loading wake-word model."
+    )
+
+    WAKE_MODEL = (
+        wake_listener.load_wake_model()
+    )
+
+    log.info(
+        "Wake-word model loaded."
+    )
+
+    # --------------------------------------------------------
+    # SYSTEM TRAY
+    # --------------------------------------------------------
 
     tray = threading.Thread(
         target=tray_thread,
@@ -691,12 +959,17 @@ def main():
 
     tray.start()
 
-    # Startup response.
-    speak("JARVIS is online.")
+    log.info(
+        "Jarvis ready. Waiting for wake word."
+    )
 
+    # IMPORTANT:
+    # No startup voice here.
     assistant_loop()
 
-    log.info("Jarvis stopped.")
+    log.info(
+        "Jarvis stopped."
+    )
 
 
 if __name__ == "__main__":

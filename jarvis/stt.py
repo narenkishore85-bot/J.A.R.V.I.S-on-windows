@@ -7,7 +7,7 @@ import numpy as np
 import sounddevice as sd
 from vosk import Model, KaldiRecognizer
 
-import config
+from . import config
 
 
 log = logging.getLogger(__name__)
@@ -84,6 +84,7 @@ def clean_command(text):
 #
 # This is intentionally small because Jarvis is deterministic.
 # ---------------------------------------------------------
+
 COMMAND_GRAMMAR = json.dumps([
     # =========================================================
     # OPEN APPLICATIONS
@@ -331,18 +332,29 @@ COMMAND_GRAMMAR = json.dumps([
 
     "[unk]"
 ])
+
+
 # ---------------------------------------------------------
 # Record and transcribe
 # ---------------------------------------------------------
 
-def record_and_transcribe(seconds=5):
+def record_and_transcribe(seconds=8):
     """
-    Record a short Jarvis command and transcribe it with Vosk.
+    Record a Jarvis command and transcribe it with Vosk.
 
-    The function keeps the original interface:
+    Timing behavior:
+
+        Up to 5 seconds to START speaking.
+
+        Once speech starts:
+            wait for 1.2 seconds of silence.
+
+        Maximum recording time:
+            8 seconds.
+
+    The original function interface remains compatible:
+
         record_and_transcribe(seconds)
-
-    It also stops early after speech followed by silence.
     """
 
     model = load_model()
@@ -355,24 +367,45 @@ def record_and_transcribe(seconds=5):
 
     recognizer.SetWords(True)
 
-    chunks = []
-
+    # ---------------------------------------------------------
     # Audio settings
-    blocksize = 400                 # 25 ms at 16 kHz
-    silence_limit = 0.8             # seconds
-    start_timeout = 2.0             # wait this long for speech
+    # ---------------------------------------------------------
 
-    # RMS threshold.
-    # Your microphone was working, so start moderately low.
+    blocksize = 400                  # 25 ms @ 16 kHz
+
+    # Time allowed before the user starts speaking.
+    #
+    # Increased from 2.0 seconds.
+    #
+    # This allows:
+    #
+    # Hey Jarvis
+    #     ↓
+    # short pause
+    #     ↓
+    # open chrome
+    #
+    start_timeout = 5.0
+
+    # Once speech has started, wait this long for silence
+    # before considering the command complete.
+    #
+    # Increased from 0.8 seconds.
+    silence_limit = 1.2
+
+    # RMS threshold used to detect actual speech.
+    #
+    # Keep this moderate because the Realtek microphone
+    # was already working correctly with this value.
     speech_threshold = 180
 
     speech_started = False
     silence_time = 0.0
-    waiting_time = 0.0
 
     print("Listening for command...")
 
     try:
+
         with sd.InputStream(
             device=config.MIC_DEVICE,
             samplerate=config.SAMPLE_RATE,
@@ -385,6 +418,10 @@ def record_and_transcribe(seconds=5):
 
             while True:
 
+                # -------------------------------------------------
+                # Read 25 ms of microphone audio
+                # -------------------------------------------------
+
                 data, overflowed = stream.read(blocksize)
 
                 if overflowed:
@@ -392,7 +429,10 @@ def record_and_transcribe(seconds=5):
 
                 audio = data[:, 0].copy()
 
+                # -------------------------------------------------
                 # Calculate RMS volume
+                # -------------------------------------------------
+
                 audio_float = audio.astype(np.float32)
 
                 rms = float(
@@ -403,64 +443,119 @@ def record_and_transcribe(seconds=5):
                     )
                 )
 
-                # Feed audio to Vosk
-                recognizer.AcceptWaveform(audio.tobytes())
+                # -------------------------------------------------
+                # ALWAYS feed audio to Vosk
+                # -------------------------------------------------
 
-                chunks.append(audio)
+                recognizer.AcceptWaveform(
+                    audio.tobytes()
+                )
 
-                elapsed = time.monotonic() - start_time
+                elapsed = (
+                    time.monotonic()
+                    - start_time
+                )
 
-                # -----------------------------------------
-                # Detect beginning of speech
-                # -----------------------------------------
+                # -------------------------------------------------
+                # Detect speech
+                # -------------------------------------------------
 
                 if rms >= speech_threshold:
 
                     if not speech_started:
-                        print("Speech detected...")
+                        print(
+                            f"Speech detected "
+                            f"(RMS: {rms:.0f})"
+                        )
 
                     speech_started = True
+
+                    # User is still speaking.
                     silence_time = 0.0
 
                 else:
 
                     if speech_started:
-                        silence_time += blocksize / config.SAMPLE_RATE
-                    else:
-                        waiting_time = elapsed
 
-                # -----------------------------------------
-                # Stop after speech + silence
-                # -----------------------------------------
+                        # 25 ms of silence.
+                        silence_time += (
+                            blocksize
+                            / config.SAMPLE_RATE
+                        )
 
-                if speech_started and silence_time >= silence_limit:
+                # -------------------------------------------------
+                # Command finished
+                #
+                # Only stop AFTER speech has started.
+                # -------------------------------------------------
+
+                if (
+                    speech_started
+                    and silence_time >= silence_limit
+                ):
                     break
 
-                # -----------------------------------------
-                # Safety timeout
-                # -----------------------------------------
+                # -------------------------------------------------
+                # Maximum recording duration
+                # -------------------------------------------------
 
                 if elapsed >= seconds:
                     break
 
-                if not speech_started and waiting_time >= start_timeout:
-                    print("No speech detected.")
+                # -------------------------------------------------
+                # No speech yet
+                #
+                # Give the user 5 seconds to begin.
+                # -------------------------------------------------
+
+                if (
+                    not speech_started
+                    and elapsed >= start_timeout
+                ):
+
+                    print(
+                        "No speech detected."
+                    )
+
                     return ""
 
     except Exception as exc:
-        log.exception("Microphone recording failed")
-        print("Microphone error:", exc)
+
+        log.exception(
+            "Microphone recording failed"
+        )
+
+        print(
+            "Microphone error:",
+            exc
+        )
+
         return ""
+
+    # ---------------------------------------------------------
+    # Final Vosk processing
+    # ---------------------------------------------------------
 
     print("Processing...")
 
-    # Get final Vosk result
-    result = json.loads(recognizer.FinalResult())
+    result = json.loads(
+        recognizer.FinalResult()
+    )
 
-    text = result.get("text", "").strip()
+    text = result.get(
+        "text",
+        ""
+    ).strip()
+
+    # ---------------------------------------------------------
+    # Clean recognized command
+    # ---------------------------------------------------------
 
     text = clean_command(text)
 
-    print("RESULT:", text)
+    print(
+        "RESULT:",
+        text
+    )
 
     return text
