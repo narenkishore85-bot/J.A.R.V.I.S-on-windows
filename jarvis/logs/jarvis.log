@@ -1706,3 +1706,63 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-12 15:29:54,349 | INFO | jarvis | Command recognized: 'search [unk]'
 2026-09-12 15:29:54,351 | INFO | jarvis | Command routing result: success=False | command='search [unk]'
 2026-09-12 15:29:54,951 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:42:53,855 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:42:53,855 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:42:53,947 | INFO | comtypes.client._code_cache | Could not import comtypes.gen, trying to create it.
+2026-09-12 15:42:53,948 | INFO | comtypes.client._code_cache | Created comtypes.gen directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 15:42:53,948 | INFO | comtypes.client._code_cache | Writing __init__.py file: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen\__init__.py'
+2026-09-12 15:42:53,953 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 15:42:53,977 | INFO | comtypes.client._generate | Could not import comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4: No module named 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4'
+2026-09-12 15:42:53,981 | INFO | comtypes.client._generate | # Generating comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4
+2026-09-12 15:42:54,084 | INFO | comtypes.client._generate | # Generating comtypes.gen.SpeechLib
+2026-09-12 15:42:54,095 | INFO | comtypes.client._generate | Could not import comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0: No module named 'comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0'
+2026-09-12 15:42:54,096 | INFO | comtypes.client._generate | # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+2026-09-12 15:42:54,104 | INFO | comtypes.client._generate | # Generating comtypes.gen.stdole
+2026-09-12 15:42:59,200 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 15:42:59,200 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:42:59,201 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:42:59,852 | INFO | stt | Vosk model loaded
+2026-09-12 15:42:59,852 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:43:00,021 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 15:43:02,310 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:43:09,676 | INFO | jarvis | Wake word detected.
+2026-09-12 15:43:10,293 | INFO | jarvis | Listening for command.
+2026-09-12 15:43:12,598 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 15:43:15,353 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 15:43:15,354 | INFO | jarvis | JARVIS: Opening chrome.
+2026-09-12 15:43:16,189 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:43:18,177 | INFO | jarvis | Wake word detected.
+2026-09-12 15:43:18,804 | INFO | jarvis | Listening for command.
+2026-09-12 15:43:21,766 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 15:43:24,219 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 15:43:24,219 | INFO | jarvis | JARVIS: Opening vs code.
+2026-09-12 15:43:25,055 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:43:35,556 | INFO | jarvis | Wake word detected.
+2026-09-12 15:43:36,169 | INFO | jarvis | Listening for command.
+2026-09-12 15:43:39,006 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-12 15:43:42,893 | INFO | jarvis | Command routing result: success=True | command='close vs code'
+2026-09-12 15:43:42,894 | INFO | jarvis | JARVIS: Closing vs code.
+2026-09-12 15:43:43,704 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:43:45,690 | INFO | jarvis | Wake word detected.
+2026-09-12 15:43:46,304 | INFO | jarvis | Listening for command.
+2026-09-12 15:43:49,147 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 15:43:49,200 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 15:43:49,200 | INFO | jarvis | JARVIS: Closing chrome.
+2026-09-12 15:43:50,021 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:44:13,205 | INFO | jarvis | Wake word detected.
+2026-09-12 15:44:13,825 | INFO | jarvis | Listening for command.
+2026-09-12 15:44:15,859 | INFO | jarvis | Command recognized: '[unk]'
+2026-09-12 15:44:15,859 | INFO | jarvis | Command routing result: success=False | command='[unk]'
+2026-09-12 15:44:15,859 | INFO | jarvis | JARVIS: I couldn't complete that command.
+2026-09-12 15:44:16,681 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:44:23,621 | INFO | jarvis | Wake word detected.
+2026-09-12 15:44:24,235 | INFO | jarvis | Listening for command.
+2026-09-12 15:44:26,290 | INFO | jarvis | No command recognized.
+2026-09-12 15:44:26,290 | INFO | jarvis | JARVIS: I didn't catch that.
+2026-09-12 15:44:27,018 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:44:35,317 | INFO | jarvis | Wake word detected.
+2026-09-12 15:44:35,932 | INFO | jarvis | Listening for command.
+2026-09-12 15:44:38,479 | INFO | jarvis | Command recognized: 'open [unk]'
+2026-09-12 15:44:38,479 | INFO | jarvis | Command routing result: success=False | command='open [unk]'
+2026-09-12 15:44:38,480 | INFO | jarvis | JARVIS: I couldn't complete that command.
+2026-09-12 15:44:39,297 | INFO | jarvis | Waiting for wake word.

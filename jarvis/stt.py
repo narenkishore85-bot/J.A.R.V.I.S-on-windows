@@ -73,24 +73,68 @@ def clean_command(text):
 # ---------------------------------------------------------
 
 COMMAND_GRAMMAR = json.dumps([
+    # OPEN
     "open notepad",
     "open calculator",
     "open explorer",
     "open chrome",
     "open vs code",
+    "open arduino",
+    "open arduino ide",
+    "open kicad",
+    "open ki cad",
+    "open instagram",
+    "open claude",
 
+    "launch notepad",
+    "launch calculator",
+    "launch explorer",
+    "launch chrome",
+    "launch vs code",
+    "launch arduino",
+    "launch arduino ide",
+    "launch kicad",
+
+    "start notepad",
+    "start calculator",
+    "start explorer",
+    "start chrome",
+    "start vs code",
+    "start arduino",
+    "start arduino ide",
+    "start kicad",
+
+    # CLOSE
     "close notepad",
     "close calculator",
     "close explorer",
     "close chrome",
     "close vs code",
+    "close arduino",
+    "close arduino ide",
+    "close kicad",
+    "close instagram",
+    "close claude",
 
     "exit notepad",
     "exit calculator",
     "exit explorer",
     "exit chrome",
     "exit vs code",
+    "exit arduino",
+    "exit arduino ide",
+    "exit kicad",
 
+    "quit notepad",
+    "quit calculator",
+    "quit explorer",
+    "quit chrome",
+    "quit vs code",
+    "quit arduino",
+    "quit arduino ide",
+    "quit kicad",
+
+    # FILE SEARCH
     "find my resume",
     "find resume",
     "locate my resume",
@@ -113,9 +157,25 @@ COMMAND_GRAMMAR = json.dumps([
     "where is my notes",
     "where is project report",
 
+    # GOOGLE
+    "search google",
+    "search google for",
+    "google search",
+    "google search for",
+
+    # CONFIRMATION
+    "yes",
+    "yeah",
+    "yep",
+    "sure",
+    "okay",
+    "ok",
+    "no",
+    "nope",
+    "nah",
+
     "[unk]"
 ])
-
 # ---------------------------------------------------------
 # Record and transcribe
 # ---------------------------------------------------------
