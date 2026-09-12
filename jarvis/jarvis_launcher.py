@@ -54,6 +54,8 @@ import os
 import re
 import subprocess
 import time
+import shutil
+from urllib.parse import quote_plus
 from pathlib import Path
 
 
@@ -83,6 +85,18 @@ APP_ALIASES = {
     "visual studio code": "Code.exe",
     "vscode": "Code.exe",
     "code": "Code.exe",
+
+    # Arduino IDE
+    "arduino": "arduino-ide.exe",
+    "arduino ide": "arduino-ide.exe",
+
+    # KiCad
+    "kicad": "kicad.exe",
+    "ki cad": "kicad.exe",
+
+    # Web apps opened in dedicated Chrome windows
+    "instagram": "__instagram__",
+    "claude": "__claude__",
 }
 
 
@@ -134,6 +148,74 @@ def find_vscode() -> str | None:
     return None
 
 
+def find_arduino() -> str | None:
+    """Find Arduino IDE 2.x/1.x in common Windows install locations."""
+    candidates = [
+        os.path.expandvars(r"%ProgramFiles%\Arduino IDE\Arduino IDE.exe"),
+        os.path.expandvars(r"%ProgramFiles%\Arduino IDE\arduino-ide.exe"),
+        os.path.expandvars(r"%LocalAppData%\Programs\Arduino IDE\Arduino IDE.exe"),
+        os.path.expandvars(r"%LocalAppData%\Programs\Arduino IDE\arduino-ide.exe"),
+        os.path.expandvars(r"%ProgramFiles(x86)%\Arduino\arduino.exe"),
+        os.path.expandvars(r"%ProgramFiles%\Arduino\arduino.exe"),
+    ]
+    for path in candidates:
+        if path and os.path.isfile(path):
+            return path
+    for name in ("arduino-ide.exe", "Arduino IDE.exe", "arduino.exe"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return None
+
+
+def find_kicad() -> str | None:
+    """Find KiCad's main executable across common versioned install folders."""
+    roots = [
+        Path(os.environ.get("ProgramFiles", r"C:\Program Files")) / "KiCad",
+        Path(os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)")) / "KiCad",
+    ]
+    candidates = []
+    for root in roots:
+        if not root.exists():
+            continue
+        candidates.extend([
+            root / "bin" / "kicad.exe",
+            root / "10.0" / "bin" / "kicad.exe",
+            root / "9.0" / "bin" / "kicad.exe",
+            root / "8.0" / "bin" / "kicad.exe",
+            root / "7.0" / "bin" / "kicad.exe",
+        ])
+        try:
+            candidates.extend(root.glob("*\\bin\\kicad.exe"))
+        except OSError:
+            pass
+    for path in candidates:
+        if path.is_file():
+            return str(path)
+    found = shutil.which("kicad.exe")
+    return found if found else None
+
+
+def find_claude_desktop() -> str | None:
+    """Find Claude Desktop if installed; otherwise JARVIS uses Claude web."""
+    candidates = [
+        os.path.expandvars(r"%LocalAppData%\Programs\Claude\Claude.exe"),
+        os.path.expandvars(r"%LocalAppData%\Programs\claude\Claude.exe"),
+        os.path.expandvars(r"%LocalAppData%\AnthropicClaude\Claude.exe"),
+        os.path.expandvars(r"%ProgramFiles%\Claude\Claude.exe"),
+    ]
+    for path in candidates:
+        if path and os.path.isfile(path):
+            return path
+    return shutil.which("Claude.exe")
+
+
+SITE_URLS = {
+    "instagram": "https://www.instagram.com/",
+    "claude": "https://claude.ai/new",
+}
+
+
 def resolve_known_executable(
     target: str,
 ) -> str | None:
@@ -175,6 +257,15 @@ def resolve_known_executable(
         if os.path.isfile(path):
             return path
         return "explorer.exe"
+
+    if target in {"arduino", "arduino ide"}:
+        return find_arduino()
+
+    if target in {"kicad", "ki cad"}:
+        return find_kicad()
+
+    if target == "claude":
+        return find_claude_desktop()
 
     return None
 
@@ -239,6 +330,7 @@ def get_chrome_pids() -> set[int]:
             capture_output=True,
             text=True,
             creationflags=subprocess.CREATE_NO_WINDOW,
+            timeout=2.0,
         )
         return {
             int(line.strip())
@@ -250,19 +342,84 @@ def get_chrome_pids() -> set[int]:
 
 
 def snapshot_chrome_windows() -> set[int]:
-    """Snapshot visible Chrome top-level windows before a new launch."""
-    return set(enumerate_windows_for_pids(get_chrome_pids()))
+    """Snapshot Chrome windows using native Win32 enumeration."""
+    return enumerate_visible_windows_by_title_or_class(
+        class_names=("Chrome_WidgetWin_1",)
+    )
 
 
 def find_new_chrome_window(before: set[int]) -> int | None:
-    """Wait briefly for a Chrome window that did not exist before launch."""
-    for _ in range(40):
-        current = set(enumerate_windows_for_pids(get_chrome_pids()))
+    """Detect a new Chrome window with fast native polling."""
+    for _ in range(60):
+        current = enumerate_visible_windows_by_title_or_class(
+            class_names=("Chrome_WidgetWin_1",)
+        )
         new_windows = current - before
         if new_windows:
             return next(iter(new_windows))
-        time.sleep(0.20)
+        time.sleep(0.05)
     return None
+
+
+def enumerate_visible_windows_by_title_or_class(
+    title_keywords: tuple[str, ...] = (),
+    class_names: tuple[str, ...] = (),
+) -> set[int]:
+    """Fast native Win32 window enumeration; avoids PowerShell polling."""
+    hwnds: set[int] = set()
+    EnumWindowsProc = ctypes.WINFUNCTYPE(
+        wintypes.BOOL, wintypes.HWND, wintypes.LPARAM
+    )
+
+    title_keywords = tuple(k.lower() for k in title_keywords)
+    class_names = tuple(c.lower() for c in class_names)
+
+    def callback(hwnd, _lparam):
+        if not user32.IsWindowVisible(hwnd):
+            return True
+        if user32.GetWindow(hwnd, GW_OWNER):
+            return True
+
+        title_buffer = ctypes.create_unicode_buffer(512)
+        class_buffer = ctypes.create_unicode_buffer(256)
+        user32.GetWindowTextW(hwnd, title_buffer, len(title_buffer))
+        user32.GetClassNameW(hwnd, class_buffer, len(class_buffer))
+
+        title = title_buffer.value.strip().lower()
+        class_name = class_buffer.value.strip().lower()
+
+        if (title_keywords and any(k in title for k in title_keywords)) or (
+            class_names and class_name in class_names
+        ):
+            hwnds.add(int(hwnd))
+        return True
+
+    user32.EnumWindows(EnumWindowsProc(callback), 0)
+    return hwnds
+
+
+def enumerate_visible_windows_by_title_keywords(keywords: tuple[str, ...]) -> set[int]:
+    """Return visible top-level windows whose title contains any keyword."""
+    hwnds: set[int] = set()
+    EnumWindowsProc = ctypes.WINFUNCTYPE(
+        wintypes.BOOL, wintypes.HWND, wintypes.LPARAM
+    )
+
+    def callback(hwnd, _lparam):
+        if not user32.IsWindowVisible(hwnd):
+            return True
+        if user32.GetWindow(hwnd, GW_OWNER):
+            return True
+
+        buffer = ctypes.create_unicode_buffer(512)
+        user32.GetWindowTextW(hwnd, buffer, len(buffer))
+        title = buffer.value.strip().lower()
+        if any(keyword.lower() in title for keyword in keywords):
+            hwnds.add(int(hwnd))
+        return True
+
+    user32.EnumWindows(EnumWindowsProc(callback), 0)
+    return hwnds
 
 
 def get_process_ids_by_name(process_name: str) -> set[int]:
@@ -288,34 +445,74 @@ def get_process_ids_by_name(process_name: str) -> set[int]:
 
 
 def snapshot_explorer_windows() -> set[int]:
-    """Snapshot visible Windows Explorer top-level windows before launch."""
-    return set(enumerate_windows_for_pids(get_process_ids_by_name("explorer")))
+    """Snapshot Explorer windows using the CabinetWClass window class."""
+    return enumerate_visible_windows_by_title_or_class(
+        class_names=("CabinetWClass",)
+    )
 
 
 def find_new_explorer_window(before: set[int]) -> int | None:
-    """Wait briefly for an Explorer window that did not exist before launch."""
-    for _ in range(40):
-        current = set(enumerate_windows_for_pids(get_process_ids_by_name("explorer")))
+    """Detect a new Explorer window with fast native polling."""
+    for _ in range(60):
+        current = enumerate_visible_windows_by_title_or_class(
+            class_names=("CabinetWClass",)
+        )
         new_windows = current - before
         if new_windows:
             return next(iter(new_windows))
-        time.sleep(0.20)
+        time.sleep(0.05)
     return None
 
 
 def snapshot_notepad_windows() -> set[int]:
-    """Snapshot visible Notepad top-level windows before launch."""
-    return set(enumerate_windows_for_pids(get_process_ids_by_name("notepad")))
+    """Snapshot Notepad windows using the native Notepad class."""
+    return enumerate_visible_windows_by_title_or_class(
+        class_names=("Notepad",)
+    )
 
 
 def find_new_notepad_window(before: set[int]) -> int | None:
-    """Wait briefly for a Notepad window that did not exist before launch."""
-    for _ in range(40):
-        current = set(enumerate_windows_for_pids(get_process_ids_by_name("notepad")))
+    """Detect a new Notepad window with fast native polling."""
+    for _ in range(60):
+        current = enumerate_visible_windows_by_title_or_class(
+            class_names=("Notepad",)
+        )
         new_windows = current - before
         if new_windows:
             return next(iter(new_windows))
-        time.sleep(0.20)
+        time.sleep(0.05)
+    return None
+
+
+def snapshot_vscode_windows() -> set[int]:
+    """Snapshot visible VS Code windows without invoking PowerShell."""
+    return enumerate_visible_windows_by_title_keywords(("visual studio code",))
+
+
+def find_new_vscode_window(before: set[int]) -> int | None:
+    """Wait briefly for a new VS Code window."""
+    for _ in range(60):
+        current = enumerate_visible_windows_by_title_keywords(("visual studio code",))
+        new_windows = current - before
+        if new_windows:
+            return next(iter(new_windows))
+        time.sleep(0.05)
+    return None
+
+
+def snapshot_calculator_windows() -> set[int]:
+    """Snapshot visible Calculator windows without invoking PowerShell."""
+    return enumerate_visible_windows_by_title_keywords(("calculator",))
+
+
+def find_new_calculator_window(before: set[int]) -> int | None:
+    """Wait briefly for a new Calculator window."""
+    for _ in range(60):
+        current = enumerate_visible_windows_by_title_keywords(("calculator",))
+        new_windows = current - before
+        if new_windows:
+            return next(iter(new_windows))
+        time.sleep(0.05)
     return None
 
 
@@ -333,14 +530,119 @@ def close_window(hwnd: int) -> bool:
 
     try:
         user32.PostMessageW(hwnd, WM_CLOSE, 0, 0)
-        for _ in range(30):
-            time.sleep(0.10)
+        for _ in range(20):
+            time.sleep(0.05)
             if not window_exists(hwnd):
                 return True
     except Exception as exc:
         print(f"[jarvis] Window close failed: {exc}")
 
     return not window_exists(hwnd)
+
+# ============================================================
+# WEB / AI COMMANDS
+# ============================================================
+
+SITE_WINDOW_KEYS = {"instagram", "claude"}
+
+def snapshot_site_windows(key: str) -> set[int]:
+    """Return visible windows likely belonging to a JARVIS site app window."""
+    keywords = {
+        "instagram": ("instagram",),
+        "claude": ("claude", "anthropic"),
+    }
+    return enumerate_visible_windows_by_title_keywords(keywords.get(key, (key,)))
+
+
+def find_new_site_window(key: str, before: set[int]) -> int | None:
+    for _ in range(60):
+        current = snapshot_site_windows(key)
+        new_windows = current - before
+        if new_windows:
+            return next(iter(new_windows))
+        time.sleep(0.05)
+    return None
+
+
+def launch_web_site(key: str, url: str) -> bool:
+    """Open a website in a dedicated Chrome window so it can be safely closed by HWND."""
+    chrome = find_chrome()
+    if not chrome:
+        print("[jarvis] Chrome was not found; cannot open the web app.")
+        return False
+
+    before_chrome = snapshot_chrome_windows()
+    before_site = snapshot_site_windows(key)
+    try:
+        args = [chrome, "--new-window", "--app=" + url]
+        subprocess.Popen(args, shell=False)
+        hwnd = find_new_chrome_window(before_chrome)
+        if hwnd is None:
+            # App windows may expose a title later than the Chrome class.
+            hwnd = find_new_site_window(key, before_site)
+        if hwnd is not None:
+            TRACKED_WINDOWS.setdefault(key, []).append(hwnd)
+            save_tracking_state()
+            print(f"[jarvis] Tracking '{key}' window HWND={hwnd}")
+        else:
+            print(f"[jarvis] Opened '{key}', but could not capture its window. Close will remain protected.")
+        print(f"[jarvis] Opened {key}: {url}")
+        return True
+    except Exception as exc:
+        print(f"[jarvis] Could not open {key}: {exc}")
+        return False
+
+
+def google_search(query: str) -> bool:
+    query = normalize_text(query)
+    if not query:
+        print("[jarvis] No Google search query specified.")
+        return False
+    chrome = find_chrome()
+    if not chrome:
+        print("[jarvis] Chrome was not found.")
+        return False
+    url = "https://www.google.com/search?q=" + quote_plus(query)
+    try:
+        subprocess.Popen([chrome, "--new-window", url], shell=False)
+        print(f"[jarvis] Google search: {query}")
+        return True
+    except Exception as exc:
+        print(f"[jarvis] Google search failed: {exc}")
+        return False
+
+
+def extract_google_query(command: str) -> str | None:
+    text = normalize_text(command)
+    patterns = (
+        r"^search google for (.+)$",
+        r"^search google (.+)$",
+        r"^google search for (.+)$",
+        r"^google search (.+)$",
+        r"^search the web for (.+)$",
+        r"^search web for (.+)$",
+        r"^search (.+) on google$",
+        r"^google (.+)$",
+    )
+    for pattern in patterns:
+        m = re.match(pattern, text)
+        if m:
+            return m.group(1).strip()
+    return None
+
+
+def extract_claude_prompt(command: str) -> str | None:
+    text = normalize_text(command)
+    patterns = (
+        r"^(?:ask|tell|command|give) claude(?: to)? (.+)$",
+        r"^claude (.+)$",
+    )
+    for pattern in patterns:
+        m = re.match(pattern, text)
+        if m:
+            return m.group(1).strip()
+    return None
+
 
 # ============================================================
 # COMMAND TRIGGERS
@@ -861,7 +1163,7 @@ def terminate_pid(
         )
 
         time.sleep(
-            0.30
+            0.10
         )
 
         if not process_exists(pid):
@@ -882,7 +1184,7 @@ def terminate_pid(
         )
 
         time.sleep(
-            0.30
+            0.10
         )
 
         return not process_exists(pid)
@@ -929,56 +1231,106 @@ def close_application(
         matched_name = "vs code"
     elif matched_name == "file explorer":
         matched_name = "explorer"
+    elif matched_name == "arduino ide":
+        matched_name = "arduino"
+    elif matched_name == "ki cad":
+        matched_name = "kicad"
 
-    # Chrome, Notepad, and Explorer are window-based where possible.
-    # This is especially important for modern Windows 11 Notepad, where
-    # terminating one PID can leave/recreate another process for the same app.
-    # Explorer is also the Windows shell, so it must never be task-killed.
-    if matched_name in {"chrome", "notepad", "explorer", "file explorer"}:
-        window_key = "chrome" if matched_name == "chrome" else (
-            "notepad" if matched_name == "notepad" else "explorer"
+    # Dedicated website/AI windows are closed only by their exact tracked HWND.
+    if matched_name in {"instagram", "claude"}:
+        hwnds = TRACKED_WINDOWS.get(matched_name, [])
+        if not hwnds:
+            print(f"[jarvis] No tracked {matched_name} window.")
+            print(f"[jarvis] Refusing to close an untracked {matched_name} window.")
+            return False
+        success = False
+        remaining = []
+        for hwnd in hwnds:
+            if not window_exists(hwnd):
+                continue
+            print(f"[jarvis] Closing tracked {matched_name} window HWND={hwnd}...")
+            if close_window(hwnd):
+                success = True
+            else:
+                remaining.append(hwnd)
+        if remaining:
+            TRACKED_WINDOWS[matched_name] = remaining
+        else:
+            TRACKED_WINDOWS.pop(matched_name, None)
+        clear_tracking_file_if_empty()
+        if TRACKED_PROCESSES or TRACKED_WINDOWS:
+            save_tracking_state()
+        return success
+
+    # GUI applications are closed by their exact tracked top-level window.
+    # This is safer for multi-process apps such as Chrome and VS Code and for
+    # modern Windows apps such as Notepad and Calculator. Explorer is also the
+    # Windows shell, so it must never be task-killed.
+    if matched_name in {"chrome", "notepad", "calculator", "vs code", "explorer", "file explorer"}:
+        window_key = (
+            "chrome" if matched_name == "chrome" else
+            "notepad" if matched_name == "notepad" else
+            "calculator" if matched_name == "calculator" else
+            "vs code" if matched_name == "vs code" else
+            "explorer"
         )
         hwnds = TRACKED_WINDOWS.get(window_key, [])
 
         if not hwnds:
-            print(f"[jarvis] No tracked {window_key} window.")
-            print(f"[jarvis] Refusing to close an untracked {window_key} window.")
-            return False
+            # Calculator/VS Code can occasionally delay creation of their
+            # top-level window. If no HWND was captured, safely fall back to
+            # the already-tracked PID(s), still protected by process identity.
+            if window_key not in {"calculator", "vs code"}:
+                print(f"[jarvis] No tracked {window_key} window.")
+                print(f"[jarvis] Refusing to close an untracked {window_key} window.")
+                return False
 
-        success = False
-        remaining = []
+            print(
+                f"[jarvis] No tracked {window_key} window; "
+                "falling back to the tracked PID."
+            )
+        else:
+            success = False
+            remaining = []
 
-        for hwnd in hwnds:
-            if not window_exists(hwnd):
-                continue
+            for hwnd in hwnds:
+                if not window_exists(hwnd):
+                    continue
 
-            print(f"[jarvis] Closing tracked {window_key} window HWND={hwnd}...")
-            if close_window(hwnd):
-                print(f"[jarvis] Closed {window_key} window (HWND={hwnd})")
-                success = True
+                print(f"[jarvis] Closing tracked {window_key} window HWND={hwnd}...")
+                if close_window(hwnd):
+                    print(f"[jarvis] Closed {window_key} window (HWND={hwnd})")
+                    success = True
+                else:
+                    remaining.append(hwnd)
+
+            if remaining:
+                TRACKED_WINDOWS[window_key] = remaining
             else:
-                remaining.append(hwnd)
+                TRACKED_WINDOWS.pop(window_key, None)
 
-        if remaining:
-            TRACKED_WINDOWS[window_key] = remaining
-        else:
-            TRACKED_WINDOWS.pop(window_key, None)
+            if window_key == "chrome":
+                TRACKED_PROCESSES.pop("chrome", None)
+                TRACKED_PROCESS_META.pop("chrome", None)
+            elif window_key == "notepad":
+                TRACKED_PROCESSES.pop("notepad", None)
+                TRACKED_PROCESS_META.pop("notepad", None)
+            elif window_key == "calculator":
+                TRACKED_PROCESSES.pop("calculator", None)
+                TRACKED_PROCESS_META.pop("calculator", None)
+            elif window_key == "vs code":
+                TRACKED_PROCESSES.pop("vs code", None)
+                TRACKED_PROCESS_META.pop("vs code", None)
+            else:
+                TRACKED_PROCESSES.pop("explorer", None)
+                TRACKED_PROCESSES.pop("file explorer", None)
+                TRACKED_PROCESS_META.pop("explorer", None)
+                TRACKED_PROCESS_META.pop("file explorer", None)
 
-        if window_key == "chrome":
-            TRACKED_PROCESSES.pop("chrome", None)
-            TRACKED_PROCESS_META.pop("chrome", None)
-        elif window_key == "notepad":
-            TRACKED_PROCESSES.pop("notepad", None)
-            TRACKED_PROCESS_META.pop("notepad", None)
-        else:
-            TRACKED_PROCESSES.pop("explorer", None)
-            TRACKED_PROCESSES.pop("file explorer", None)
-            TRACKED_PROCESS_META.pop("explorer", None)
-            TRACKED_PROCESS_META.pop("file explorer", None)
-
-        clear_tracking_file_if_empty()
-        save_tracking_state() if (TRACKED_PROCESSES or TRACKED_WINDOWS) else None
-        return success
+            clear_tracking_file_if_empty()
+            if TRACKED_PROCESSES or TRACKED_WINDOWS:
+                save_tracking_state()
+            return success
 
     pids = TRACKED_PROCESSES.get(matched_name, [])
 
@@ -1236,6 +1588,10 @@ def launch_application(
         print("[jarvis] No application specified.")
         return False
 
+    # Web apps are opened in dedicated Chrome windows and tracked by exact HWND.
+    if target in {"instagram", "claude"}:
+        return launch_web_site(target, SITE_URLS[target])
+
     # --------------------------------------------------------
     # WHITELIST CHECK
     # --------------------------------------------------------
@@ -1250,8 +1606,7 @@ def launch_application(
                 f"[jarvis] Application '{target}' is not in the Jarvis whitelist."
             )
             print(
-                "[jarvis] Allowed apps: Chrome, Notepad, Calculator, "
-                "File Explorer, VS Code."
+                "[jarvis] Allowed apps: Chrome, Notepad, Calculator, File Explorer, VS Code, Arduino IDE, KiCad, Instagram, Claude."
             )
             return False
 
@@ -1264,6 +1619,10 @@ def launch_application(
         matched_name = "vs code"
     elif matched_name == "file explorer":
         matched_name = "explorer"
+    elif matched_name == "arduino ide":
+        matched_name = "arduino"
+    elif matched_name == "ki cad":
+        matched_name = "kicad"
 
     # --------------------------------------------------------
     # Resolve executable path
@@ -1300,6 +1659,18 @@ def launch_application(
         before_notepad = (
             snapshot_notepad_windows()
             if matched_name == "notepad"
+            else set()
+        )
+
+        before_calculator = (
+            snapshot_calculator_windows()
+            if matched_name == "calculator"
+            else set()
+        )
+
+        before_vscode = (
+            snapshot_vscode_windows()
+            if matched_name == "vs code"
             else set()
         )
 
@@ -1355,6 +1726,30 @@ def launch_application(
                     "Chrome close will remain protected."
                 )
 
+        if matched_name == "calculator":
+            hwnd = find_new_calculator_window(before_calculator)
+            if hwnd is not None:
+                TRACKED_WINDOWS.setdefault("calculator", []).append(hwnd)
+                save_tracking_state()
+                print(f"[jarvis] Tracking 'calculator' window HWND={hwnd}")
+            else:
+                print(
+                    "[jarvis] Could not identify the new Calculator window. "
+                    "Calculator PID tracking remains active."
+                )
+
+        if matched_name == "vs code":
+            hwnd = find_new_vscode_window(before_vscode)
+            if hwnd is not None:
+                TRACKED_WINDOWS.setdefault("vs code", []).append(hwnd)
+                save_tracking_state()
+                print(f"[jarvis] Tracking 'vs code' window HWND={hwnd}")
+            else:
+                print(
+                    "[jarvis] Could not identify the new VS Code window. "
+                    "VS Code PID tracking remains active."
+                )
+
         print(
             f"[jarvis] Launched '{matched_name}' -> {executable_path}"
         )
@@ -1401,6 +1796,19 @@ def launch_from_command(
         f"[jarvis] Routing command: "
         f"{command!r}"
     )
+
+    # ========================================================
+    # GOOGLE SEARCH / CLAUDE VOICE COMMANDS
+    # ========================================================
+
+    google_query = extract_google_query(command)
+    if google_query:
+        return google_search(google_query)
+
+    claude_prompt = extract_claude_prompt(command)
+    if claude_prompt:
+        url = SITE_URLS["claude"] + "?q=" + quote_plus(claude_prompt)
+        return launch_web_site("claude", url)
 
     # ========================================================
     # CLOSE HAS HIGHEST PRIORITY

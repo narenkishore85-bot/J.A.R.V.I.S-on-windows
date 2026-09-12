@@ -1,0 +1,28 @@
+{
+  "processes": {
+    "vs code": [
+      22828,
+      3640,
+      9764
+    ]
+  },
+  "windows": {
+    "vs code": [
+      1442796,
+      722870,
+      787516
+    ]
+  },
+  "process_meta": {
+    "vs code": {
+      "3640": {
+        "path": "C:\\Users\\naren\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "start_time": "09/12/2026 15:28:50"
+      },
+      "9764": {
+        "path": "C:\\Users\\naren\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "start_time": "09/12/2026 15:29:00"
+      }
+    }
+  }
+}

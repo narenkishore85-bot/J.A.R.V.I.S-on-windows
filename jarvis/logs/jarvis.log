@@ -1446,3 +1446,263 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-11 23:02:11,298 | INFO | stt | Vosk model loaded
 2026-09-11 23:02:11,299 | INFO | jarvis | Loading wake-word model.
 2026-09-11 23:02:11,439 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:10:36,983 | INFO | jarvis | Jarvis starting.
+2026-09-11 23:10:36,983 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 23:10:36,984 | INFO | jarvis | Loading Vosk model.
+2026-09-11 23:10:36,984 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 23:10:37,676 | INFO | stt | Vosk model loaded
+2026-09-11 23:10:37,676 | INFO | jarvis | Loading wake-word model.
+2026-09-11 23:10:37,826 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:10:45,625 | INFO | jarvis | Wake word detected.
+2026-09-11 23:10:46,247 | INFO | jarvis | Listening for command.
+2026-09-11 23:10:47,910 | INFO | jarvis | No command recognized.
+2026-09-11 23:10:48,412 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:10:50,415 | INFO | jarvis | Wake word detected.
+2026-09-11 23:10:51,035 | INFO | jarvis | Listening for command.
+2026-09-11 23:10:53,453 | INFO | jarvis | No command recognized.
+2026-09-11 23:10:53,955 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:11:04,780 | INFO | jarvis | Wake word detected.
+2026-09-11 23:11:05,400 | INFO | jarvis | Listening for command.
+2026-09-11 23:11:09,845 | INFO | jarvis | Command recognized: 'open my resume'
+2026-09-11 23:11:09,847 | INFO | jarvis | Command routing result: success=False | command='open my resume'
+2026-09-11 23:11:10,448 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:11:12,463 | INFO | jarvis | Wake word detected.
+2026-09-11 23:11:13,083 | INFO | jarvis | Listening for command.
+2026-09-11 23:11:14,754 | INFO | jarvis | No command recognized.
+2026-09-11 23:11:15,255 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:11:33,104 | INFO | jarvis | Wake word detected.
+2026-09-11 23:11:33,727 | INFO | jarvis | Listening for command.
+2026-09-11 23:11:37,138 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-11 23:11:40,643 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-11 23:11:41,244 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:11:51,292 | INFO | jarvis | Wake word detected.
+2026-09-11 23:11:51,907 | INFO | jarvis | Listening for command.
+2026-09-11 23:11:55,856 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-11 23:11:57,643 | INFO | jarvis | Command routing result: success=False | command='close vs code'
+2026-09-11 23:11:58,243 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:12:00,260 | INFO | jarvis | Wake word detected.
+2026-09-11 23:12:00,884 | INFO | jarvis | Listening for command.
+2026-09-11 23:12:02,648 | INFO | jarvis | No command recognized.
+2026-09-11 23:12:03,149 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:20:02,268 | INFO | jarvis | Jarvis starting.
+2026-09-11 23:20:02,268 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-11 23:20:02,269 | INFO | jarvis | Loading Vosk model.
+2026-09-11 23:20:02,269 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-11 23:20:03,100 | INFO | stt | Vosk model loaded
+2026-09-11 23:20:03,101 | INFO | jarvis | Loading wake-word model.
+2026-09-11 23:20:03,319 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:20:20,242 | INFO | jarvis | Wake word detected.
+2026-09-11 23:20:20,867 | INFO | jarvis | Listening for command.
+2026-09-11 23:20:22,689 | INFO | jarvis | No command recognized.
+2026-09-11 23:20:23,190 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:20:29,062 | INFO | jarvis | Wake word detected.
+2026-09-11 23:20:29,677 | INFO | jarvis | Listening for command.
+2026-09-11 23:20:33,273 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-11 23:20:35,563 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-11 23:20:36,164 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:20:38,170 | INFO | jarvis | Wake word detected.
+2026-09-11 23:20:38,783 | INFO | jarvis | Listening for command.
+2026-09-11 23:20:42,352 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-11 23:20:43,966 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-11 23:20:44,566 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:21:36,672 | INFO | jarvis | Wake word detected.
+2026-09-11 23:21:37,284 | INFO | jarvis | Listening for command.
+2026-09-11 23:21:40,305 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-11 23:21:46,831 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-11 23:21:47,431 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:21:55,139 | INFO | jarvis | Wake word detected.
+2026-09-11 23:21:55,761 | INFO | jarvis | Listening for command.
+2026-09-11 23:22:00,136 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-11 23:22:01,953 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-11 23:22:02,555 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:22:18,980 | INFO | jarvis | Wake word detected.
+2026-09-11 23:22:19,597 | INFO | jarvis | Listening for command.
+2026-09-11 23:22:24,187 | INFO | jarvis | Command recognized: 'open explorer'
+2026-09-11 23:22:28,795 | INFO | jarvis | Command routing result: success=True | command='open explorer'
+2026-09-11 23:22:29,396 | INFO | jarvis | Waiting for wake word.
+2026-09-11 23:22:48,725 | INFO | jarvis | Wake word detected.
+2026-09-11 23:22:49,348 | INFO | jarvis | Listening for command.
+2026-09-11 23:22:53,379 | INFO | jarvis | Command recognized: 'close explorer'
+2026-09-11 23:22:53,682 | INFO | jarvis | Command routing result: success=True | command='close explorer'
+2026-09-11 23:22:54,283 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:02:22,524 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:02:22,525 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:02:22,525 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:02:22,525 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:02:23,262 | INFO | stt | Vosk model loaded
+2026-09-12 15:02:23,262 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:02:23,515 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:02:35,655 | INFO | jarvis | Wake word detected.
+2026-09-12 15:02:36,270 | INFO | jarvis | Listening for command.
+2026-09-12 15:02:39,528 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 15:02:47,060 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 15:02:47,661 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:02:49,891 | INFO | jarvis | Wake word detected.
+2026-09-12 15:02:50,509 | INFO | jarvis | Listening for command.
+2026-09-12 15:02:53,590 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 15:02:57,476 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 15:02:58,076 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:03:03,436 | INFO | jarvis | Wake word detected.
+2026-09-12 15:03:04,048 | INFO | jarvis | Listening for command.
+2026-09-12 15:03:07,124 | INFO | jarvis | Command recognized: 'open notepad'
+2026-09-12 15:03:13,865 | INFO | jarvis | Command routing result: success=True | command='open notepad'
+2026-09-12 15:03:14,466 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:03:34,694 | INFO | jarvis | Wake word detected.
+2026-09-12 15:03:35,317 | INFO | jarvis | Listening for command.
+2026-09-12 15:03:38,556 | INFO | jarvis | Command recognized: 'close notepad'
+2026-09-12 15:03:40,894 | INFO | jarvis | Command routing result: success=True | command='close notepad'
+2026-09-12 15:03:41,496 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:03:43,485 | INFO | jarvis | Wake word detected.
+2026-09-12 15:03:44,106 | INFO | jarvis | Listening for command.
+2026-09-12 15:03:49,462 | INFO | jarvis | No command recognized.
+2026-09-12 15:03:49,962 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:03:54,592 | INFO | jarvis | Wake word detected.
+2026-09-12 15:03:55,205 | INFO | jarvis | Listening for command.
+2026-09-12 15:04:00,516 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 15:04:03,244 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 15:04:03,845 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:04:05,890 | INFO | jarvis | Wake word detected.
+2026-09-12 15:04:06,505 | INFO | jarvis | Listening for command.
+2026-09-12 15:04:11,815 | INFO | jarvis | No command recognized.
+2026-09-12 15:04:12,316 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:04:16,290 | INFO | jarvis | Wake word detected.
+2026-09-12 15:04:16,904 | INFO | jarvis | Listening for command.
+2026-09-12 15:04:22,269 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-12 15:04:23,976 | INFO | jarvis | Command routing result: success=False | command='close vs code'
+2026-09-12 15:04:24,576 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:06:43,240 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:06:43,240 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:06:43,240 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:06:43,240 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:06:43,991 | INFO | stt | Vosk model loaded
+2026-09-12 15:06:43,991 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:06:44,163 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:06:55,109 | INFO | jarvis | Wake word detected.
+2026-09-12 15:06:55,730 | INFO | jarvis | Listening for command.
+2026-09-12 15:07:01,025 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 15:07:03,465 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-12 15:07:04,066 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:07:06,053 | INFO | jarvis | Wake word detected.
+2026-09-12 15:07:06,666 | INFO | jarvis | Listening for command.
+2026-09-12 15:07:12,042 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 15:07:13,798 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-12 15:07:14,399 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:14:25,500 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:14:25,500 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:14:25,500 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:14:25,500 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:14:26,244 | INFO | stt | Vosk model loaded
+2026-09-12 15:14:26,244 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:14:26,413 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:14:33,371 | INFO | jarvis | Wake word detected.
+2026-09-12 15:14:33,995 | INFO | jarvis | Listening for command.
+2026-09-12 15:14:37,566 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 15:15:15,488 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:15:15,488 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:15:15,488 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:15:15,489 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:15:16,209 | INFO | stt | Vosk model loaded
+2026-09-12 15:15:16,209 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:15:16,371 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:15:24,020 | INFO | jarvis | Wake word detected.
+2026-09-12 15:15:24,636 | INFO | jarvis | Listening for command.
+2026-09-12 15:15:29,990 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 15:15:29,992 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-12 15:15:30,593 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:15:32,567 | INFO | jarvis | Wake word detected.
+2026-09-12 15:15:33,181 | INFO | jarvis | Listening for command.
+2026-09-12 15:15:38,530 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 15:15:38,530 | INFO | jarvis | Command routing result: success=False | command='close calculator'
+2026-09-12 15:15:39,131 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:16:02,373 | INFO | jarvis | Wake word detected.
+2026-09-12 15:16:02,986 | INFO | jarvis | Listening for command.
+2026-09-12 15:16:08,335 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 15:20:06,245 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:20:06,245 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:20:06,245 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:20:06,246 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:20:07,031 | INFO | stt | Vosk model loaded
+2026-09-12 15:20:07,031 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:20:07,201 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:20:10,350 | INFO | jarvis | Wake word detected.
+2026-09-12 15:20:10,965 | INFO | jarvis | Listening for command.
+2026-09-12 15:20:16,349 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 15:20:18,575 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-12 15:20:19,177 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:20:21,176 | INFO | jarvis | Wake word detected.
+2026-09-12 15:20:21,797 | INFO | jarvis | Listening for command.
+2026-09-12 15:20:26,030 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 15:20:27,949 | INFO | jarvis | Command routing result: success=True | command='close calculator'
+2026-09-12 15:20:28,549 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:20:36,901 | INFO | jarvis | Wake word detected.
+2026-09-12 15:20:37,518 | INFO | jarvis | Listening for command.
+2026-09-12 15:20:40,662 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 15:20:44,212 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 15:20:44,813 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:21:07,710 | INFO | jarvis | Wake word detected.
+2026-09-12 15:21:08,332 | INFO | jarvis | Listening for command.
+2026-09-12 15:21:11,106 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-12 15:21:13,584 | INFO | jarvis | Command routing result: success=True | command='close vs code'
+2026-09-12 15:21:14,186 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:21:18,903 | INFO | jarvis | Wake word detected.
+2026-09-12 15:21:19,516 | INFO | jarvis | Listening for command.
+2026-09-12 15:21:21,919 | INFO | jarvis | No command recognized.
+2026-09-12 15:21:22,420 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:23:49,796 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:23:49,796 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:23:49,796 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:23:49,796 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:23:50,441 | INFO | stt | Vosk model loaded
+2026-09-12 15:23:50,442 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:23:50,589 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:23:54,274 | INFO | jarvis | Wake word detected.
+2026-09-12 15:23:54,895 | INFO | jarvis | Listening for command.
+2026-09-12 15:23:57,810 | INFO | jarvis | Command recognized: 'open chrome'
+2026-09-12 15:24:00,596 | INFO | jarvis | Command routing result: success=True | command='open chrome'
+2026-09-12 15:24:01,196 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:24:07,430 | INFO | jarvis | Wake word detected.
+2026-09-12 15:24:08,056 | INFO | jarvis | Listening for command.
+2026-09-12 15:24:10,490 | INFO | jarvis | Command recognized: 'close chrome'
+2026-09-12 15:24:12,723 | INFO | jarvis | Command routing result: success=True | command='close chrome'
+2026-09-12 15:24:13,323 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:24:35,390 | INFO | jarvis | Wake word detected.
+2026-09-12 15:24:36,000 | INFO | jarvis | Listening for command.
+2026-09-12 15:24:39,099 | INFO | jarvis | Command recognized: 'open [unk]'
+2026-09-12 15:24:39,101 | INFO | jarvis | Command routing result: success=False | command='open [unk]'
+2026-09-12 15:24:39,701 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:28:15,102 | INFO | jarvis | Jarvis starting.
+2026-09-12 15:28:15,102 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 15:28:15,104 | INFO | jarvis | Loading Vosk model.
+2026-09-12 15:28:15,104 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 15:28:15,920 | INFO | stt | Vosk model loaded
+2026-09-12 15:28:15,920 | INFO | jarvis | Loading wake-word model.
+2026-09-12 15:28:16,097 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:28:24,435 | INFO | jarvis | Wake word detected.
+2026-09-12 15:28:25,055 | INFO | jarvis | Listening for command.
+2026-09-12 15:28:28,626 | INFO | jarvis | Command recognized: 'open close'
+2026-09-12 15:28:31,981 | INFO | jarvis | Command routing result: success=True | command='open close'
+2026-09-12 15:28:32,582 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:28:44,536 | INFO | jarvis | Wake word detected.
+2026-09-12 15:28:45,145 | INFO | jarvis | Listening for command.
+2026-09-12 15:28:50,528 | INFO | jarvis | Command recognized: 'open close'
+2026-09-12 15:28:52,964 | INFO | jarvis | Command routing result: success=True | command='open close'
+2026-09-12 15:28:53,565 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:28:55,611 | INFO | jarvis | Wake word detected.
+2026-09-12 15:28:56,225 | INFO | jarvis | Listening for command.
+2026-09-12 15:29:00,395 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 15:29:02,754 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 15:29:03,355 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:29:14,046 | INFO | jarvis | Wake word detected.
+2026-09-12 15:29:14,670 | INFO | jarvis | Listening for command.
+2026-09-12 15:29:16,636 | INFO | jarvis | No command recognized.
+2026-09-12 15:29:17,137 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:29:41,827 | INFO | jarvis | Wake word detected.
+2026-09-12 15:29:42,439 | INFO | jarvis | Listening for command.
+2026-09-12 15:29:46,855 | INFO | jarvis | Command recognized: 'search [unk]'
+2026-09-12 15:29:46,856 | INFO | jarvis | Command routing result: success=False | command='search [unk]'
+2026-09-12 15:29:47,457 | INFO | jarvis | Waiting for wake word.
+2026-09-12 15:29:49,425 | INFO | jarvis | Wake word detected.
+2026-09-12 15:29:50,044 | INFO | jarvis | Listening for command.
+2026-09-12 15:29:54,349 | INFO | jarvis | Command recognized: 'search [unk]'
+2026-09-12 15:29:54,351 | INFO | jarvis | Command routing result: success=False | command='search [unk]'
+2026-09-12 15:29:54,951 | INFO | jarvis | Waiting for wake word.
