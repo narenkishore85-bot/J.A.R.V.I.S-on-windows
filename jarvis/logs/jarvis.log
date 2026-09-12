@@ -2589,3 +2589,769 @@ TypeError: argument of type 'WindowsPath' is not iterable
 2026-09-12 17:55:55,176 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
 2026-09-12 17:55:55,218 | INFO | jarvis.wake_listener | Wake-word listener started.
 2026-09-12 17:55:56,037 | INFO | jarvis.wake_listener | Listening for wake word...
+18:07:06 | INFO | jarvis | ==============================================
+18:07:06 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:07:06 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:07:06 | INFO | jarvis | ==============================================
+18:07:06 | INFO | jarvis | Initializing TTS...
+18:07:06 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:07:06 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:07:06 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:07:06 | INFO | jarvis | TTS warmed up successfully.
+18:07:06 | INFO | jarvis | Loading Vosk model...
+18:07:06 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:07:07 | INFO | jarvis.stt | Vosk model loaded
+18:07:07 | INFO | jarvis | Vosk model loaded.
+18:07:07 | INFO | jarvis | Loading wake-word model...
+18:07:07 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:07:07 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:07:07 | INFO | jarvis | Wake-word model loaded.
+18:07:07 | INFO | jarvis | System tray started.
+18:07:07 | INFO | jarvis | JARVIS READY.
+18:07:07 | INFO | jarvis | Say: Hey Jarvis
+18:07:07 | INFO | jarvis | No startup greeting or wake beep.
+18:07:07 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:07:07 | INFO | jarvis | Waiting for wake word...
+18:07:07 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:07:08 | INFO | jarvis.wake_listener | Listening for wake word...
+18:07:17 | INFO | jarvis.wake_listener | Strong wake-word detection: 0.990
+18:07:17 | INFO | jarvis.wake_listener | Wake word detected! score=0.990 peak=0.990
+18:07:18 | INFO | jarvis | WAKE WORD DETECTED.
+18:07:18 | INFO | jarvis | Listening for command...
+18:07:23 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:07:23 | INFO | jarvis | Action type: open
+18:07:23 | INFO | jarvis | Command execution completed.
+18:07:23 | INFO | jarvis | RESPONSE: Certainly, sir. I've taken care of it.
+18:07:23 | INFO | jarvis | TTS START: Certainly, sir. I've taken care of it.
+18:07:23 | INFO | jarvis.tts | JARVIS: Certainly, sir. I've taken care of it.
+18:07:27 | INFO | jarvis | TTS END.
+18:07:28 | INFO | jarvis | Listening for command...
+18:07:30 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:07:30 | INFO | jarvis | Action type: close
+18:07:30 | INFO | jarvis | Command execution completed.
+18:07:30 | INFO | jarvis | RESPONSE: Certainly, sir. We've cleared that from the screen.
+18:07:30 | INFO | jarvis | TTS START: Certainly, sir. We've cleared that from the screen.
+18:07:30 | INFO | jarvis.tts | JARVIS: Certainly, sir. We've cleared that from the screen.
+18:07:30 | INFO | jarvis | TTS END.
+18:07:30 | INFO | jarvis | Listening for command...
+18:07:36 | INFO | jarvis | COMMAND RECOGNIZED: open instagram
+18:07:36 | INFO | jarvis | Action type: open
+18:07:36 | INFO | jarvis | Command execution completed.
+18:07:36 | INFO | jarvis | RESPONSE: As requested, sir. It's on its way.
+18:07:36 | INFO | jarvis | TTS START: As requested, sir. It's on its way.
+18:07:36 | INFO | jarvis.tts | JARVIS: As requested, sir. It's on its way.
+18:07:36 | INFO | jarvis | TTS END.
+18:07:36 | INFO | jarvis | Listening for command...
+18:07:40 | INFO | jarvis | No command detected.
+18:07:40 | INFO | jarvis | Listening for command...
+18:07:45 | INFO | jarvis | COMMAND RECOGNIZED: close instagram
+18:07:45 | INFO | jarvis | Action type: close
+18:07:45 | INFO | jarvis | Command execution completed.
+18:07:45 | INFO | jarvis | RESPONSE: Consider it handled, sir.
+18:07:45 | INFO | jarvis | TTS START: Consider it handled, sir.
+18:07:45 | INFO | jarvis.tts | JARVIS: Consider it handled, sir.
+18:07:46 | INFO | jarvis | TTS END.
+18:07:46 | INFO | jarvis | Listening for command...
+18:07:51 | INFO | jarvis | No command detected.
+18:07:51 | INFO | jarvis | Listening for command...
+18:07:56 | INFO | jarvis | No command detected.
+18:07:56 | INFO | jarvis | Listening for command...
+18:07:58 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:07:58 | INFO | jarvis | Action type: open
+18:07:58 | INFO | jarvis | Command execution completed.
+18:07:58 | INFO | jarvis | RESPONSE: Already on it, sir. Give me just a moment.
+18:07:58 | INFO | jarvis | TTS START: Already on it, sir. Give me just a moment.
+18:07:58 | INFO | jarvis.tts | JARVIS: Already on it, sir. Give me just a moment.
+18:07:59 | INFO | jarvis | TTS END.
+18:07:59 | INFO | jarvis | Listening for command...
+18:08:04 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:08:04 | INFO | jarvis | Action type: close
+18:08:04 | INFO | jarvis | Command execution completed.
+18:08:04 | INFO | jarvis | RESPONSE: Of course, sir. That's being dealt with.
+18:08:04 | INFO | jarvis | TTS START: Of course, sir. That's being dealt with.
+18:08:04 | INFO | jarvis.tts | JARVIS: Of course, sir. That's being dealt with.
+18:08:04 | INFO | jarvis | TTS END.
+18:08:04 | INFO | jarvis | Listening for command...
+18:08:06 | INFO | jarvis | Command listening interrupted.
+18:08:06 | INFO | jarvis | Returning to wake-word listening.
+18:08:06 | INFO | jarvis | Waiting for wake word...
+18:08:06 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:07 | INFO | jarvis.wake_listener | Listening for wake word...
+18:08:09 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:09 | INFO | jarvis | Waiting for wake word...
+18:08:09 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:10 | INFO | jarvis.wake_listener | Listening for wake word...
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:11 | INFO | jarvis | Waiting for wake word...
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:11 | INFO | jarvis | Waiting for wake word...
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:11 | INFO | jarvis | Waiting for wake word...
+18:08:11 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:12 | INFO | jarvis.wake_listener | Listening for wake word...
+18:08:17 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:17 | INFO | jarvis | Waiting for wake word...
+18:08:17 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:17 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:17 | INFO | jarvis | Waiting for wake word...
+18:08:17 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:17 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:18 | INFO | jarvis | Waiting for wake word...
+18:08:18 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:18 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:08:18 | INFO | jarvis | Waiting for wake word...
+18:08:18 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:19 | INFO | jarvis.wake_listener | Listening for wake word...
+18:08:26 | INFO | jarvis.wake_listener | Strong wake-word detection: 0.997
+18:08:26 | INFO | jarvis.wake_listener | Wake word detected! score=0.997 peak=0.997
+18:08:27 | INFO | jarvis | WAKE WORD DETECTED.
+18:08:27 | INFO | jarvis | Listening for command...
+18:08:33 | INFO | jarvis | No command detected.
+18:08:33 | INFO | jarvis | Listening for command...
+18:08:35 | INFO | jarvis | No command detected.
+18:08:35 | INFO | jarvis | Listening for command...
+18:08:38 | INFO | jarvis | No command detected.
+18:08:38 | INFO | jarvis | Listening for command...
+18:08:41 | INFO | jarvis | No command detected.
+18:08:41 | INFO | jarvis | Listening for command...
+18:08:43 | INFO | jarvis | No command detected.
+18:08:43 | INFO | jarvis | Command session timed out.
+18:08:43 | INFO | jarvis | Returning to wake-word listening.
+18:08:43 | INFO | jarvis | Waiting for wake word...
+18:08:43 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:08:44 | INFO | jarvis.wake_listener | Listening for wake word...
+18:08:46 | INFO | jarvis.wake_listener | Strong wake-word detection: 0.995
+18:08:46 | INFO | jarvis.wake_listener | Wake word detected! score=0.995 peak=0.995
+18:08:48 | INFO | jarvis | WAKE WORD DETECTED.
+18:08:48 | INFO | jarvis | Listening for command...
+18:08:52 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:08:52 | INFO | jarvis | Action type: open
+18:08:52 | INFO | jarvis | Command execution completed.
+18:08:52 | INFO | jarvis | RESPONSE: As requested, sir. It's on its way.
+18:08:52 | INFO | jarvis | TTS START: As requested, sir. It's on its way.
+18:08:52 | INFO | jarvis.tts | JARVIS: As requested, sir. It's on its way.
+18:08:53 | INFO | jarvis | TTS END.
+18:08:53 | INFO | jarvis | Listening for command...
+18:08:55 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:08:55 | INFO | jarvis | Action type: close
+18:08:55 | INFO | jarvis | Command execution completed.
+18:08:55 | INFO | jarvis | RESPONSE: Consider it handled, sir.
+18:08:55 | INFO | jarvis | TTS START: Consider it handled, sir.
+18:08:55 | INFO | jarvis.tts | JARVIS: Consider it handled, sir.
+18:08:56 | INFO | jarvis | TTS END.
+18:08:56 | INFO | jarvis | Listening for command...
+18:09:01 | INFO | jarvis | No command detected.
+18:09:01 | INFO | jarvis | Listening for command...
+18:09:01 | INFO | jarvis | Command listening interrupted.
+18:09:01 | INFO | jarvis | Returning to wake-word listening.
+18:09:01 | INFO | jarvis | Waiting for wake word...
+18:09:01 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:09:02 | INFO | jarvis.wake_listener | Listening for wake word...
+18:09:12 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:09:12 | INFO | jarvis | Waiting for wake word...
+18:09:12 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:09:13 | INFO | jarvis.wake_listener | Listening for wake word...
+18:09:15 | INFO | jarvis.wake_listener | Strong wake-word detection: 0.996
+18:09:15 | INFO | jarvis.wake_listener | Wake word detected! score=0.996 peak=0.996
+18:09:16 | INFO | jarvis | WAKE WORD DETECTED.
+18:09:16 | INFO | jarvis | Listening for command...
+18:09:18 | INFO | jarvis | No command detected.
+18:09:18 | INFO | jarvis | Listening for command...
+18:09:20 | INFO | jarvis | No command detected.
+18:09:20 | INFO | jarvis | Listening for command...
+18:09:24 | INFO | jarvis | No command detected.
+18:09:24 | INFO | jarvis | Listening for command...
+18:09:27 | INFO | jarvis | No command detected.
+18:09:27 | INFO | jarvis | Listening for command...
+18:09:31 | INFO | jarvis | No command detected.
+18:09:31 | INFO | jarvis | Listening for command...
+18:09:36 | INFO | jarvis | No command detected.
+18:09:36 | INFO | jarvis | Command session timed out.
+18:09:36 | INFO | jarvis | Returning to wake-word listening.
+18:09:36 | INFO | jarvis | Waiting for wake word...
+18:09:36 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:09:37 | INFO | jarvis.wake_listener | Listening for wake word...
+18:09:37 | INFO | jarvis.wake_listener | Strong wake-word detection: 0.987
+18:09:37 | INFO | jarvis.wake_listener | Wake word detected! score=0.987 peak=0.987
+18:09:39 | INFO | jarvis | WAKE WORD DETECTED.
+18:09:39 | INFO | jarvis | Listening for command...
+18:09:41 | INFO | jarvis | No command detected.
+18:09:41 | INFO | jarvis | Listening for command...
+18:09:46 | INFO | jarvis | No command detected.
+18:09:46 | INFO | jarvis | Listening for command...
+18:09:51 | INFO | jarvis | No command detected.
+18:09:51 | INFO | jarvis | Listening for command...
+18:09:56 | INFO | jarvis | No command detected.
+18:09:56 | INFO | jarvis | Command session timed out.
+18:09:56 | INFO | jarvis | Returning to wake-word listening.
+18:09:56 | INFO | jarvis | Waiting for wake word...
+18:09:56 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:09:57 | INFO | jarvis.wake_listener | Listening for wake word...
+18:14:36 | INFO | jarvis | ==============================================
+18:14:36 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:14:36 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:14:36 | INFO | jarvis | ==============================================
+18:14:36 | INFO | jarvis | Initializing TTS...
+18:14:36 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:14:36 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:14:36 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:14:36 | INFO | jarvis | TTS warmed up successfully.
+18:14:36 | INFO | jarvis | Loading Vosk model...
+18:14:36 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:14:37 | INFO | jarvis.stt | Vosk model loaded
+18:14:37 | INFO | jarvis | Vosk model loaded.
+18:14:37 | INFO | jarvis | Loading wake-word model...
+18:14:37 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:14:37 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:14:37 | INFO | jarvis | Wake-word model loaded.
+18:14:37 | INFO | jarvis | System tray started.
+18:14:37 | INFO | jarvis | JARVIS READY.
+18:14:37 | INFO | jarvis | Say: Hey Jarvis
+18:14:37 | INFO | jarvis | No startup greeting or wake beep.
+18:14:37 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:14:37 | INFO | jarvis | Waiting for wake word...
+18:14:37 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:14:38 | INFO | jarvis.wake_listener | Listening for wake word...
+18:14:50 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.999 peak=0.999 hits=3/3
+18:14:52 | INFO | jarvis | WAKE WORD DETECTED.
+18:14:52 | INFO | jarvis | Listening for command...
+18:14:57 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:14:57 | INFO | jarvis | Action type: open
+18:14:57 | INFO | jarvis | Command execution completed.
+18:14:57 | INFO | jarvis | RESPONSE: Already on it, sir. Give me just a moment.
+18:14:57 | INFO | jarvis | TTS START: Already on it, sir. Give me just a moment.
+18:14:57 | INFO | jarvis.tts | JARVIS: Already on it, sir. Give me just a moment.
+18:15:01 | INFO | jarvis | TTS END.
+18:15:01 | INFO | jarvis | Listening for command...
+18:15:04 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:15:04 | INFO | jarvis | Action type: close
+18:15:04 | INFO | jarvis | Command execution completed.
+18:15:04 | INFO | jarvis | RESPONSE: Done, sir. One less distraction.
+18:15:04 | INFO | jarvis | TTS START: Done, sir. One less distraction.
+18:15:04 | INFO | jarvis.tts | JARVIS: Done, sir. One less distraction.
+18:15:05 | INFO | jarvis | TTS END.
+18:15:05 | INFO | jarvis | Listening for command...
+18:15:10 | INFO | jarvis | COMMAND RECOGNIZED: open notepad
+18:15:10 | INFO | jarvis | Action type: open
+18:15:10 | INFO | jarvis | Command execution completed.
+18:15:10 | INFO | jarvis | RESPONSE: Right away, sir. Consider it handled.
+18:15:10 | INFO | jarvis | TTS START: Right away, sir. Consider it handled.
+18:15:10 | INFO | jarvis.tts | JARVIS: Right away, sir. Consider it handled.
+18:15:11 | INFO | jarvis | TTS END.
+18:15:11 | INFO | jarvis | Listening for command...
+18:15:13 | INFO | jarvis | No command detected.
+18:15:13 | INFO | jarvis | Listening for command...
+18:15:15 | INFO | jarvis | COMMAND RECOGNIZED: for
+18:15:15 | INFO | jarvis | Action type: general
+18:15:15 | INFO | jarvis | Command execution completed.
+18:15:15 | INFO | jarvis | RESPONSE: Right away, sir.
+18:15:15 | INFO | jarvis | TTS START: Right away, sir.
+18:15:15 | INFO | jarvis.tts | JARVIS: Right away, sir.
+18:15:15 | INFO | jarvis | TTS END.
+18:15:16 | INFO | jarvis | Listening for command...
+18:15:21 | INFO | jarvis | COMMAND RECOGNIZED: close notepad
+18:15:21 | INFO | jarvis | Action type: close
+18:15:21 | INFO | jarvis | Command execution completed.
+18:15:21 | INFO | jarvis | RESPONSE: As you wish, sir. It's closed.
+18:15:21 | INFO | jarvis | TTS START: As you wish, sir. It's closed.
+18:15:21 | INFO | jarvis.tts | JARVIS: As you wish, sir. It's closed.
+18:15:21 | INFO | jarvis | TTS END.
+18:15:22 | INFO | jarvis | Listening for command...
+18:15:26 | INFO | jarvis | No command detected.
+18:15:26 | INFO | jarvis | Listening for command...
+18:15:28 | INFO | jarvis | No command detected.
+18:15:28 | INFO | jarvis | Listening for command...
+18:15:29 | INFO | jarvis | Command listening interrupted.
+18:15:29 | INFO | jarvis | Returning to wake-word listening.
+18:15:30 | INFO | jarvis | Waiting for wake word...
+18:15:30 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:15:30 | INFO | jarvis.wake_listener | Listening for wake word...
+18:20:56 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.999 peak=0.999 hits=3/3
+18:20:58 | INFO | jarvis | WAKE WORD DETECTED.
+18:20:58 | INFO | jarvis | Listening for command...
+18:21:02 | INFO | jarvis | No command detected.
+18:21:02 | INFO | jarvis | Listening for command...
+18:21:07 | INFO | jarvis | No command detected.
+18:21:07 | INFO | jarvis | Listening for command...
+18:21:09 | INFO | jarvis | No command detected.
+18:21:09 | INFO | jarvis | Listening for command...
+18:21:11 | INFO | jarvis | No command detected.
+18:21:11 | INFO | jarvis | Listening for command...
+18:21:17 | INFO | jarvis | COMMAND RECOGNIZED: search
+18:21:17 | INFO | jarvis | Action type: general
+18:21:17 | INFO | jarvis | Command execution completed.
+18:21:17 | INFO | jarvis | RESPONSE: As you wish, sir.
+18:21:17 | INFO | jarvis | TTS START: As you wish, sir.
+18:21:17 | INFO | jarvis.tts | JARVIS: As you wish, sir.
+18:21:17 | INFO | jarvis | TTS END.
+18:21:17 | INFO | jarvis | Listening for command...
+18:21:22 | INFO | jarvis | COMMAND RECOGNIZED: exit jarvis close
+18:21:22 | INFO | jarvis | Action type: close
+18:21:22 | INFO | jarvis | Command execution completed.
+18:21:22 | INFO | jarvis | RESPONSE: Done, sir. One less distraction.
+18:21:22 | INFO | jarvis | TTS START: Done, sir. One less distraction.
+18:21:22 | INFO | jarvis.tts | JARVIS: Done, sir. One less distraction.
+18:21:22 | INFO | jarvis | TTS END.
+18:21:23 | INFO | jarvis | Listening for command...
+18:21:28 | INFO | jarvis | No command detected.
+18:21:28 | INFO | jarvis | Listening for command...
+18:21:31 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:21:31 | INFO | jarvis | Action type: open
+18:21:31 | INFO | jarvis | Command execution completed.
+18:21:31 | INFO | jarvis | RESPONSE: Right away, sir. I do enjoy being useful.
+18:21:31 | INFO | jarvis | TTS START: Right away, sir. I do enjoy being useful.
+18:21:31 | INFO | jarvis.tts | JARVIS: Right away, sir. I do enjoy being useful.
+18:21:31 | INFO | jarvis | TTS END.
+18:21:31 | INFO | jarvis | Listening for command...
+18:21:37 | INFO | jarvis | No command detected.
+18:21:37 | INFO | jarvis | Listening for command...
+18:21:42 | INFO | jarvis | No command detected.
+18:21:42 | INFO | jarvis | Listening for command...
+18:21:47 | INFO | jarvis | No command detected.
+18:21:47 | INFO | jarvis | Command session timed out.
+18:21:47 | INFO | jarvis | Returning to wake-word listening.
+18:21:47 | INFO | jarvis | Waiting for wake word...
+18:21:47 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:21:48 | INFO | jarvis.wake_listener | Listening for wake word...
+18:22:11 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.978 peak=0.997 hits=3/3
+18:22:12 | INFO | jarvis | WAKE WORD DETECTED.
+18:22:12 | INFO | jarvis | Listening for command...
+18:22:17 | INFO | jarvis | No command detected.
+18:22:17 | INFO | jarvis | Listening for command...
+18:22:22 | INFO | jarvis | No command detected.
+18:22:22 | INFO | jarvis | Listening for command...
+18:22:26 | INFO | jarvis | COMMAND RECOGNIZED: where jarvis
+18:22:26 | INFO | jarvis | Action type: general
+18:22:26 | INFO | jarvis | Command execution completed.
+18:22:26 | INFO | jarvis | RESPONSE: Done, sir.
+18:22:26 | INFO | jarvis | TTS START: Done, sir.
+18:22:26 | INFO | jarvis.tts | JARVIS: Done, sir.
+18:22:26 | INFO | jarvis | TTS END.
+18:22:26 | INFO | jarvis | Listening for command...
+18:22:31 | INFO | jarvis | No command detected.
+18:22:31 | INFO | jarvis | Listening for command...
+18:22:36 | INFO | jarvis | No command detected.
+18:22:36 | INFO | jarvis | Listening for command...
+18:22:38 | INFO | jarvis | COMMAND RECOGNIZED: ki jarvis
+18:22:38 | INFO | jarvis | Action type: general
+18:22:38 | INFO | jarvis | Command execution completed.
+18:22:38 | INFO | jarvis | RESPONSE: Of course, sir.
+18:22:38 | INFO | jarvis | TTS START: Of course, sir.
+18:22:38 | INFO | jarvis.tts | JARVIS: Of course, sir.
+18:22:38 | INFO | jarvis | TTS END.
+18:22:39 | INFO | jarvis | Listening for command...
+18:22:42 | INFO | jarvis | No command detected.
+18:22:42 | INFO | jarvis | Listening for command...
+18:22:47 | INFO | jarvis | COMMAND RECOGNIZED: cad jarvis
+18:22:47 | INFO | jarvis | Action type: general
+18:22:47 | INFO | jarvis | Command execution completed.
+18:22:47 | INFO | jarvis | RESPONSE: As you wish, sir.
+18:22:47 | INFO | jarvis | TTS START: As you wish, sir.
+18:22:47 | INFO | jarvis.tts | JARVIS: As you wish, sir.
+18:22:47 | INFO | jarvis | TTS END.
+18:22:48 | INFO | jarvis | Listening for command...
+18:22:51 | INFO | jarvis | No command detected.
+18:22:51 | INFO | jarvis | Listening for command...
+18:22:56 | INFO | jarvis | No command detected.
+18:22:56 | INFO | jarvis | Listening for command...
+18:23:00 | INFO | jarvis | No command detected.
+18:23:00 | INFO | jarvis | Listening for command...
+18:23:04 | INFO | jarvis | No command detected.
+18:23:04 | INFO | jarvis | Command session timed out.
+18:23:04 | INFO | jarvis | Returning to wake-word listening.
+18:23:04 | INFO | jarvis | Waiting for wake word...
+18:23:04 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:23:05 | INFO | jarvis.wake_listener | Listening for wake word...
+18:23:11 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.999 peak=0.999 hits=3/3
+18:23:12 | INFO | jarvis | WAKE WORD DETECTED.
+18:23:12 | INFO | jarvis | Listening for command...
+18:23:15 | INFO | jarvis | COMMAND RECOGNIZED: proteus
+18:23:15 | INFO | jarvis | Action type: general
+18:23:15 | INFO | jarvis | Command execution completed.
+18:23:15 | INFO | jarvis | RESPONSE: Right away, sir.
+18:23:15 | INFO | jarvis | TTS START: Right away, sir.
+18:23:15 | INFO | jarvis.tts | JARVIS: Right away, sir.
+18:23:15 | INFO | jarvis | TTS END.
+18:23:15 | INFO | jarvis | Listening for command...
+18:23:20 | INFO | jarvis | No command detected.
+18:23:20 | INFO | jarvis | Listening for command...
+18:23:26 | INFO | jarvis | No command detected.
+18:23:26 | INFO | jarvis | Listening for command...
+18:23:31 | INFO | jarvis | No command detected.
+18:23:31 | INFO | jarvis | Command session timed out.
+18:23:31 | INFO | jarvis | Returning to wake-word listening.
+18:23:31 | INFO | jarvis | Waiting for wake word...
+18:23:31 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:23:32 | INFO | jarvis.wake_listener | Listening for wake word...
+18:23:50 | INFO | jarvis | ==============================================
+18:23:50 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:23:50 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:23:50 | INFO | jarvis | ==============================================
+18:23:50 | INFO | jarvis | Initializing TTS...
+18:23:50 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:23:50 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:23:51 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:23:51 | INFO | jarvis | TTS warmed up successfully.
+18:23:51 | INFO | jarvis | Loading Vosk model...
+18:23:51 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:23:51 | INFO | jarvis.stt | Vosk model loaded
+18:23:51 | INFO | jarvis | Vosk model loaded.
+18:23:51 | INFO | jarvis | Loading wake-word model...
+18:23:51 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:23:52 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:23:52 | INFO | jarvis | Wake-word model loaded.
+18:23:52 | INFO | jarvis | System tray started.
+18:23:52 | INFO | jarvis | JARVIS READY.
+18:23:52 | INFO | jarvis | Say: Hey Jarvis
+18:23:52 | INFO | jarvis | No startup greeting or wake beep.
+18:23:52 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:23:52 | INFO | jarvis | Waiting for wake word...
+18:23:52 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:23:52 | INFO | jarvis.wake_listener | Listening for wake word...
+18:23:59 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.989 peak=0.996 hits=3/3
+18:23:59 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.997 peak=0.998 hits=3/3
+18:24:00 | INFO | jarvis | WAKE WORD DETECTED.
+18:24:00 | INFO | jarvis | Listening for command...
+18:24:00 | INFO | jarvis | WAKE WORD DETECTED.
+18:24:00 | INFO | jarvis | Listening for command...
+18:24:06 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:24:06 | INFO | jarvis | Action type: open
+18:24:06 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:24:06 | INFO | jarvis | Action type: open
+18:24:06 | INFO | jarvis | Command execution completed.
+18:24:06 | INFO | jarvis | RESPONSE: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis | RESPONSE: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis | TTS START: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis.tts | JARVIS: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis | TTS START: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis.tts | JARVIS: Certainly, sir. It's opening now.
+18:24:06 | INFO | jarvis | TTS END.
+18:24:06 | INFO | jarvis | Listening for command...
+18:24:10 | INFO | jarvis | TTS END.
+18:24:10 | INFO | jarvis | Listening for command...
+18:24:11 | INFO | jarvis | COMMAND RECOGNIZED: search
+18:24:11 | INFO | jarvis | Action type: general
+18:24:11 | INFO | jarvis | Command execution completed.
+18:24:11 | INFO | jarvis | RESPONSE: At once, sir.
+18:24:11 | INFO | jarvis | TTS START: At once, sir.
+18:24:11 | INFO | jarvis.tts | JARVIS: At once, sir.
+18:24:11 | INFO | jarvis | TTS END.
+18:24:11 | INFO | jarvis | Listening for command...
+18:24:14 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:24:14 | INFO | jarvis | Action type: close
+18:24:14 | INFO | jarvis | Command execution completed.
+18:24:14 | INFO | jarvis | RESPONSE: Done, sir. That was almost disappointingly easy.
+18:24:14 | INFO | jarvis | TTS START: Done, sir. That was almost disappointingly easy.
+18:24:14 | INFO | jarvis.tts | JARVIS: Done, sir. That was almost disappointingly easy.
+18:24:14 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:24:14 | INFO | jarvis | Action type: close
+18:24:14 | INFO | jarvis | Command execution completed.
+18:24:14 | INFO | jarvis | RESPONSE: As you wish, sir. It's closed.
+18:24:14 | INFO | jarvis | TTS START: As you wish, sir. It's closed.
+18:24:14 | INFO | jarvis.tts | JARVIS: As you wish, sir. It's closed.
+18:24:14 | INFO | jarvis | TTS END.
+18:24:14 | INFO | jarvis | Listening for command...
+18:24:14 | INFO | jarvis | TTS END.
+18:24:14 | INFO | jarvis | Listening for command...
+18:24:20 | INFO | jarvis | No command detected.
+18:24:20 | INFO | jarvis | Listening for command...
+18:24:20 | INFO | jarvis | No command detected.
+18:24:20 | INFO | jarvis | Listening for command...
+18:24:25 | INFO | jarvis | No command detected.
+18:24:25 | INFO | jarvis | Listening for command...
+18:24:25 | INFO | jarvis | No command detected.
+18:24:25 | INFO | jarvis | Listening for command...
+18:24:30 | INFO | jarvis | No command detected.
+18:24:30 | INFO | jarvis | Command session timed out.
+18:24:30 | INFO | jarvis | Returning to wake-word listening.
+18:24:30 | INFO | jarvis | No command detected.
+18:24:30 | INFO | jarvis | Command session timed out.
+18:24:30 | INFO | jarvis | Returning to wake-word listening.
+18:24:30 | INFO | jarvis | Waiting for wake word...
+18:24:30 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:24:30 | INFO | jarvis | Waiting for wake word...
+18:24:30 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:24:31 | INFO | jarvis.wake_listener | Listening for wake word...
+18:24:31 | INFO | jarvis.wake_listener | Listening for wake word...
+18:28:16 | INFO | jarvis | ==============================================
+18:28:16 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:28:16 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:28:16 | INFO | jarvis | ==============================================
+18:28:16 | INFO | jarvis | Initializing TTS...
+18:28:16 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:28:16 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:28:16 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:28:16 | INFO | jarvis | TTS warmed up successfully.
+18:28:16 | INFO | jarvis | Loading Vosk model...
+18:28:16 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:28:17 | INFO | jarvis.stt | Vosk model loaded
+18:28:17 | INFO | jarvis | Vosk model loaded.
+18:28:17 | INFO | jarvis | Loading wake-word model...
+18:28:17 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:28:17 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:28:17 | INFO | jarvis | Wake-word model loaded.
+18:28:17 | INFO | jarvis | System tray started.
+18:28:17 | INFO | jarvis | JARVIS READY.
+18:28:17 | INFO | jarvis | Say: Hey Jarvis
+18:28:17 | INFO | jarvis | No startup greeting or wake beep.
+18:28:17 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:28:17 | INFO | jarvis | Waiting for wake word...
+18:28:17 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:28:18 | INFO | jarvis.wake_listener | Listening for wake word...
+18:28:27 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.996 peak=0.996 hits=3/3
+18:28:28 | INFO | jarvis | WAKE WORD DETECTED.
+18:28:28 | INFO | jarvis | Listening for command...
+18:28:31 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:28:31 | INFO | jarvis | Action type: open
+18:28:31 | INFO | jarvis | Command execution completed.
+18:28:31 | INFO | jarvis | RESPONSE: Done, sir. You may proceed.
+18:28:31 | INFO | jarvis | TTS START: Done, sir. You may proceed.
+18:28:31 | INFO | jarvis.tts | JARVIS: Done, sir. You may proceed.
+18:28:35 | INFO | jarvis | TTS END.
+18:28:35 | INFO | jarvis | Listening for command...
+18:28:39 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:28:39 | INFO | jarvis | Action type: close
+18:28:39 | INFO | jarvis | Command execution completed.
+18:28:39 | INFO | jarvis | RESPONSE: And that's taken care of, sir.
+18:28:39 | INFO | jarvis | TTS START: And that's taken care of, sir.
+18:28:39 | INFO | jarvis.tts | JARVIS: And that's taken care of, sir.
+18:28:39 | INFO | jarvis | TTS END.
+18:28:39 | INFO | jarvis | Listening for command...
+18:28:43 | INFO | jarvis | COMMAND RECOGNIZED: open notepad
+18:28:43 | INFO | jarvis | Action type: open
+18:28:43 | INFO | jarvis | Command execution completed.
+18:28:43 | INFO | jarvis | RESPONSE: Of course, sir. Launching it now.
+18:28:43 | INFO | jarvis | TTS START: Of course, sir. Launching it now.
+18:28:43 | INFO | jarvis.tts | JARVIS: Of course, sir. Launching it now.
+18:28:43 | INFO | jarvis | TTS END.
+18:28:43 | INFO | jarvis | Listening for command...
+18:28:48 | INFO | jarvis | COMMAND RECOGNIZED: close
+18:28:48 | INFO | jarvis | Action type: general
+18:28:48 | INFO | jarvis | Command execution completed.
+18:28:48 | INFO | jarvis | RESPONSE: Certainly, sir. I was beginning to feel underutilized.
+18:28:48 | INFO | jarvis | TTS START: Certainly, sir. I was beginning to feel underutilized.
+18:28:48 | INFO | jarvis.tts | JARVIS: Certainly, sir. I was beginning to feel underutilized.
+18:28:48 | INFO | jarvis | TTS END.
+18:28:48 | INFO | jarvis | Listening for command...
+18:28:53 | INFO | jarvis | No command detected.
+18:28:53 | INFO | jarvis | Listening for command...
+18:28:56 | INFO | jarvis | No command detected.
+18:28:56 | INFO | jarvis | Listening for command...
+18:29:01 | INFO | jarvis | No command detected.
+18:29:01 | INFO | jarvis | Listening for command...
+18:29:05 | INFO | jarvis | COMMAND RECOGNIZED: close notepad
+18:29:05 | INFO | jarvis | Action type: close
+18:29:05 | INFO | jarvis | Command execution completed.
+18:29:05 | INFO | jarvis | RESPONSE: Certainly, sir. We've cleared that from the screen.
+18:29:05 | INFO | jarvis | TTS START: Certainly, sir. We've cleared that from the screen.
+18:29:05 | INFO | jarvis.tts | JARVIS: Certainly, sir. We've cleared that from the screen.
+18:29:05 | INFO | jarvis | TTS END.
+18:29:05 | INFO | jarvis | Listening for command...
+18:35:06 | INFO | jarvis | ==============================================
+18:35:06 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:35:06 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:35:06 | INFO | jarvis | ==============================================
+18:35:06 | INFO | jarvis | Initializing TTS...
+18:35:06 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:35:06 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:35:07 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:35:07 | INFO | jarvis | TTS warmed up successfully.
+18:35:07 | INFO | jarvis | Loading Vosk model...
+18:35:07 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:35:07 | INFO | jarvis.stt | Vosk model loaded
+18:35:07 | INFO | jarvis | Vosk model loaded.
+18:35:07 | INFO | jarvis | Loading wake-word model...
+18:35:07 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:35:07 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:35:07 | INFO | jarvis | Wake-word model loaded.
+18:35:07 | INFO | jarvis | System tray started.
+18:35:07 | INFO | jarvis | JARVIS READY.
+18:35:07 | INFO | jarvis | Say: Hey Jarvis
+18:35:07 | INFO | jarvis | TTS START: Good evening, sir. JARVIS is online and ready.
+18:35:07 | INFO | jarvis.tts | JARVIS: Good evening, sir. JARVIS is online and ready.
+18:35:12 | INFO | jarvis | TTS END.
+18:35:12 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:35:12 | INFO | jarvis | ==============================================
+18:35:12 | INFO | jarvis | WAITING FOR WAKE WORD
+18:35:12 | INFO | jarvis | Say: Hey Jarvis
+18:35:12 | INFO | jarvis | ==============================================
+18:35:12 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:35:13 | INFO | jarvis.wake_listener | Listening for wake word...
+18:35:27 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.926 peak=0.998 hits=3/3
+18:35:29 | INFO | jarvis | WAKE WORD DETECTED.
+18:35:29 | INFO | jarvis | TTS START: Yes, sir?
+18:35:29 | INFO | jarvis.tts | JARVIS: Yes, sir?
+18:35:29 | INFO | jarvis | TTS END.
+18:35:29 | INFO | jarvis | Listening for command...
+18:35:33 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:35:33 | INFO | jarvis | Action type: open
+18:35:33 | INFO | jarvis | Command execution completed.
+18:35:33 | INFO | jarvis | RESPONSE: And there we are, sir. Everything is in place.
+18:35:33 | INFO | jarvis | TTS START: And there we are, sir. Everything is in place.
+18:35:33 | INFO | jarvis.tts | JARVIS: And there we are, sir. Everything is in place.
+18:35:34 | INFO | jarvis | TTS END.
+18:35:34 | INFO | jarvis | Listening for command...
+18:35:39 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:35:39 | INFO | jarvis | Action type: close
+18:35:39 | INFO | jarvis | Command execution completed.
+18:35:39 | INFO | jarvis | RESPONSE: Of course, sir. That's being dealt with.
+18:35:39 | INFO | jarvis | TTS START: Of course, sir. That's being dealt with.
+18:35:39 | INFO | jarvis.tts | JARVIS: Of course, sir. That's being dealt with.
+18:35:39 | INFO | jarvis | TTS END.
+18:35:39 | INFO | jarvis | Listening for command...
+18:35:44 | INFO | jarvis | Command listening interrupted.
+18:35:44 | INFO | jarvis | Command session ended.
+18:35:44 | INFO | jarvis | J.A.R.V.I.S. assistant loop stopped.
+18:35:44 | INFO | jarvis | J.A.R.V.I.S. stopped.
+18:36:47 | INFO | jarvis | ==============================================
+18:36:47 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:36:47 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:36:47 | INFO | jarvis | ==============================================
+18:36:47 | INFO | jarvis | Initializing TTS...
+18:36:48 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:36:48 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:36:48 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:36:48 | INFO | jarvis | TTS warmed up successfully.
+18:36:48 | INFO | jarvis | Loading Vosk model...
+18:36:48 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:36:48 | INFO | jarvis.stt | Vosk model loaded
+18:36:48 | INFO | jarvis | Vosk model loaded.
+18:36:48 | INFO | jarvis | Loading wake-word model...
+18:36:48 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:36:48 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:36:48 | INFO | jarvis | Wake-word model loaded.
+18:36:49 | INFO | jarvis | System tray started.
+18:36:49 | INFO | jarvis | JARVIS READY.
+18:36:49 | INFO | jarvis | Say: Hey Jarvis
+18:36:49 | INFO | jarvis | TTS START: Good evening, sir. JARVIS is online and ready.
+18:36:49 | INFO | jarvis.tts | JARVIS: Good evening, sir. JARVIS is online and ready.
+18:36:53 | INFO | jarvis | TTS END.
+18:36:53 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:36:53 | INFO | jarvis | ==============================================
+18:36:53 | INFO | jarvis | WAITING FOR WAKE WORD
+18:36:53 | INFO | jarvis | Say: Hey Jarvis
+18:36:53 | INFO | jarvis | ==============================================
+18:36:53 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:36:54 | INFO | jarvis.wake_listener | Listening for wake word...
+18:37:13 | INFO | jarvis.wake_listener | Wake word confirmed! score=0.975 peak=0.975 hits=3/3
+18:37:15 | INFO | jarvis | WAKE WORD DETECTED.
+18:37:15 | INFO | jarvis | TTS START: Yes, sir?
+18:37:15 | INFO | jarvis.tts | JARVIS: Yes, sir?
+18:37:15 | INFO | jarvis | TTS END.
+18:37:15 | INFO | jarvis | Listening for command...
+18:37:21 | INFO | jarvis | No command detected.
+18:37:21 | INFO | jarvis | Listening for command...
+18:37:26 | INFO | jarvis | No command detected.
+18:37:26 | INFO | jarvis | Listening for command...
+18:37:31 | INFO | jarvis | No command detected.
+18:37:31 | INFO | jarvis | Command session timed out after 16.0 seconds.
+18:37:31 | INFO | jarvis | Command session ended.
+18:37:31 | INFO | jarvis | Command session finished.
+18:37:31 | INFO | jarvis | Returning to wake-word listening.
+18:37:31 | INFO | jarvis | ==============================================
+18:37:31 | INFO | jarvis | WAITING FOR WAKE WORD
+18:37:31 | INFO | jarvis | Say: Hey Jarvis
+18:37:31 | INFO | jarvis | ==============================================
+18:37:31 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:37:32 | INFO | jarvis.wake_listener | Listening for wake word...
+18:41:58 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:41:58 | INFO | jarvis | ==============================================
+18:41:58 | INFO | jarvis | WAITING FOR WAKE WORD
+18:41:58 | INFO | jarvis | Say: Hey Jarvis
+18:41:58 | INFO | jarvis | ==============================================
+18:41:58 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:41:59 | INFO | jarvis.wake_listener | Listening for wake word...
+18:42:00 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:42:00 | INFO | jarvis | ==============================================
+18:42:00 | INFO | jarvis | WAITING FOR WAKE WORD
+18:42:00 | INFO | jarvis | Say: Hey Jarvis
+18:42:00 | INFO | jarvis | ==============================================
+18:42:00 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:42:01 | INFO | jarvis.wake_listener | Listening for wake word...
+18:42:01 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:42:01 | INFO | jarvis | ==============================================
+18:42:01 | INFO | jarvis | WAITING FOR WAKE WORD
+18:42:01 | INFO | jarvis | Say: Hey Jarvis
+18:42:01 | INFO | jarvis | ==============================================
+18:42:01 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:42:01 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:42:01 | INFO | jarvis | ==============================================
+18:42:01 | INFO | jarvis | WAITING FOR WAKE WORD
+18:42:01 | INFO | jarvis | Say: Hey Jarvis
+18:42:01 | INFO | jarvis | ==============================================
+18:42:01 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:42:02 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:42:02 | INFO | jarvis | ==============================================
+18:42:02 | INFO | jarvis | WAITING FOR WAKE WORD
+18:42:02 | INFO | jarvis | Say: Hey Jarvis
+18:42:02 | INFO | jarvis | ==============================================
+18:42:02 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:42:02 | INFO | jarvis.wake_listener | Wake-word listener interrupted.
+18:42:02 | INFO | jarvis | ==============================================
+18:42:02 | INFO | jarvis | WAITING FOR WAKE WORD
+18:42:02 | INFO | jarvis | Say: Hey Jarvis
+18:42:02 | INFO | jarvis | ==============================================
+18:42:02 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:42:03 | INFO | jarvis.wake_listener | Listening for wake word...
+18:45:36 | INFO | jarvis | ==============================================
+18:45:36 | INFO | jarvis | J.A.R.V.I.S. starting.
+18:45:36 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+18:45:36 | INFO | jarvis | ==============================================
+18:45:36 | INFO | jarvis | Initializing TTS...
+18:45:37 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+18:45:37 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+18:45:37 | INFO | jarvis.tts | Selected TTS voice: Microsoft David Desktop - English (United States)
+18:45:37 | INFO | jarvis | TTS warmed up successfully.
+18:45:37 | INFO | jarvis | Loading Vosk model...
+18:45:37 | INFO | jarvis.stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+18:45:37 | INFO | jarvis.stt | Vosk model loaded
+18:45:37 | INFO | jarvis | Vosk model loaded.
+18:45:37 | INFO | jarvis | Loading wake-word model...
+18:45:37 | INFO | jarvis.wake_listener | Loading wake-word model...
+18:45:38 | INFO | jarvis.wake_listener | Wake-word model loaded: C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\openwakeword\resources\models\hey_jarvis_v0.1.onnx
+18:45:38 | INFO | jarvis | Wake-word model loaded.
+18:45:38 | INFO | jarvis | System tray started.
+18:45:38 | INFO | jarvis | JARVIS READY.
+18:45:38 | INFO | jarvis | Say: Hey Jarvis
+18:45:38 | INFO | jarvis | TTS START: Good evening, sir. JARVIS is online and ready.
+18:45:38 | INFO | jarvis.tts | JARVIS: Good evening, sir. JARVIS is online and ready.
+18:45:42 | INFO | jarvis | TTS END.
+18:45:42 | INFO | jarvis | J.A.R.V.I.S. assistant loop started.
+18:45:42 | INFO | jarvis | ==============================================
+18:45:42 | INFO | jarvis | WAITING FOR WAKE WORD
+18:45:42 | INFO | jarvis | Say: Hey Jarvis
+18:45:42 | INFO | jarvis | ==============================================
+18:45:42 | INFO | jarvis.wake_listener | Wake-word listener started.
+18:45:43 | INFO | jarvis.wake_listener | Listening for wake word...
+18:45:54 | INFO | jarvis.wake_listener | Wake word confirmed! score=1.000 peak=1.000 hits=3/3
+18:45:55 | INFO | jarvis | ==============================================
+18:45:55 | INFO | jarvis | WAKE WORD DETECTED
+18:45:55 | INFO | jarvis | ==============================================
+18:45:55 | INFO | jarvis | Speaking wake acknowledgement...
+18:45:55 | INFO | jarvis | TTS START: Yes, sir?
+18:45:55 | INFO | jarvis.tts | JARVIS: Yes, sir?
+18:45:56 | INFO | jarvis | TTS END.
+18:45:56 | INFO | jarvis | Wake acknowledgement finished.
+18:45:56 | INFO | jarvis | Listening for command...
+18:46:00 | INFO | jarvis | COMMAND RECOGNIZED: open chrome
+18:46:00 | INFO | jarvis | Action type: open
+18:46:00 | INFO | jarvis | Command execution completed.
+18:46:00 | INFO | jarvis | RESPONSE: Certainly, sir. I've taken care of it.
+18:46:00 | INFO | jarvis | TTS START: Certainly, sir. I've taken care of it.
+18:46:00 | INFO | jarvis.tts | JARVIS: Certainly, sir. I've taken care of it.
+18:46:00 | INFO | jarvis | TTS END.
+18:46:00 | INFO | jarvis | Listening for command...
+18:46:05 | INFO | jarvis | COMMAND RECOGNIZED: close chrome
+18:46:05 | INFO | jarvis | Action type: close
+18:46:05 | INFO | jarvis | Command execution completed.
+18:46:05 | INFO | jarvis | RESPONSE: Done, sir. One less distraction.
+18:46:05 | INFO | jarvis | TTS START: Done, sir. One less distraction.
+18:46:05 | INFO | jarvis.tts | JARVIS: Done, sir. One less distraction.
+18:46:05 | INFO | jarvis | TTS END.
+18:46:05 | INFO | jarvis | Listening for command...
+18:46:07 | INFO | jarvis | Command listening interrupted.
+18:46:07 | INFO | jarvis | Command session ended.
+18:46:07 | INFO | jarvis | J.A.R.V.I.S. assistant loop stopped.
+18:46:07 | INFO | jarvis | J.A.R.V.I.S. stopped.

@@ -15,24 +15,26 @@ log = logging.getLogger("jarvis.wake_listener")
 # WAKE WORD SETTINGS
 # ============================================================
 
+# Keep this reasonably sensitive so "Hey Jarvis" is easy to say.
 WAKE_THRESHOLD = 0.90
 
-# Number of strong consecutive detections required
+# Number of strong detections required within the time window.
 REQUIRED_HITS = 3
 
-# Very strong single-frame detection
-PEAK_THRESHOLD = 0.97
+# A single spike at this level is NOT enough anymore.
+# It is only used as a very strong supporting score.
+PEAK_THRESHOLD = 0.985
 
-# Maximum time allowed between detection hits
-HIT_WINDOW_SECONDS = 1.0
+# Strong detections must happen close together.
+HIT_WINDOW_SECONDS = 0.8
 
-# Ignore another wake detection for this long
+# Ignore another wake detection for this long.
 WAKE_COOLDOWN_SECONDS = 1.5
 
-# Ignore extremely quiet microphone frames
+# Ignore extremely quiet microphone frames.
 MIN_RMS = 180.0
 
-# Flush old/stale microphone frames when starting
+# Flush old/stale microphone frames when starting.
 STARTUP_FLUSH_FRAMES = 8
 
 
@@ -79,7 +81,7 @@ def load_wake_model():
 
 def reset_detection_state():
     """
-    Reset multi-hit detection state.
+    Reset wake-word detection state.
     """
 
     return 0, None, 0.0
@@ -122,8 +124,10 @@ def flush_stream(stream, frame_samples):
     """
 
     for _ in range(STARTUP_FLUSH_FRAMES):
+
         try:
             stream.read(frame_samples)
+
         except Exception:
             break
 
@@ -173,6 +177,9 @@ def listen_for_wake_word(
     """
     Continuously listen for the configured wake word.
 
+    Wake confirmation requires multiple strong detections
+    close together in time.
+
     Returns:
         True  -> wake word detected
         False -> stopped/interrupted
@@ -182,8 +189,13 @@ def listen_for_wake_word(
 
     frame_samples = int(config.WAKE_FRAME_SAMPLES)
 
+    # --------------------------------------------------------
+    # Detection state
+    # --------------------------------------------------------
+
     consecutive_hits = 0
     first_hit_time = None
+    last_hit_time = None
     peak_score = 0.0
 
     stream = None
@@ -192,35 +204,49 @@ def listen_for_wake_word(
 
     try:
 
-        # ----------------------------------------------------
+        # ====================================================
         # OPEN MICROPHONE
-        # ----------------------------------------------------
+        # ====================================================
 
-        while not (stop_event and stop_event.is_set()):
+        while not (
+            stop_event
+            and stop_event.is_set()
+        ):
 
-            if pause_event and pause_event.is_set():
+            if (
+                pause_event
+                and pause_event.is_set()
+            ):
                 time.sleep(0.05)
                 continue
 
             try:
-                stream = create_input_stream(frame_samples)
 
-                # Remove stale microphone data
+                stream = create_input_stream(
+                    frame_samples
+                )
+
+                # Remove stale microphone data.
                 flush_stream(
                     stream,
                     frame_samples,
                 )
 
-                log.info("Listening for wake word...")
+                log.info(
+                    "Listening for wake word..."
+                )
 
                 break
 
             except sd.PortAudioError:
+
                 log.exception(
-                    "Could not open microphone stream. Retrying..."
+                    "Could not open microphone stream. "
+                    "Retrying..."
                 )
 
                 if stream is not None:
+
                     try:
                         stream.stop()
                     except Exception:
@@ -236,11 +262,13 @@ def listen_for_wake_word(
                 time.sleep(0.5)
 
             except Exception:
+
                 log.exception(
                     "Unexpected microphone initialization error."
                 )
 
                 if stream is not None:
+
                     try:
                         stream.stop()
                     except Exception:
@@ -255,23 +283,28 @@ def listen_for_wake_word(
 
                 time.sleep(0.5)
 
-        # ----------------------------------------------------
+        # ====================================================
         # MAIN LISTENING LOOP
-        # ----------------------------------------------------
+        # ====================================================
 
-        while not (stop_event and stop_event.is_set()):
+        while not (
+            stop_event
+            and stop_event.is_set()
+        ):
 
-            # -----------------------------------------------
+            # =================================================
             # PAUSE HANDLING
-            # -----------------------------------------------
+            # =================================================
 
-            if pause_event and pause_event.is_set():
+            if (
+                pause_event
+                and pause_event.is_set()
+            ):
 
                 log.debug(
                     "Wake listener paused."
                 )
 
-                # Close microphone while paused
                 if stream is not None:
 
                     try:
@@ -286,7 +319,7 @@ def listen_for_wake_word(
 
                     stream = None
 
-                # Wait until resumed
+                # Wait until resumed.
                 while (
                     pause_event.is_set()
                     and not (
@@ -296,10 +329,13 @@ def listen_for_wake_word(
                 ):
                     time.sleep(0.05)
 
-                if stop_event and stop_event.is_set():
+                if (
+                    stop_event
+                    and stop_event.is_set()
+                ):
                     break
 
-                # Re-open microphone
+                # Re-open microphone.
                 try:
 
                     stream = create_input_stream(
@@ -314,8 +350,14 @@ def listen_for_wake_word(
                     (
                         consecutive_hits,
                         first_hit_time,
+                        last_hit_time,
                         peak_score,
-                    ) = reset_detection_state()
+                    ) = (
+                        0,
+                        None,
+                        None,
+                        0.0,
+                    )
 
                     log.debug(
                         "Wake listener resumed."
@@ -341,9 +383,9 @@ def listen_for_wake_word(
 
                     continue
 
-            # -----------------------------------------------
+            # =================================================
             # MAKE SURE STREAM EXISTS
-            # -----------------------------------------------
+            # =================================================
 
             if stream is None:
 
@@ -368,9 +410,9 @@ def listen_for_wake_word(
 
                     continue
 
-            # -----------------------------------------------
+            # =================================================
             # READ MICROPHONE FRAME
-            # -----------------------------------------------
+            # =================================================
 
             try:
 
@@ -380,8 +422,6 @@ def listen_for_wake_word(
 
             except sd.PortAudioError:
 
-                # This is the important protection against
-                # the crash you encountered.
                 log.exception(
                     "Microphone read failed. "
                     "Reinitializing audio stream..."
@@ -402,8 +442,14 @@ def listen_for_wake_word(
                 (
                     consecutive_hits,
                     first_hit_time,
+                    last_hit_time,
                     peak_score,
-                ) = reset_detection_state()
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
                 time.sleep(0.2)
 
@@ -430,16 +476,22 @@ def listen_for_wake_word(
                 (
                     consecutive_hits,
                     first_hit_time,
+                    last_hit_time,
                     peak_score,
-                ) = reset_detection_state()
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
                 time.sleep(0.2)
 
                 continue
 
-            # -----------------------------------------------
+            # =================================================
             # HANDLE OVERFLOW
-            # -----------------------------------------------
+            # =================================================
 
             if overflowed:
 
@@ -450,41 +502,48 @@ def listen_for_wake_word(
                 (
                     consecutive_hits,
                     first_hit_time,
+                    last_hit_time,
                     peak_score,
-                ) = reset_detection_state()
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
                 continue
 
-            # -----------------------------------------------
+            # =================================================
             # STOP CHECK
-            # -----------------------------------------------
+            # =================================================
 
-            if stop_event and stop_event.is_set():
+            if (
+                stop_event
+                and stop_event.is_set()
+            ):
                 break
 
-            # -----------------------------------------------
+            # =================================================
             # RMS CHECK
-            # -----------------------------------------------
+            # =================================================
 
             rms = calculate_rms(audio)
 
             if rms < MIN_RMS:
-
-                # Quiet audio is ignored.
                 continue
 
-            # -----------------------------------------------
-            # PREPARE AUDIO FOR OPENWAKEWORD
-            # -----------------------------------------------
+            # =================================================
+            # PREPARE AUDIO
+            # =================================================
 
             audio = np.asarray(
                 audio,
                 dtype=np.int16,
             ).flatten()
 
-            # -----------------------------------------------
-            # RUN WAKE-WORD MODEL
-            # -----------------------------------------------
+            # =================================================
+            # RUN OPENWAKEWORD
+            # =================================================
 
             try:
 
@@ -501,37 +560,50 @@ def listen_for_wake_word(
                 (
                     consecutive_hits,
                     first_hit_time,
+                    last_hit_time,
                     peak_score,
-                ) = reset_detection_state()
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
                 continue
 
-            # -----------------------------------------------
+            # =================================================
             # GET MODEL SCORE
-            # -----------------------------------------------
+            # =================================================
 
             score = 0.0
 
-            if isinstance(prediction, dict):
+            if isinstance(
+                prediction,
+                dict,
+            ):
 
-                # Normal OpenWakeWord case
-                if config.JARVIS_WAKEWORD_MODEL in prediction:
+                # Normal OpenWakeWord case.
+                model_key = str(
+                    config.JARVIS_WAKEWORD_MODEL
+                )
+
+                if model_key in prediction:
 
                     score = float(
                         prediction[
-                            config.JARVIS_WAKEWORD_MODEL
+                            model_key
                         ]
                     )
 
                 else:
 
-                    # Fallback: use the highest score
-                    # if the configured key differs.
+                    # Fallback: use highest score.
                     try:
 
                         score = max(
                             float(value)
-                            for value in prediction.values()
+                            for value
+                            in prediction.values()
                         )
 
                     except Exception:
@@ -541,11 +613,14 @@ def listen_for_wake_word(
             else:
 
                 try:
-                    score = float(prediction)
+                    score = float(
+                        prediction
+                    )
+
                 except Exception:
                     score = 0.0
 
-            # Keep score within sensible bounds
+            # Keep score within sensible bounds.
             score = max(
                 0.0,
                 min(
@@ -554,119 +629,199 @@ def listen_for_wake_word(
                 ),
             )
 
-            # -----------------------------------------------
-            # TRACK PEAK SCORE
-            # -----------------------------------------------
-
-            if score > peak_score:
-                peak_score = score
-
             now = time.monotonic()
 
-            # -----------------------------------------------
-            # STRONG SINGLE-FRAME DETECTION
-            # -----------------------------------------------
+            # =================================================
+            # EXPIRED DETECTION WINDOW
+            # =================================================
 
-            if score >= PEAK_THRESHOLD:
+            if (
+                first_hit_time is not None
+                and (
+                    now - first_hit_time
+                    > HIT_WINDOW_SECONDS
+                )
+            ):
 
-                log.info(
-                    "Strong wake-word detection: %.3f",
-                    score,
+                log.debug(
+                    "Wake detection window expired. "
+                    "Resetting."
                 )
 
-                # Strong enough to accept immediately.
-                consecutive_hits = REQUIRED_HITS
-                first_hit_time = now
+                (
+                    consecutive_hits,
+                    first_hit_time,
+                    last_hit_time,
+                    peak_score,
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
-            # -----------------------------------------------
-            # NORMAL MULTI-HIT DETECTION
-            # -----------------------------------------------
+            # =================================================
+            # STRONG SCORE
+            # =================================================
 
-            elif score >= WAKE_THRESHOLD:
+            if score >= WAKE_THRESHOLD:
+
+                # ------------------------------------------------
+                # First strong hit
+                # ------------------------------------------------
 
                 if first_hit_time is None:
 
                     first_hit_time = now
+                    last_hit_time = now
                     consecutive_hits = 1
+                    peak_score = score
+
+                    log.debug(
+                        "Wake candidate started: "
+                        "score=%.3f hits=%d/%d rms=%.1f",
+                        score,
+                        consecutive_hits,
+                        REQUIRED_HITS,
+                        rms,
+                    )
+
+                # ------------------------------------------------
+                # Another strong hit inside the window
+                # ------------------------------------------------
 
                 elif (
-                    now - first_hit_time
-                    <= HIT_WINDOW_SECONDS
+                    last_hit_time is not None
+                    and (
+                        now - last_hit_time
+                        <= HIT_WINDOW_SECONDS
+                    )
                 ):
 
                     consecutive_hits += 1
+                    last_hit_time = now
+
+                    if score > peak_score:
+                        peak_score = score
+
+                    log.debug(
+                        "Wake candidate hit: "
+                        "score=%.3f hits=%d/%d peak=%.3f rms=%.1f",
+                        score,
+                        consecutive_hits,
+                        REQUIRED_HITS,
+                        peak_score,
+                        rms,
+                    )
+
+                # ------------------------------------------------
+                # Gap was too long
+                # ------------------------------------------------
 
                 else:
 
-                    # Previous detection window expired.
                     first_hit_time = now
+                    last_hit_time = now
                     consecutive_hits = 1
+                    peak_score = score
 
-            # -----------------------------------------------
+                    log.debug(
+                        "Wake candidate restarted: "
+                        "score=%.3f rms=%.1f",
+                        score,
+                        rms,
+                    )
+
+            # =================================================
             # SCORE BELOW THRESHOLD
-            # -----------------------------------------------
+            # =================================================
 
             else:
 
-                # If the detection window has expired,
-                # clear the state.
+                # ------------------------------------------------
+                # Important:
+                #
+                # We do NOT immediately erase the candidate.
+                #
+                # A genuine spoken wake word can contain frames
+                # where the score temporarily drops.
+                #
+                # However, if the window expires, the candidate
+                # is discarded.
+                # ------------------------------------------------
+
                 if (
                     first_hit_time is not None
-                    and now - first_hit_time
-                    > HIT_WINDOW_SECONDS
+                    and (
+                        now - first_hit_time
+                        > HIT_WINDOW_SECONDS
+                    )
                 ):
 
                     (
                         consecutive_hits,
                         first_hit_time,
+                        last_hit_time,
                         peak_score,
-                    ) = reset_detection_state()
+                    ) = (
+                        0,
+                        None,
+                        None,
+                        0.0,
+                    )
 
-                    continue
+            # =================================================
+            # PEAK SCORE INFORMATION
+            # =================================================
 
-            # -----------------------------------------------
-            # DEBUG LOGGING
-            # -----------------------------------------------
-
-            if score >= WAKE_THRESHOLD:
+            if score >= PEAK_THRESHOLD:
 
                 log.debug(
-                    "Wake score=%.3f hits=%d/%d rms=%.1f",
+                    "Very strong wake score observed: %.3f",
                     score,
-                    consecutive_hits,
-                    REQUIRED_HITS,
-                    rms,
                 )
 
-            # -----------------------------------------------
-            # CONFIRM WAKE WORD
-            # -----------------------------------------------
+            # =================================================
+            # FINAL WAKE CONFIRMATION
+            # =================================================
+
+            # IMPORTANT:
+            #
+            # A single 0.97 / 0.98 / 0.99 spike is NOT enough.
+            #
+            # We require REQUIRED_HITS strong detections.
+            #
 
             if (
-                consecutive_hits >= REQUIRED_HITS
-                or score >= PEAK_THRESHOLD
+                consecutive_hits
+                >= REQUIRED_HITS
             ):
 
                 log.info(
-                    "Wake word detected! "
-                    "score=%.3f peak=%.3f",
+                    "Wake word confirmed! "
+                    "score=%.3f peak=%.3f hits=%d/%d",
                     score,
                     peak_score,
+                    consecutive_hits,
+                    REQUIRED_HITS,
                 )
 
-                # -------------------------------------------
-                # RESET DETECTION STATE
-                # -------------------------------------------
-
+                # Reset state.
                 (
                     consecutive_hits,
                     first_hit_time,
+                    last_hit_time,
                     peak_score,
-                ) = reset_detection_state()
+                ) = (
+                    0,
+                    None,
+                    None,
+                    0.0,
+                )
 
-                # -------------------------------------------
+                # =================================================
                 # CLOSE MICROPHONE
-                # -------------------------------------------
+                # =================================================
 
                 if stream is not None:
 
@@ -682,9 +837,9 @@ def listen_for_wake_word(
 
                     stream = None
 
-                # -------------------------------------------
+                # =================================================
                 # COOLDOWN
-                # -------------------------------------------
+                # =================================================
 
                 time.sleep(
                     WAKE_COOLDOWN_SECONDS
@@ -694,6 +849,10 @@ def listen_for_wake_word(
 
         return False
 
+    # ========================================================
+    # KEYBOARD INTERRUPT
+    # ========================================================
+
     except KeyboardInterrupt:
 
         log.info(
@@ -701,6 +860,10 @@ def listen_for_wake_word(
         )
 
         return False
+
+    # ========================================================
+    # UNEXPECTED ERROR
+    # ========================================================
 
     except Exception:
 
@@ -710,11 +873,11 @@ def listen_for_wake_word(
 
         return False
 
-    finally:
+    # ========================================================
+    # ALWAYS CLEAN UP
+    # ========================================================
 
-        # ====================================================
-        # ALWAYS CLEAN UP MICROPHONE
-        # ====================================================
+    finally:
 
         if stream is not None:
 
