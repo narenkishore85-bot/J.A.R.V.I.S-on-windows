@@ -398,19 +398,21 @@ def ask_google_followup(command):
 
 
 def assistant_loop():
+
     global WAKE_MODEL
 
     while not STOP.is_set():
 
-        # ---------------------------------------------------------
-        # STATE 1: WAITING FOR WAKE WORD
-        # ---------------------------------------------------------
+        # =====================================================
+        # STATE 1: WAIT FOR "HEY JARVIS"
+        # =====================================================
 
         if PAUSED.is_set():
             time.sleep(0.2)
             continue
 
         try:
+
             log.info("Waiting for wake word.")
 
             detected = wake_listener.listen_for_wake_word(
@@ -430,76 +432,165 @@ def assistant_loop():
             if not detected:
                 continue
 
-            # -----------------------------------------------------
-            # STATE 2: WAKE WORD DETECTED
-            # -----------------------------------------------------
+            # =================================================
+            # WAKE WORD DETECTED
+            # =================================================
 
             log.info("Wake word detected.")
 
+            # Let microphone/audio buffer settle.
             time.sleep(0.25)
 
+            # Play confirmation sound.
             play_wake_sound()
 
             time.sleep(0.15)
 
-            # -----------------------------------------------------
-            # STATE 3: LISTEN FOR COMMAND
-            # -----------------------------------------------------
+            # =================================================
+            # ACTIVE SESSION
+            # =================================================
 
-            log.info("Listening for command.")
-
-            command = stt.record_and_transcribe(
-                config.COMMAND_RECORD_SECONDS
+            session_start = time.monotonic()
+            session_deadline = (
+                session_start
+                + config.COMMAND_SESSION_SECONDS
             )
 
-            if not command:
-                log.info("No command recognized.")
-                speak("I didn't catch that.")
-                time.sleep(0.5)
-                continue
+            log.info(
+                "Active command session started for %s seconds.",
+                config.COMMAND_SESSION_SECONDS,
+            )
 
-            log.info("Command recognized: %r", command)
+            print()
+            print("=" * 60)
+            print("JARVIS ACTIVE")
+            print(
+                f"Session timeout: "
+                f"{config.COMMAND_SESSION_SECONDS} seconds"
+            )
+            print("=" * 60)
 
-            # -----------------------------------------------------
-            # STATE 4: EXECUTE COMMAND
-            # -----------------------------------------------------
+            # -------------------------------------------------
+            # Keep accepting commands without wake word.
+            # -------------------------------------------------
 
-            try:
-                success = launch_from_command(command)
+            while (
+                not STOP.is_set()
+                and not PAUSED.is_set()
+                and time.monotonic() < session_deadline
+            ):
+
+                remaining = (
+                    session_deadline
+                    - time.monotonic()
+                )
+
+                # Never pass a negative/zero recording time.
+                if remaining <= 0:
+                    break
 
                 log.info(
-                    "Command routing result: success=%s | command=%r",
-                    success,
+                    "Listening for command. "
+                    "Remaining session time: %.1f seconds",
+                    remaining,
+                )
+
+                command = stt.record_and_transcribe(
+                    min(
+                        config.COMMAND_RECORD_SECONDS,
+                        remaining,
+                    )
+                )
+
+                # -------------------------------------------------
+                # No speech:
+                # Keep the session alive until timeout.
+                # -------------------------------------------------
+
+                if not command:
+                    continue
+
+                log.info(
+                    "Command recognized: %r",
                     command,
                 )
 
-                # Speak after every command.
-                speak(command_response(command, success))
-
                 # -------------------------------------------------
-                # STATE 5: OPTIONAL FOLLOW-UP
+                # Execute command
                 # -------------------------------------------------
 
-                if success and should_offer_google_followup(command):
-                    ask_google_followup(command)
+                try:
 
-            except Exception:
-                log.exception(
-                    "Launcher failed for command %r",
-                    command,
+                    success = launch_from_command(
+                        command
+                    )
+
+                    log.info(
+                        "Command routing result: "
+                        "success=%s | command=%r",
+                        success,
+                        command,
+                    )
+
+                except Exception:
+
+                    log.exception(
+                        "Launcher failed for command %r",
+                        command,
+                    )
+
+                # -------------------------------------------------
+                # IMPORTANT:
+                #
+                # Every successful command refreshes the session.
+                #
+                # Example:
+                #
+                # Hey Jarvis
+                #     ↓
+                # Open Arduino
+                #     ↓
+                # 15 seconds starts
+                #
+                # Open KiCad
+                #     ↓
+                # another 15 seconds
+                #
+                # Open VS Code
+                #     ↓
+                # another 15 seconds
+                # -------------------------------------------------
+
+                session_deadline = (
+                    time.monotonic()
+                    + config.COMMAND_SESSION_SECONDS
                 )
-                speak("Something went wrong while executing that command.")
 
-            # -----------------------------------------------------
-            # STATE 6: COOLDOWN
-            # -----------------------------------------------------
+                time.sleep(0.25)
 
-            time.sleep(0.6)
+            # =================================================
+            # SESSION ENDED
+            # =================================================
 
-        except Exception:
-            log.exception("Assistant cycle failed; continuing.")
+            log.info(
+                "Active command session ended."
+            )
+
+            print()
+            print("JARVIS session ended.")
+            print("Waiting for wake word...")
+            print()
+
+            # Small cooldown before wake listener resumes.
             time.sleep(0.5)
 
+        except Exception:
+
+            log.exception(
+                "Assistant cycle failed; continuing."
+            )
+
+            time.sleep(0.5)
 
 def main():
     global WAKE_MODEL

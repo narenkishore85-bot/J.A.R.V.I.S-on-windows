@@ -1766,3 +1766,128 @@ TypeError: listen_for_wake_word() got multiple values for argument 'model'
 2026-09-12 15:44:38,479 | INFO | jarvis | Command routing result: success=False | command='open [unk]'
 2026-09-12 15:44:38,480 | INFO | jarvis | JARVIS: I couldn't complete that command.
 2026-09-12 15:44:39,297 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:02:00,007 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:02:00,008 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:02:00,112 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:02:00,113 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:02:00,316 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:02:00,316 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:02:00,317 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:02:01,044 | INFO | stt | Vosk model loaded
+2026-09-12 16:02:01,044 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:02:01,207 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:02:03,196 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:02:09,152 | INFO | jarvis | Wake word detected.
+2026-09-12 16:02:09,776 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:02:09,776 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:02:12,119 | INFO | jarvis | Command recognized: 'open arduino'
+2026-09-12 16:02:17,478 | INFO | jarvis | Command routing result: success=True | command='open arduino'
+2026-09-12 16:02:17,729 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:02:19,470 | INFO | jarvis | Listening for command. Remaining session time: 13.0 seconds
+2026-09-12 16:02:22,711 | INFO | jarvis | Listening for command. Remaining session time: 9.8 seconds
+2026-09-12 16:02:25,446 | INFO | jarvis | Listening for command. Remaining session time: 7.0 seconds
+2026-09-12 16:02:27,729 | INFO | jarvis | Listening for command. Remaining session time: 4.8 seconds
+2026-09-12 16:02:30,010 | INFO | jarvis | Listening for command. Remaining session time: 2.5 seconds
+2026-09-12 16:02:31,641 | INFO | jarvis | Listening for command. Remaining session time: 0.8 seconds
+2026-09-12 16:02:32,758 | INFO | jarvis | Active command session ended.
+2026-09-12 16:02:33,260 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:02:35,260 | INFO | jarvis | Wake word detected.
+2026-09-12 16:02:35,877 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:02:35,877 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:02:39,192 | INFO | jarvis | Command recognized: 'close arduino'
+2026-09-12 16:02:49,889 | INFO | jarvis | Command routing result: success=True | command='close arduino'
+2026-09-12 16:02:50,139 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:02:52,287 | INFO | jarvis | Listening for command. Remaining session time: 12.6 seconds
+2026-09-12 16:02:54,936 | INFO | jarvis | Listening for command. Remaining session time: 10.0 seconds
+2026-09-12 16:03:00,199 | INFO | jarvis | Command recognized: 'open ki cad'
+2026-09-12 16:03:02,912 | INFO | jarvis | Command routing result: success=True | command='open ki cad'
+2026-09-12 16:03:03,164 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:03:05,449 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:03:07,862 | INFO | jarvis | Listening for command. Remaining session time: 10.0 seconds
+2026-09-12 16:03:09,731 | INFO | jarvis | Command recognized: 'cad'
+2026-09-12 16:03:12,620 | INFO | jarvis | Command routing result: success=True | command='cad'
+2026-09-12 16:03:12,871 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:03:14,415 | INFO | jarvis | Listening for command. Remaining session time: 13.2 seconds
+2026-09-12 16:03:16,723 | INFO | jarvis | Listening for command. Remaining session time: 10.9 seconds
+2026-09-12 16:03:18,995 | INFO | jarvis | Listening for command. Remaining session time: 8.6 seconds
+2026-09-12 16:03:21,265 | INFO | jarvis | Listening for command. Remaining session time: 6.4 seconds
+2026-09-12 16:03:23,359 | INFO | jarvis | Listening for command. Remaining session time: 4.3 seconds
+2026-09-12 16:03:25,635 | INFO | jarvis | Listening for command. Remaining session time: 2.0 seconds
+2026-09-12 16:03:27,934 | INFO | jarvis | Active command session ended.
+2026-09-12 16:03:28,453 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:03:42,644 | INFO | jarvis | Wake word detected.
+2026-09-12 16:03:43,256 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:03:43,256 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:03:46,173 | INFO | jarvis | Command recognized: 'close ki cad'
+2026-09-12 16:04:07,427 | INFO | jarvis | Command routing result: success=True | command='close ki cad'
+2026-09-12 16:04:07,678 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:04:11,116 | INFO | jarvis | Listening for command. Remaining session time: 11.3 seconds
+2026-09-12 16:04:13,403 | INFO | jarvis | Listening for command. Remaining session time: 9.0 seconds
+2026-09-12 16:04:16,642 | INFO | jarvis | Command recognized: 'open calculator'
+2026-09-12 16:04:18,583 | INFO | jarvis | Command routing result: success=True | command='open calculator'
+2026-09-12 16:04:18,835 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:04:22,072 | INFO | jarvis | Command recognized: 'close calculator'
+2026-09-12 16:04:23,864 | INFO | jarvis | Command routing result: success=True | command='close calculator'
+2026-09-12 16:04:24,115 | INFO | jarvis | Listening for command. Remaining session time: 14.7 seconds
+2026-09-12 16:04:26,334 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:04:28,689 | INFO | jarvis | Listening for command. Remaining session time: 10.2 seconds
+2026-09-12 16:04:30,623 | INFO | jarvis | Listening for command. Remaining session time: 8.2 seconds
+2026-09-12 16:04:34,749 | INFO | jarvis | Command recognized: 'open vs code'
+2026-09-12 16:04:37,889 | INFO | jarvis | Command routing result: success=True | command='open vs code'
+2026-09-12 16:04:38,140 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:04:40,506 | INFO | jarvis | Listening for command. Remaining session time: 12.4 seconds
+2026-09-12 16:04:42,729 | INFO | jarvis | Listening for command. Remaining session time: 10.2 seconds
+2026-09-12 16:04:44,972 | INFO | jarvis | Listening for command. Remaining session time: 7.9 seconds
+2026-09-12 16:04:47,213 | INFO | jarvis | Listening for command. Remaining session time: 5.7 seconds
+2026-09-12 16:04:49,487 | INFO | jarvis | Listening for command. Remaining session time: 3.4 seconds
+2026-09-12 16:04:51,045 | INFO | jarvis | Listening for command. Remaining session time: 1.8 seconds
+2026-09-12 16:04:53,162 | INFO | jarvis | Active command session ended.
+2026-09-12 16:04:53,664 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:05:05,225 | INFO | jarvis | Wake word detected.
+2026-09-12 16:05:05,837 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:05:05,837 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:05:11,200 | INFO | jarvis | Command recognized: 'close vs code'
+2026-09-12 16:05:13,561 | INFO | jarvis | Command routing result: success=True | command='close vs code'
+2026-09-12 16:05:13,812 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:05:15,725 | INFO | jarvis | Listening for command. Remaining session time: 12.8 seconds
+2026-09-12 16:05:18,475 | INFO | jarvis | Listening for command. Remaining session time: 10.1 seconds
+2026-09-12 16:05:21,378 | INFO | jarvis | Listening for command. Remaining session time: 7.2 seconds
+2026-09-12 16:05:23,682 | INFO | jarvis | Listening for command. Remaining session time: 4.9 seconds
+2026-09-12 16:06:23,807 | INFO | jarvis | Jarvis starting.
+2026-09-12 16:06:23,808 | INFO | jarvis | Project directory: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\jarvis
+2026-09-12 16:06:23,924 | INFO | comtypes.client._code_cache | Imported existing <module 'comtypes.gen' from 'C:\\Users\\naren\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-09-12 16:06:23,925 | INFO | comtypes.client._code_cache | Using writeable comtypes cache directory: 'C:\Users\naren\AppData\Local\Programs\Python\Python312\Lib\site-packages\comtypes\gen'
+2026-09-12 16:06:24,134 | INFO | jarvis | Text-to-speech initialized.
+2026-09-12 16:06:24,134 | INFO | jarvis | Loading Vosk model.
+2026-09-12 16:06:24,134 | INFO | stt | Loading Vosk model: C:\Users\naren\Downloads\jarvis_windows_no_picovoice\vosk-model-small-en-us-0.15
+2026-09-12 16:06:24,873 | INFO | stt | Vosk model loaded
+2026-09-12 16:06:24,873 | INFO | jarvis | Loading wake-word model.
+2026-09-12 16:06:25,033 | INFO | jarvis | JARVIS: JARVIS is online.
+2026-09-12 16:06:27,018 | INFO | jarvis | Waiting for wake word.
+2026-09-12 16:06:42,087 | INFO | jarvis | Wake word detected.
+2026-09-12 16:06:42,712 | INFO | jarvis | Active command session started for 15 seconds.
+2026-09-12 16:06:42,712 | INFO | jarvis | Listening for command. Remaining session time: 15.0 seconds
+2026-09-12 16:06:46,203 | INFO | jarvis | Command recognized: 'open instagram'
+2026-09-12 16:06:46,543 | INFO | jarvis | Command routing result: success=True | command='open instagram'
+2026-09-12 16:06:46,794 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:06:48,708 | INFO | jarvis | Listening for command. Remaining session time: 12.8 seconds
+2026-09-12 16:06:50,963 | INFO | jarvis | Listening for command. Remaining session time: 10.6 seconds
+2026-09-12 16:06:52,781 | INFO | jarvis | Command recognized: 'instagram'
+2026-09-12 16:06:52,999 | INFO | jarvis | Command routing result: success=True | command='instagram'
+2026-09-12 16:06:53,250 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:06:55,507 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:06:57,768 | INFO | jarvis | Listening for command. Remaining session time: 10.2 seconds
+2026-09-12 16:06:59,646 | INFO | jarvis | Listening for command. Remaining session time: 8.4 seconds
+2026-09-12 16:07:03,663 | INFO | jarvis | Command recognized: 'close instagram'
+2026-09-12 16:07:03,816 | INFO | jarvis | Command routing result: success=True | command='close instagram'
+2026-09-12 16:07:04,067 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:07:06,331 | INFO | jarvis | Listening for command. Remaining session time: 12.5 seconds
+2026-09-12 16:07:11,504 | INFO | jarvis | Command recognized: 'open ki cad'
+2026-09-12 16:07:16,475 | INFO | jarvis | Command routing result: success=True | command='open ki cad'
+2026-09-12 16:07:16,725 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds
+2026-09-12 16:07:21,957 | INFO | jarvis | Listening for command. Remaining session time: 9.5 seconds
+2026-09-12 16:07:23,940 | INFO | jarvis | Listening for command. Remaining session time: 7.5 seconds
+2026-09-12 16:07:26,206 | INFO | jarvis | Listening for command. Remaining session time: 5.3 seconds
+2026-09-12 16:07:28,746 | INFO | jarvis | Command recognized: 'close ki cad'
+2026-09-12 16:07:38,405 | INFO | jarvis | Command routing result: success=True | command='close ki cad'
+2026-09-12 16:07:38,655 | INFO | jarvis | Listening for command. Remaining session time: 14.8 seconds

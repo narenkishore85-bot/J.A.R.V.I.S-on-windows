@@ -97,6 +97,45 @@ APP_ALIASES = {
     # Web apps opened in dedicated Chrome windows
     "instagram": "__instagram__",
     "claude": "__claude__",
+
+
+    "proteus": r"C:\Program Files\Labcenter Electronics\Proteus 8 Professional\BIN\PDS.EXE",
+
+    "keil": r"C:\Users\naren\AppData\Local\Keil_v5\UV4\UV4.exe",
+    "keil uvision": r"C:\Users\naren\AppData\Local\Keil_v5\UV4\UV4.exe",
+
+    "blender": r"C:\Program Files\Blender Foundation\Blender 5.0\blender-launcher.exe",
+
+    "vlc": r"C:\Program Files\VideoLAN\VLC\vlc.exe",
+    "vlc media player": r"C:\Program Files\VideoLAN\VLC\vlc.exe",
+
+    "davinci": r"C:\Program Files\Blackmagic Design\DaVinci Resolve\Resolve.exe",
+    "davinci resolve": r"C:\Program Files\Blackmagic Design\DaVinci Resolve\Resolve.exe",
+
+     "instagram": "__instagram__",
+    "claude": "__claude__",
+
+    # =========================================================
+    # START MENU / WINDOWS APPS
+    # =========================================================
+
+    "spotify": r"C:\Users\naren\AppData\Roaming\Spotify\Spotify.exe",
+
+    "instagram app": "__instagram__",
+
+    # =========================================================
+    # MICROSOFT OFFICE
+    # =========================================================
+
+    "word": "winword.exe",
+    "microsoft word": "winword.exe",
+
+    "excel": "excel.exe",
+    "microsoft excel": "excel.exe",
+
+    "powerpoint": "powerpnt.exe",
+    "power point": "powerpnt.exe",
+    "microsoft powerpoint": "powerpnt.exe",
 }
 
 

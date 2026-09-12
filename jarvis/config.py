@@ -86,3 +86,12 @@ LOG_PATH = Path(
 
 LOG_MAX_BYTES = 1 * 1024 * 1024
 LOG_BACKUP_COUNT = 3
+
+# ---------------------------------------------------------
+# ACTIVE JARVIS SESSION
+# ---------------------------------------------------------
+
+# After wake-word detection, Jarvis remains active for this
+# many seconds without requiring the wake word again.
+
+COMMAND_SESSION_SECONDS = 15

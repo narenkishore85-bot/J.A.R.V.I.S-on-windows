@@ -39,6 +39,19 @@ def load_model():
 def clean_command(text):
     text = text.lower().strip()
 
+    # Optional assistant name inside an active session.
+    # "jarvis open arduino" -> "open arduino"
+    # "hey jarvis open arduino" -> "open arduino"
+    for prefix in (
+        "hey jarvis ",
+        "hey jarvis",
+        "jarvis ",
+        "jarvis",
+    ):
+        if text.startswith(prefix):
+            text = text[len(prefix):].strip()
+            break
+
     replacements = {
         "burn calculator": "open calculator",
         "when calculator": "open calculator",
@@ -71,108 +84,250 @@ def clean_command(text):
 #
 # This is intentionally small because Jarvis is deterministic.
 # ---------------------------------------------------------
-
 COMMAND_GRAMMAR = json.dumps([
-    # OPEN
+    # =========================================================
+    # OPEN APPLICATIONS
+    # =========================================================
+
     "open notepad",
+    "launch notepad",
+    "start notepad",
+
     "open calculator",
+    "launch calculator",
+    "start calculator",
+
     "open explorer",
+    "open file explorer",
+    "launch explorer",
+    "launch file explorer",
+
     "open chrome",
+    "open google chrome",
+    "launch chrome",
+    "launch google chrome",
+
     "open vs code",
+    "open visual studio code",
+    "launch vs code",
+    "launch visual studio code",
+
     "open arduino",
     "open arduino ide",
-    "open kicad",
-    "open ki cad",
-    "open instagram",
-    "open claude",
-
-    "launch notepad",
-    "launch calculator",
-    "launch explorer",
-    "launch chrome",
-    "launch vs code",
     "launch arduino",
     "launch arduino ide",
+
+    "open kicad",
+    "open ki cad",
     "launch kicad",
+    "launch ki cad",
 
-    "start notepad",
-    "start calculator",
-    "start explorer",
-    "start chrome",
-    "start vs code",
-    "start arduino",
-    "start arduino ide",
-    "start kicad",
+    "open proteus",
+    "launch proteus",
 
-    # CLOSE
+    "open keil",
+    "open keil uvision",
+    "launch keil",
+    "launch keil uvision",
+
+    "open blender",
+    "launch blender",
+
+    "open vlc",
+    "open vlc media player",
+    "launch vlc",
+
+    "open davinci",
+    "open davinci resolve",
+    "launch davinci",
+    "launch davinci resolve",
+
+    "open claude",
+    "launch claude",
+
+    "open instagram",
+    "launch instagram",
+
+    "open spotify",
+    "launch spotify",
+
+    "open whatsapp",
+    "launch whatsapp",
+
+    "open microsoft store",
+    "open store",
+    "launch microsoft store",
+    "launch store",
+
+    "open terminal",
+    "launch terminal",
+
+    "open command prompt",
+    "open cmd",
+    "launch command prompt",
+    "launch cmd",
+
+    "open powershell",
+    "launch powershell",
+
+    "open settings",
+    "launch settings",
+
+    "open control panel",
+    "launch control panel",
+
+    "open word",
+    "launch word",
+
+    "open excel",
+    "launch excel",
+
+    "open powerpoint",
+    "launch powerpoint",
+
+    # =========================================================
+    # CLOSE APPLICATIONS
+    # =========================================================
+
     "close notepad",
+    "exit notepad",
+    "quit notepad",
+
     "close calculator",
+    "exit calculator",
+    "quit calculator",
+
     "close explorer",
+    "close file explorer",
+    "exit explorer",
+    "exit file explorer",
+
     "close chrome",
+    "exit chrome",
+    "quit chrome",
+
     "close vs code",
+    "close visual studio code",
+    "exit vs code",
+    "exit visual studio code",
+
     "close arduino",
     "close arduino ide",
-    "close kicad",
-    "close instagram",
-    "close claude",
-
-    "exit notepad",
-    "exit calculator",
-    "exit explorer",
-    "exit chrome",
-    "exit vs code",
     "exit arduino",
     "exit arduino ide",
+
+    "close kicad",
+    "close ki cad",
     "exit kicad",
+    "exit ki cad",
 
-    "quit notepad",
-    "quit calculator",
-    "quit explorer",
-    "quit chrome",
-    "quit vs code",
-    "quit arduino",
-    "quit arduino ide",
-    "quit kicad",
+    "close proteus",
+    "exit proteus",
 
+    "close keil",
+    "exit keil",
+
+    "close blender",
+    "exit blender",
+
+    "close vlc",
+    "exit vlc",
+
+    "close davinci",
+    "close davinci resolve",
+    "exit davinci",
+    "exit davinci resolve",
+
+    "close claude",
+    "exit claude",
+
+    "close instagram",
+    "exit instagram",
+
+    "close spotify",
+    "exit spotify",
+
+    "close whatsapp",
+    "exit whatsapp",
+
+    "close microsoft store",
+    "close store",
+    "exit microsoft store",
+    "exit store",
+
+    "close terminal",
+    "exit terminal",
+
+    "close command prompt",
+    "close cmd",
+    "exit command prompt",
+    "exit cmd",
+
+    "close powershell",
+    "exit powershell",
+
+    "close settings",
+    "exit settings",
+
+    "close control panel",
+    "exit control panel",
+
+    "close word",
+    "exit word",
+
+    "close excel",
+    "exit excel",
+
+    "close powerpoint",
+    "exit powerpoint",
+
+    # =========================================================
     # FILE SEARCH
+    # =========================================================
+
     "find my resume",
     "find resume",
     "locate my resume",
     "locate resume",
+    "where is my resume",
 
     "find my notes",
     "find notes",
     "locate my notes",
     "locate notes",
+    "where is my notes",
 
     "find project report",
     "locate project report",
     "search for project report",
+    "where is project report",
 
     "find assignment",
     "locate assignment",
     "search for assignment",
 
-    "where is my resume",
-    "where is my notes",
-    "where is project report",
+    # =========================================================
+    # WEB SEARCH
+    # =========================================================
 
-    # GOOGLE
     "search google",
     "search google for",
     "google search",
-    "google search for",
 
-    # CONFIRMATION
-    "yes",
-    "yeah",
-    "yep",
-    "sure",
-    "okay",
-    "ok",
-    "no",
-    "nope",
-    "nah",
+    # =========================================================
+    # OPTIONAL JARVIS PREFIX
+    # =========================================================
+
+    "jarvis open arduino",
+    "jarvis open kicad",
+    "jarvis open vs code",
+    "jarvis open chrome",
+    "jarvis open notepad",
+    "jarvis open calculator",
+    "jarvis close arduino",
+    "jarvis close kicad",
+    "jarvis close vs code",
+    "jarvis close chrome",
 
     "[unk]"
 ])
